@@ -7,7 +7,7 @@
         <div class="container">
           <div class="row align-items-end justify-content-center text-center">
             <div class="col-lg-7">
-              <h2 class="mb-0">Espace Enseignants</h2>
+              <h2 class="mb-0">Espace Enseignant</h2>
             
     <div class="custom-breadcrumns border-bottom">
       <div class="container">
@@ -71,7 +71,7 @@
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Envoyer</button>
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Suivant</button>
             
           </div>
 
