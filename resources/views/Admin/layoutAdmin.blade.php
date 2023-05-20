@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleAdmin.css">
     @yield('link')
 
     <title>Administrateur</title>
@@ -67,7 +67,11 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
+<<<<<<< HEAD
               <img src="{{asset("images/logo.jpg")}}"  alt="Image" class="img-fluid">
+=======
+              <img src="{{asset("images/logo.jpg")}}" alt="Image" class="img-fluid">
+>>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
             </div>
 
             <div class="clearfix"></div>
@@ -143,7 +147,11 @@
               <ul class=" navbar-right">
                 <li  style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+<<<<<<< HEAD
                     <img src="{{asset("images/admin.png")}}" " alt="">Admin </a>
+=======
+                    <img src="{{asset("images/admin.png")}}" alt="">Admin </a>
+>>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
                 <!--  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
                       <a class="dropdown-item"  href="javascript:;">

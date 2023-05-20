@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Student;
+use App\Providers\RouteServiceProvider;
 use  Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
@@ -58,20 +59,33 @@ class StudentController extends Controller
 
     }
 
-    public function enrgEtd(Request $request, $id){
-      
-
-
-        $student = Student::find($id);
-        $student->apoge = $request->input('apoge');
-        $student->cne = $request->input('cne');
-        $student->nom = $request->input('nom');
-        $student->naissance = $request->input('naissance');
-        $student->email = $request->input('email');
-        $student->password = $request->input('password');
-        $student->update();
-        return redirect()->back()->with('success','Student Updated Successfully');
-    }
+   public function enrgEtd(Request $request){
+         $request->validate([
+            'apoge'=>'required',
+            'cne'=>'required',
+            'nom'=>'required',
+            'naissance'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+         ]);
+         $id=$request->id;
+         $apoge = $request->apoge;
+         $cne = $request->cne;
+         $nom = $request->nom;
+         $naissance = $request->naissance;
+         $email = $request->email;
+         $password = $request->password;
+         
+         Student::where('id','=',$id)->update([
+           'apoge'=> $apoge, 
+           'cne'=>$cne, 
+           'nom'=>$nom, 
+           'naissance'=>$naissance,
+           'email'=>$email, 
+           'password'=>$password 
+         ]); 
+         return redirect()->back()->with('success'," L'etudiant est modifier avec succès"); 
+   }
 
 
 
@@ -113,6 +127,7 @@ class StudentController extends Controller
     public function dashboard(){
         return view('/dashboard');
     }
+   
 }
 
 

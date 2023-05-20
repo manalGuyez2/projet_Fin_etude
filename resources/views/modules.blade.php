@@ -116,7 +116,7 @@
                         <div class="category"><h3>Recherche Opérationnelle</h3></div>  
                         </figure>
                         <div class="mask">
-                            <p>EL MERZOUQI</p>
+                            <p>Chahhou Mohamed</p>
                             
                             </div>
                     </div>

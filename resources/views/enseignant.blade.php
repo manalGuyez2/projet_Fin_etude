@@ -48,6 +48,11 @@
             
     <div class="custom-breadcrumns border-bottom">
       <div class="container">
+<<<<<<< HEAD
+=======
+        
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+>>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
         <h2 class="mb-0">Espace Enseignant</h2>
       </div>
     </div>
@@ -86,7 +91,7 @@
           <div class="form-outline mb-4">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter votre adresse e-mail.." name="email" value="{{old('email')}}"/>
-            <label class="form-label" for="form3Example3">Adresse e-mail</label>
+            
           
             <span class="text-danger">@error('email') {{"email est obligatoire!!!"}} @enderror</span>
           </div>
@@ -95,7 +100,7 @@
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter votre mot passe" name="password" value="{{old('password')}}" />
-            <label class="form-label" for="form3Example4">Mot passe</label>
+           
             
             <span class="text-danger">@error('password') {{"Mot passe est obligatoire!!!"}} @enderror</span>
           </div>
