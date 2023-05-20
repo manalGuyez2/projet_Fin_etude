@@ -124,7 +124,7 @@ class="active"
                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
               </svg>
                 <div class="feature-1-content">
-                  <h2>Chahhau Mohamed</h2>
+                  <h2>Chahhou Mohamed</h2>
                   <span class="position mb-3 d-block">Recherche opérationnelle</span>    
                   <p ><i class="fa fa-envelope "></i> <a class="text-info" href="mailto:fs.tetouan.contact@gmail.com"> mchahhau@hotmail.com</a></p>
                 </div>
