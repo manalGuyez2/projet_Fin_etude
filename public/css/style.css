@@ -5,8 +5,18 @@ body {
   font-weight: 300;
   font-size: 1.1rem; 
   overflow-x: hidden;
+  
 }
-
+/* forgot */
+.forgot {
+  text-align: left; margin-bottom:30px;
+}
+.forgot a {
+  color: #2319b1;
+  font-size: 14px;
+  text-decoration: underline;
+}
+/* fin forgot */
 ::-moz-selection {
   background: #000;
   color: #fff; }
@@ -75,7 +85,7 @@ h1, h2, h3, h4, h5,
   padding: 2.5em 0; }
   @media (min-width: 768px) {
     .site-section {
-      padding: 5em 0; } }
+      padding: 5em 0; } } /*hna*/
   .site-section.site-section-sm {
     padding: 4em 0; }
 
