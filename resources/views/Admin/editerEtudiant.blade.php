@@ -5,6 +5,8 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Modifier un étudiant</h2>
+            
+            
             @if(Session::has('success'))
             <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
              @endif
@@ -40,8 +42,13 @@
                 @enderror
                </div>
                <div class="md-3">
+<<<<<<< HEAD
+                <label class="form-lebel">Date Naissance</label>
+                <input type="date" class="form-control" name="naissance" id="txtDate" placeholder="Entrer La date de naissance " value="{{$data->naissance}}">
+=======
                 <label class="form-lebel">Date Naissance<strong style="color:red; font-size:190%; ">*</strong></label>
                 <input type="date" class="form-control" name="naissance" placeholder="Entrer La date de naissance " value="{{$data->naissance}}">
+>>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
                 @error('naissance')
                     <div class="alert alert-danger" role="alert" >
                         <strong>{{'Date Naissance obligatoire'}}</strong>
@@ -77,9 +84,21 @@
     </div>
 </div>
 
+<script>
+$(function(){
+    var dtToday = new Date();
 
+    var month = 12;
+    var day = 30;
+    var year = dtToday.getFullYear() - 17;
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
 
+    var maxDate= year + '-' + month + '-' + day;
 
-
-
+    $('#txtDate').attr('max', maxDate);
+});
+</script>
 @endsection

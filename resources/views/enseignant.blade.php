@@ -1,5 +1,42 @@
 @extends('layout')
+@section('navBar')
+<div class="mr-auto">
+    <nav class="site-navigation position-relative text-right" role="navigation">
+      <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+        <li  >
+          <a href="{{ url('/')}}" class="nav-link text-left">Accueil</a>
+        </li>
+        
+        <li class="has-children ">
+          <a  class="nav-link text-left">Modules</a>
+          <ul class="dropdown">
+            <li><a href="{{ url('#')}}">S1</a></li>
+            <li><a href="{{ url('#')}}">S2</a></li>
+            <li><a href="{{ url('#')}}">S3</a></li>
+            <li><a href="{{ url('#')}}">S4</a></li>
+            <li ><a href="{{ url('/modules')}}" >S5</a></li>
+            <li><a href="{{ url('#')}}">S6</a></li>
+          </ul>
+        </li>
+        <!--<li>
+          <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
+        </li>-->
+        <li >
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+          </li>
+          <li class="has-children active" >
+            <a  class="nav-link text-left">Se Connecter</a>
+            <ul class="dropdown">
+             <li><a href="{{ url('/etud')}}">Espace Étudiant</a></li>
+              <li class="active"><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
+      
+            </ul>
+          </li>
+      </ul>                                                                                                                                                                                                                                                                                          </ul>
+    </nav>
 
+  </div>
+@endsection
 @section('content')
   
  <div class="site-wrap">   
@@ -11,8 +48,11 @@
             
     <div class="custom-breadcrumns border-bottom">
       <div class="container">
+<<<<<<< HEAD
+=======
         
         <span class="mx-3 icon-keyboard_arrow_right"></span>
+>>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
         <h2 class="mb-0">Espace Enseignant</h2>
       </div>
     </div>
@@ -84,7 +124,7 @@
 </div>
     </div>
 
-    @yield('content')
+ </div>
 
 
 @endsection
