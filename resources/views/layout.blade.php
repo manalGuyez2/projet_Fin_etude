@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="fr">
   
   <head>
     <title>Département d'informatique</title>
     <meta charset="utf-8">
 
-     <!-- <title>Academics &mdash; Website by Colorlib</title>-->
+    
+
+    <link rel="stylesheet" href="css/styleModule.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
      <!-- Bootstrap -->
      <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,7 +42,6 @@
     <link rel="stylesheet" href="css/style.css">
    <!-- <link rel="stylesheet" href="C:\Users\HP\Downloads\bootstrap.min.css">-->
   
-  
   </head>
   
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -61,58 +63,23 @@
           <div class="row align-items-center">
             <div class="col-lg-9 d-none d-lg-block">
               <a href="{{ url('/contact')}}" class="small mr-3 text-"><span class="icon-question-circle-o mr-2 "></span> Vous avez des questions?</a> 
-              <i class="fa fa-phone"></i> <a class="small mr-3" href="tel:(+212) 5 39 99 64 32"><span class="icon-phone2 mr-2"></span>  (+212) 5 39 99 64 32</a> 
+              <a class="small mr-3" href="tel:(+212) 5 39 99 64 32"><span class="icon-phone2 mr-2"></span>  (+212) 5 39 99 64 32</a> 
               <a href="{{ url('/contact')}}" class="small mr-3"><span class="icon-envelope-o mr-2"></span> admin@uae.ac.ma</a> 
             </div>
            
           </div>
         </div>
       </div>
-      <header class="site-navbar py-2 js-sticky-header site-navbar-target" role="banner">
+      <header class="site-navbar py-2 js-sticky-header site-navbar-target header__shadow" role="banner">
   
-        <div class="container">
+        <div class="container ">
           <div class="d-flex align-items-center">
             <div class="site-logo" >
               <a href="{{ url('/')}}" class="d-block">
                 <img src="images/logo.jpg" alt="Image" class="img-fluid">
               </a>
             </div>
-            <div class="mr-auto">
-              <nav class="site-navigation position-relative text-right" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                  <li @yield('activeHomme')>
-                    <a href="{{ url('/')}}" class="nav-link text-left">Accueil</a>
-                  </li>
-                  
-                  <li class="has-children @yield('activeCourse') ">
-                    <a  class="nav-link text-left">Modules</a>
-                    <ul class="dropdown">
-                      <li><a href="{{ url('#')}}">S1</a></li>
-                      <li><a href="{{ url('#')}}">S2</a></li>
-                      <li><a href="{{ url('#')}}">S3</a></li>
-                      <li><a href="{{ url('#')}}">S4</a></li>
-                      <li @yield('activeCourse')><a href="{{ url('/modules')}}" >S5</a></li>
-                      <li><a href="{{ url('#')}}">S6</a></li>
-                    </ul>
-                  </li>
-                  <!--<li>
-                    <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
-                  </li>-->
-                  <li @yield('activeContact')>
-                      <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
-                    </li>
-                    <li class="has-children " >
-                      <a  class="nav-link text-left">Se Connecter</a>
-                      <ul class="dropdown">
-                        <li><a href="{{ url('/etud')}}">Espace D'étudiant</a></li>
-                        <li><a href="{{ url('/enseignant')}}">Espace D'enseignant</a></li>
-                
-                      </ul>
-                    </li>
-                </ul>                                                                                                                                                                                                                                                                                          </ul>
-              </nav>
-  
-            </div>
+            @yield('navBar')
             <div class="ml-auto">
               <div class="social-wrap">
                 <a href="#"><span class="icon-facebook"></span></a>

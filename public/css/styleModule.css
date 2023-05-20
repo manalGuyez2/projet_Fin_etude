@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.title-cours{
+
+  padding: 25px 30px 100px 30px;
+  color: #2762b5;
+  text-decoration: solid  ;
+  text-size-adjust: 12px;
+  text-shadow: #183661;
+}
+
+
+.wrapper{
+ 
+  max-width: 700px;
+  width: 100%;
+  margin: 100px auto;
+  
+  padding: 25px 30px 30px 30px;
+  border-radius: 5px;
+  background: #fff;
+
+}
+.wraper header{
+  font-size: 30px;
+  font-weight: 600px;
+  padding-bottom: 20px;
+}
+.wraper nav{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.wraper nav label{
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  color: #183661;
+  font-size: 17px;
+  border-radius: 5px;
+ margin: 0 5px;
+  transition: all 0.3s ease;
+}
+.wraper nav label:hover{
+
+  background: #2762b5;
+
+}
+#home:checked ~ nav label.home,
+#blog:checked ~ nav label.blog,
+#code:checked ~ nav label.code{
+  color: #fff;
+}
+nav label i{
+  padding-right: 7px;
+}
+nav .slider{
+  position: absolute;
+  height: 100%;
+  width: 33.33%;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: #1d4d91;
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#blog:checked ~ nav .slider{
+  left: 33.333333%;
+}
+#code:checked ~ nav .slider{
+  left: 66.666666%;
+}
+
+section .cont{
+  text-align: center;
+  width: 100%;
+  display: none;
+  background: #fff;
+  
+
+}
+#home:checked ~ section .content-1,
+#blog:checked ~ section .content-2,
+#code:checked ~ section .content-3{
+  display: block;
+}
+section .content .title{
+  font-size: 21px;
+  font-weight: 500;
+  margin: 30px 0 10px 0;
+}
+section .cont p{
+text-align: justify;
+}
+
+
+
+
+
+/*--------------------------------------------------*/
+
+.partie-1{
+  
+  padding: 13px 30px;
+  border: 1px solid #edeef2;
+  transition: all .3s ease-out 0s;
+  align-items: center!important;
+  justify-content: space-between!important;
+  text-align: left;
+}
+.content{
+  background-color: #fff;
+}
+/*a{
+  transition: all .3s ease-out 0s;
+  
+  color: #0e1133;
+    font-weight: 500;
+}
+
+/*.course__curriculum-meta span.time {
+float: left;
+  font-size: 16px;
+  color: #53545b;
+}*/
+
+.time {
+  font-size: 13px;
+  float: right;
+  color: #53545b;
+}
+.page__title-3 {
+  font-size: 35px;
+  line-height: 1.1;
+  margin-top: 12px;
+  font-family: Hind,sans-serif;
+  color: #0e1133;
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: all .3s ease-out 0s;
+  padding-bottom: 86px;
+}
+
+/*----------------------------------------------*/
+*{
+  margin: 0;
+  padding: o;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background: blue;
+}
+#accordion{
+margin: 100px auto;
+width: 600px;  
+}
+#accordion li{
+  list-style: none;
+  width: 100%;
+  margin-bottom: 10px;
+  background: rgb(247, 248, 247);
+  padding: 10px;
+  border-radius: 4px;
+}
+#accordion li label{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #c20000;
+
+}
+#accordion li label span{
+  transform: rotate(90deg);
+  font-size: 22px;
+  color: #333;
+}
+#accordion label + input[type="radio"]{
+  display: none;
+}
+#accordion .content{
+  padding: 0 10px;
+  line-height: 26px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+
+}
+#accordion label + input[type="radio"]:checked + .content{
+  max-height: 400px;
+}

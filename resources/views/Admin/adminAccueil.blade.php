@@ -11,7 +11,7 @@
     <div class="card">
         <div>
             <div class="numbers">1,504</div>
-            <div class="cardName">étudiants sauvés</div>
+            <div class="cardName">étudiants enregistre</div>
         </div>
 
 
@@ -24,7 +24,7 @@
     <div class="card">
         <div>
             <div class="numbers">80</div>
-            <div class="cardName">Enseignants sauvés</div>
+            <div class="cardName">Enseignants enregistre</div>
         </div>
 
         <div class="iconBx">

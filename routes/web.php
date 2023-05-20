@@ -42,6 +42,24 @@ Route::get('/admin', function () {
 });
 Route::get('/etudiantList', function () {
     return view('Admin/ListEtud');
+
+});
+
+Route::get('/cours', function () {
+    return view('/cours');
+
+});
+Route::get('/test', function () {
+    return view('/test');
+
+});
+Route::get('/uml', function () {
+    return view('/uml');
+
+});
+Route::get('/courEnsg', function () {
+    return view('/courEnsg');
+
 });
 
 
@@ -58,7 +76,8 @@ Route::get('ajouterEtudiant', [StudentController::class, 'ajouterEtd']);
 Route::post('save-student', [StudentController::class, 'saveEtd']);
 Route::get('editerEtudiant/{id}', [StudentController::class, 'modEtd']);
 Route::post('enrgEtudiant/{id}', [StudentController::class, 'enrgEtd']);
-Route::get('deleteEtudiant/{id}', [StudentController::class, 'suppEtd']);
+//Route::get('deleteEtudiant/{id}', [StudentController::class, 'suppEtd']);
+Route::post('deleteEtudiant', [StudentController::class, 'suppEtd']);
 
 
 

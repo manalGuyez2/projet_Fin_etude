@@ -9,6 +9,7 @@ use  Illuminate\Support\Facades\Hash;
 class StudentController extends Controller
 {
     public function index(){
+        
         $data = Student::get();
         return view('Admin.ListEtud', compact('data'));
 
@@ -75,9 +76,9 @@ class StudentController extends Controller
 
 
       
-    public function suppEtd($id){
+    public function suppEtd(Request $request){
 
-        Student::where('id','=',$id)->delete();
+        Student::where('id','=',$request->etudiant_delete_id)->delete();
         return redirect()->back()->with('success'," L'etudiant est supprimer avec succès");
     }
 

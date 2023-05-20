@@ -40,7 +40,7 @@
                </div>
                <div class="md-3">
                 <label class="form-lebel">Date Naissance</label>
-                <input type="date" class="form-control" name="naissance" placeholder="Entrer La date de naissance " value="{{old('naissance')}}">
+                <input type="date" class="form-control datepicker" name="naissance" id="txtDate" placeholder="Entrer La date de naissance " value="{{old('naissance')}}">
                 @error('naissance')
                     <div class="alert alert-danger" role="alert" >
                         {{'Date naissance est obligatoire'}}
@@ -49,7 +49,7 @@
                </div>
                <div class="md-3">
                 <label class="form-lebel">E-mail</label>
-                <input type="email" class="form-control" name="email" placeholder="Entrer l'e-mail "  value="{{old('email')}}">
+                <input type="email" class="form-control" name="email" placeholder="Entrer e-mail "  value="{{old('email')}}">
                 @error('email')
                     <div class="alert alert-danger" role="alert">
                         {{'E-mail est obligatoire'}}
@@ -67,7 +67,7 @@
                </div>
                   <br/>
                <button type="submit" class="btn btn-primary">Ajouter</button>
-               <a href="{{url('etudiantList')}}" class="btn btn-danger">Arrière</a>
+               <a href="{{url('etudiantList')}}" class="btn btn-danger">Annuler</a>
         
 
             </form>
@@ -75,6 +75,7 @@
         </div>
     </div>
 </div>
+
 
 
 
