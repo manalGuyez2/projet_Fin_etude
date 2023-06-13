@@ -22,10 +22,10 @@
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
         <li >
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
           <li class="has-children " >
-            <a  class="nav-link text-left">Se Connecter</a>
+            <a  class="nav-link text-left">Connexion</a>
             <ul class="dropdown">
               <li><a href="{{ url('/etud')}}">Espace Étudiant</a></li>
               <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
@@ -38,6 +38,31 @@
 @endsection
 
 @section('content')
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+  <form action="" method="POST">
+      @csrf
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Etes-vous sùre ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          
+        </button>
+      </div>
+      <div class="modal-body">
+          <label for="myfile">Select a file:</label>
+          <input type="file" id="myfile" name="myfile">
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <button type="submit"  class="btn btn-danger ">envoyer</button>
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
+
 <div class="site-section">
   <div class="container">
     <div class="row">
@@ -52,7 +77,8 @@
     <input type="radio" name="slider" id="blog">
     <input type="radio" name="slider" id="code">
     <nav>
-      <label for="home" class="home"><i class="fa fa-book"></i>Cours</label>
+      <label for="home" class="home"><i class="fa fa-book"></i>Cours           <button type="button" class="fa fa-plus" data-toggle="modal" data-target="#deleteModal" style="float: right"></button>
+       </label>
       <label for="blog" class="blog"><i class="fas fa-blog"></i>TD</label>
       <label for="code" class="code"><i class="fas fa-code"></i>Examen</label>
       <div class="slider"></div>

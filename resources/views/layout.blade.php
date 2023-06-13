@@ -80,15 +80,25 @@
               </a>
             </div>
             @yield('navBar')
-            <div class="ml-auto">
-              <div class="social-wrap">
-                <a href="#"><span class="icon-facebook"></span></a>
-                <a href="#"><span class="icon-twitter"></span></a>
-                <a href="#"><span class="icon-linkedin"></span></a>
-  
-                <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
-                  class="icon-menu h3"></span></a>
-              </div>
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+
+
+           <li @yield('activeConnex')>
+              <a href="{{ route('getLogin')}} " class="nav-link text-left"><button class="btn btn-success text-white">Connexion</button></a>
+              
+            </li>
+
+           <!-- <li class="has-children  active" >
+              <a  class="nav-link text-left">Se Connecter</a>
+              <ul class="dropdown">
+                <li><a href="{{ route('getLogin')}} ">Espace Étudiant</a></li>
+                <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
+        
+              </ul>
+            </li> -->
+          </ul>
+            </nav>
             </div>
            
           </div>

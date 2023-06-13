@@ -13,6 +13,34 @@
 
     <title>Administrateur</title>
 
+
+
+
+
+
+      <!-- Bootstrap -->
+      <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+      <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Font Awesome -->
+      <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+      <!-- NProgress -->
+      <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+      <!-- iCheck -->
+      <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+      <!-- Datatables -->
+      
+      <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+      <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+      <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  
+      <!-- Custom Theme Style -->
+      <link href="../build/css/custom.min.css" rel="stylesheet">
+
+
+
+
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
@@ -67,11 +95,9 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-<<<<<<< HEAD
+
               <img src="{{asset("images/logo.jpg")}}"  alt="Image" class="img-fluid">
-=======
-              <img src="{{asset("images/logo.jpg")}}" alt="Image" class="img-fluid">
->>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
+
             </div>
 
             <div class="clearfix"></div>
@@ -108,7 +134,7 @@
                       <li><a href="form_buttons.html">Form Buttons</a></li>
                     </ul>-->
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Enseignants </a>  </li>
+                  <li><a href="{{ url('ListProf')}}"><i   class="fa fa-edit"></i> Enseignants </a>  </li>
 
 
                   <li><a><i class="fa fa-envelope-o"></i> Messages </a> </li>
@@ -147,11 +173,9 @@
               <ul class=" navbar-right">
                 <li  style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-<<<<<<< HEAD
-                    <img src="{{asset("images/admin.png")}}" " alt="">Admin </a>
-=======
-                    <img src="{{asset("images/admin.png")}}" alt="">Admin </a>
->>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
+
+                    <img src="{{asset("images/admin.png")}}"  alt="">Admin </a>
+
                 <!--  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
                       <a class="dropdown-item"  href="javascript:;">
@@ -311,6 +335,40 @@
     <script src="../build/js/custom.min.js"></script>
 
     <script src="js/jsAdmin.js"></script>
+
+
+
+     <!-- jQuery -->
+     <script src="../vendors/jquery/dist/jquery.min.js"></script>
+     <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- FastClick -->
+     <script src="../vendors/fastclick/lib/fastclick.js"></script>
+     <!-- NProgress -->
+     <script src="../vendors/nprogress/nprogress.js"></script>
+     <!-- iCheck -->
+     <script src="../vendors/iCheck/icheck.min.js"></script>
+     <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+     <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+     <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+     <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+     <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+     <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+     <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+     <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+     <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+     <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+     <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+     <!-- <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>-->
+     <script src="../vendors/jszip/dist/jszip.min.js"></script>
+     <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+ 
+     <!-- Custom Theme Scripts -->
+     <script src="../build/js/custom.min.js"></script>
+
+     
 	
   </body>
 </html>

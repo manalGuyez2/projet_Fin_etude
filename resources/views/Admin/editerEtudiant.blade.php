@@ -42,13 +42,10 @@
                 @enderror
                </div>
                <div class="md-3">
-<<<<<<< HEAD
-                <label class="form-lebel">Date Naissance</label>
-                <input type="date" class="form-control" name="naissance" id="txtDate" placeholder="Entrer La date de naissance " value="{{$data->naissance}}">
-=======
+
                 <label class="form-lebel">Date Naissance<strong style="color:red; font-size:190%; ">*</strong></label>
                 <input type="date" class="form-control" name="naissance" placeholder="Entrer La date de naissance " value="{{$data->naissance}}">
->>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
+
                 @error('naissance')
                     <div class="alert alert-danger" role="alert" >
                         <strong>{{'Date Naissance obligatoire'}}</strong>

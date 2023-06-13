@@ -128,13 +128,9 @@
                     <li >
                         <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
                       </li>
-                      <li class="has-children " >
-                        <a  class="nav-link text-left">Se Connecter</a>
-                        <ul class="dropdown">
-                          <li><a href="{{ url('/etud')}}">Espace D'étudiant</a></li>
-                          <li><a href="{{ url('/enseignant')}}">Espace D'enseignant</a></li>
-                  
-                        </ul>
+                      <li  >
+                        <a href="{{ url('/logout')}}">deconnexion</a>
+                        
                       </li>
                   </ul>                                                                                                                                                                                                                                                                                          </ul>
                 </nav>

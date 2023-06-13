@@ -22,14 +22,10 @@
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
         <li >
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
-          <li class="has-children " >
-            <a  class="nav-link text-left">Se Connecter</a>
-            <ul class="dropdown">
-              <li><a href="{{ url('/etud')}}">Espace Étudiant</a></li>
-              <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
-         </ul>
+          <li  >
+            <a href="{{ url('/logoutProf')}}">deconnexion Prof</a>
           </li>
       </ul>                                                                                                                                                                                                                                                                                          </ul>
     </nav>
