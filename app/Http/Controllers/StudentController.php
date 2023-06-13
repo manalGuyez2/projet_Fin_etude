@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\Student;
 use App\Providers\RouteServiceProvider;
+
 use  Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session ;
+use \Illuminate\Support\Facades\Facade;
+
 
 class StudentController extends Controller
 {
@@ -100,11 +104,11 @@ class StudentController extends Controller
     //--------login--------
 
 
-    public function loginetd(){
+    public function getLogin(){
         return view("/etud");
     }
 
-    public function loginEtud(Request $request){
+    public function postLogin(Request $request){
        $request->validate([
         'email'=>'required|email',
         'password'=>'required|min:2'
@@ -113,7 +117,7 @@ class StudentController extends Controller
          $etud = Student::where('email','=', $request->email)->first();
     if($etud){
         if($etud && $request->password == $etud->password){
-            $request->session()->put('etud', $etud);
+            $request->session()->put('etudiant', $etud->id);
             return redirect('dashboard');
         }else{
             return back()->with('fail','le mot de passe ne correspond pas.');
@@ -125,8 +129,23 @@ class StudentController extends Controller
          
     }
     public function dashboard(){
-        return view('/dashboard');
+        $etud = array();
+       if(Session::has('etudiant')){
+        $etud = Student::where('id','=', Session::get('id'))->first();
+       }
+
+        return view('/dashboard1', compact('etud'));
     }
+
+    public function logout(){
+        if(Session::has('etudiant'))
+        {
+            Session::pull('etudiant');
+            return redirect('/');
+        }
+        else
+        return redirect('/cours');
+    } 
    
 }
 

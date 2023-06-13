@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+.nameChapitre{
+  align-items: center;
+  float: right;
+}
 .title-cours{
 
   padding: 25px 30px 100px 30px;

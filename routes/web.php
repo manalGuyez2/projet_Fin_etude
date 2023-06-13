@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ProfController;
 use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,13 @@ use App\Http\Controllers\ForgotPasswordController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/table', function () {
+    return view('tables_dynamic');
+});
 
-
+Route::get('/test', function () {
+    return view('test');
+});
 Route::get('/', function () {
     return view('index');
 });
@@ -44,6 +50,10 @@ Route::get('/etudiantList', function () {
     return view('Admin/ListEtud');
 
 });
+Route::get('/ListProf', function () {
+    return  view('Admin.prof.ListProf');
+
+});
 
 Route::get('/cours', function () {
     return view('/cours');
@@ -65,6 +75,9 @@ Route::get('/courEnsg', function () {
 Route::get('/etud', function () {
     return view('auth.login');
 });
+
+
+/*_---------------Forgot_Password------*/
 Route::get('forgot-password',[ForgotPasswordController::class,'showForgotPasswordForm'])->name('forgot.password.get');
 Route::post('forgot-password',[ForgotPasswordController::class,'submitForgotPasswordForm'])->name('forgot.password.post');
 Route::get('reset-password/{token}',[ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
@@ -85,9 +98,23 @@ Route::post('enrgEtudiant/{id}', [StudentController::class, 'enrgEtd']);
 //Route::get('deleteEtudiant/{id}', [StudentController::class, 'suppEtd']);
 Route::post('deleteEtudiant', [StudentController::class, 'suppEtd']);
 
+/************Admin conroll PROF********** */
+Route::get('ListProf', [ProfController::class, 'indexPrf']);
+Route::get('ajouterProf', [ProfController::class, 'ajouterPrf']);
+Route::post('save-Prof', [ProfController::class, 'savePrf']);
+Route::get('editerProf/{id}', [ProfController::class, 'modPrf']);
+Route::post('enrgProf/{id}', [ProfController::class, 'enrgPrf']);
+//Route::get('deletePof/{id}', [ProfController::class, 'suppProf']);
+Route::post('deleteProf', [ProfController::class, 'suppPrf']);
 
 
+Route::get('etud',[StudentController::class,'getLogin'])->name('getLogin')->middleware('alreadyLogged');
+Route::post('etud',[StudentController::class,'postLogin'])->name('postLogin');
+Route::get('dashboard',[StudentController::class,'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout',[StudentController::class,'logout'])->name('logout');
 
-Route::get('etud',[StudentController::class,'loginetd']);
-Route::post('Login-etud',[StudentController::class,'loginEtud'])->name('Login-etud');
-Route::get('dashboard',[StudentController::class,'dashboard']);
+/*--------logInProo----------*/
+Route::get('enseignant',[ProfController::class,'getLoginProf'])->name('getLoginProf')->middleware('profAlreadyLogged');
+Route::post('enseignant',[ProfController::class,'postLoginProf'])->name('postLoginProf');
+Route::get('courEnsg',[ProfController::class,'courEnsg'])->name('courEnsg')->middleware('profIsLoggedIn');
+Route::get('/logoutProf',[ProfController::class,'logoutProf']);

@@ -1,4 +1,7 @@
 @extends('layout')
+@section('activeConnex')
+class=active
+@endsection
 @section('navBar')
 <div class="mr-auto">
     <nav class="site-navigation position-relative text-right" role="navigation">
@@ -21,18 +24,13 @@
         <!--<li>
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
-        <li >
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+        <li>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
-          <li class="has-children active" >
-            <a  class="nav-link text-left">Se Connecter</a>
-            <ul class="dropdown">
-              <li  class="active"><a href="{{ url('/etud')}}">Espace Étudiant</a></li>
-              <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
+          
       
             </ul>
-          </li>
-      </ul>                                                                                                                                                                                                                                                                                          </ul>
+                                                                                                                                                                                                                                                                                                  </ul>
     </nav>
 
   </div>
@@ -70,7 +68,8 @@
         <img src="images/student.jpg" class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="{{route('Login-etud')}}" method="post">
+        <form action="{{route('getLogin')}}" method="post" >
+          @csrf
           @if(Session::has('success'))
           <div class="alert alert-success">{{Session::get('success')}}</div>
           @endif
@@ -107,7 +106,9 @@
 
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
-           
+           <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_CAPTCHA_KEY')}}" data-callback="recaptchaDataCallbackLogin">
+
+           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"

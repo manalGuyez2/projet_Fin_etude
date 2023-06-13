@@ -22,16 +22,41 @@
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
         <li >
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
-          <li class="has-children " >
-            <a  class="nav-link text-left">Se Connecter</a>
-            <ul class="dropdown">
-              <li><a href="{{ url('/etud')}}">Espace Étudiant</a></li>
-              <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
-      
-            </ul>
-          </li>
+          
+          @auth
+            
+                            @if (Session::has('etud'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('etud') }}">{{ __('etud') }}</a>
+                                </li>
+                            @endif
+
+                            
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Session::get('nom') }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                      
+          @endauth
+
+
+          
       </ul>                                                                                                                                                                                                                                                                                          </ul>
     </nav>
 
@@ -71,7 +96,21 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="image view view-first">
                         <figure class="course-1-item">
-                        <a href="{{ url('/cours')}}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                          @if (Route::has('prof'))
+                          
+                              
+                              <a href="{{ url('/courEnsg')}}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                            @elseif (Route::has('etudiant'))
+                            
+                                  <a href="{{ route('dashboard') }}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                                 
+                          @else 
+                                      <a href="{{ url('cours') }}" ><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                        
+                           
+                       
+                      @endif
+                        
                         
                         <div class="category"><h3>Compilation </h3></div>  
                         </figure>

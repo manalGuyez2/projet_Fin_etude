@@ -22,16 +22,9 @@
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
         <li >
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
-          <li class="has-children active" >
-            <a  class="nav-link text-left">Se Connecter</a>
-            <ul class="dropdown">
-             <li><a href="{{ url('/etud')}}">Espace Étudiant</a></li>
-              <li class="active"><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
-      
-            </ul>
-          </li>
+          
       </ul>                                                                                                                                                                                                                                                                                          </ul>
     </nav>
 
@@ -48,11 +41,10 @@
             
     <div class="custom-breadcrumns border-bottom">
       <div class="container">
-<<<<<<< HEAD
-=======
+
         
-        <span class="mx-3 icon-keyboard_arrow_right"></span>
->>>>>>> 2d17abbdcc9a2aeca55c6a52221249b47c274c75
+       
+
         <h2 class="mb-0">Espace Enseignant</h2>
       </div>
     </div>
@@ -74,7 +66,7 @@
         <img src="images/teacher.jpg" alt="Image" class="img-fluid">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="{{route('Login-etud')}}" method="post">
+        <form action="{{route('getLoginProf')}}" method="post">
           @if(Session::has('success'))
           <div class="alert alert-success">{{Session::get('success')}}</div>
           @endif
