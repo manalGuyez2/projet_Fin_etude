@@ -139,7 +139,7 @@
 
                   <li><a><i class="fa fa-envelope-o"></i> Messages </a> </li>
 
-                  <li><a href="{{ url('/')}}"><i class="glyphicon glyphicon-off"></i> Se déconnecter </a> </li>
+                  <li><a href="{{ url('logoutAdmin')}}"><i class="glyphicon glyphicon-off"></i> Se déconnecter </a> </li>
 
                   
 

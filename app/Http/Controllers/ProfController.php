@@ -142,11 +142,20 @@ class ProfController extends Controller
     public function courEnsg(){
         $prof = array();
        if(Session::has('prof')){
-        $prof = Prof::where('id','=', Session::get('id'))->first();
+        $prof = Prof::where('id','=', Session::get('prof'))->first();
        }
 
-        return view('/courEnsg', compact('prof'));
+        return view('/index', compact('prof'));
     }
+    public function test(){
+        $prof = array();
+       if(Session::has('prof')){
+        $prof = Prof::where('id','=', Session::get('prof'))->first();
+       }
+
+        return view('/index', compact('prof'));
+    }
+   
 
     public function logoutProf(){
         if(Session::has('prof'))
@@ -155,7 +164,7 @@ class ProfController extends Controller
             return redirect('/');
         }
         else
-        return redirect('/cours');
+        return redirect('/index');
     } 
    
 }

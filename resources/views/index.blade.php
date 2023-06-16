@@ -22,10 +22,12 @@
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
         <li >
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
+          
 
          
+
           
       </ul>                                                                                                                                                                                                                                                                                          </ul>
     </nav>
@@ -46,7 +48,6 @@
       </div>
     </div>
 
-    
     <div class="site-section">
         <div class="container">
             <div class="row mb-5">
@@ -57,9 +58,14 @@
                     <h2 class="section-title-underline mb-5">
                         <span>Présentation</span>
                     </h2>
-                    <p>Le département d'informatique est l'un des départements géré par La Faculté des Sciences de l'Université Abdelmalek Essaadi sous la direction d'un doyen, et par un chef de département, assisté par d'autres responsables chacun d'eux avec ses propres fonctions par rapport à son service.</p>
+                     <p>Le département d'informatique est l'un des départements géré par La Faculté des Sciences de l'Université Abdelmalek Essaadi sous la direction d'un doyen, et par un chef de département, assisté par d'autres responsables chacun d'eux avec ses propres fonctions par rapport à son service.</p>
                 </div>
             </div>
+            
+            @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
+            @endif
+       @csrf 
             <div class="row">
                     <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
                         <img src="images/OIP.jpeg" alt="Image" class="img-fluid"> 

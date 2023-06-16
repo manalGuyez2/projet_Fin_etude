@@ -22,7 +22,7 @@
           <a href="{{ url('/courses')}}" class="nav-link text-left">Courses</a>
         </li>-->
         <li  class="active">
-            <a href="{{ url('/contact')}}" class="nav-link text-left">Contacter</a>
+            <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
          
       </ul>                                                                                                                                                                                                                                                                                          </ul>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProfController;
@@ -14,13 +15,18 @@ use App\Http\Controllers\ForgotPasswordController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/loginAdmin', function () {
+    return view('Admin.loginAdmin');
+});
+
 Route::get('/table', function () {
     return view('tables_dynamic');
 });
 
-Route::get('/test', function () {
-    return view('test');
+Route::get('/contact', function () {
+    return view('contact');
 });
+
 Route::get('/', function () {
     return view('index');
 });
@@ -34,14 +40,10 @@ Route::get('/enseignant', function () {
 });
 
 
-
-
 Route::get('/modules', function () {
     return view('modules');
 });
-Route::get('/contact', function () {
-    return view('contact');
-});
+
 
 Route::get('/admin', function () {
     return view('Admin/adminAccueil');
@@ -55,14 +57,12 @@ Route::get('/ListProf', function () {
 
 });
 
-Route::get('/cours', function () {
-    return view('/cours');
 
-});
 Route::get('/test', function () {
     return view('/test');
 
-});
+})->middleware('moduleCheckLogin');
+
 Route::get('/uml', function () {
     return view('/uml');
 
@@ -83,8 +83,8 @@ Route::post('forgot-password',[ForgotPasswordController::class,'submitForgotPass
 Route::get('reset-password/{token}',[ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password',[ForgotPasswordController::class,'submitResetPasswordForm'])->name('reset.password.post');
 
-
-
+/////////Module////////
+Route::get('modules',[StudentController::class,'mosules'])->name('modules');
 
 
 
@@ -107,14 +107,25 @@ Route::post('enrgProf/{id}', [ProfController::class, 'enrgPrf']);
 //Route::get('deletePof/{id}', [ProfController::class, 'suppProf']);
 Route::post('deleteProf', [ProfController::class, 'suppPrf']);
 
-
+//////////login student///////
 Route::get('etud',[StudentController::class,'getLogin'])->name('getLogin')->middleware('alreadyLogged');
 Route::post('etud',[StudentController::class,'postLogin'])->name('postLogin');
-Route::get('dashboard',[StudentController::class,'dashboard'])->middleware('isLoggedIn');
+
+Route::get('test',[ProfController::class,'test'])->name('test')->middleware('ModuleCheckLogin');
+
+Route::get('dashboard',[StudentController::class,'dashboard'])->name('dashboard')->middleware('isLoggedIn');
 Route::get('/logout',[StudentController::class,'logout'])->name('logout');
+
 
 /*--------logInProo----------*/
 Route::get('enseignant',[ProfController::class,'getLoginProf'])->name('getLoginProf')->middleware('profAlreadyLogged');
 Route::post('enseignant',[ProfController::class,'postLoginProf'])->name('postLoginProf');
 Route::get('courEnsg',[ProfController::class,'courEnsg'])->name('courEnsg')->middleware('profIsLoggedIn');
 Route::get('/logoutProf',[ProfController::class,'logoutProf']);
+
+/********Admin LOgin*******/
+Route::get('loginAdmin',[AdminController::class,'getLoginAdmin'])->name('getLoginAdmin');
+
+Route::post('loginAdmin',[AdminController::class,'postLoginAdmin'])->name('postLoginAdmin');
+Route::get('admin',[AdminController::class,'admin'])->name('admin');
+Route::get('/logoutAdmin',[AdminController::class,'logoutAdmin']);

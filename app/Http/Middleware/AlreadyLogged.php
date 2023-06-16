@@ -15,7 +15,7 @@ class AlreadyLogged
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Session::has('etudiant')&&(url('etud')==$request->url() || url('enseignant')==$request->url()))
+        if(Session::has('LoginId')&&(url('etud')==$request->url() || url('enseignant')==$request->url()))
         return back();
         return $next($request);
     }

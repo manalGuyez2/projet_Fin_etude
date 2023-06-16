@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 use App\models\Student;
 use App\Providers\RouteServiceProvider;
@@ -115,9 +115,9 @@ class StudentController extends Controller
     ]);
      //echo 'value posted';
          $etud = Student::where('email','=', $request->email)->first();
-    if($etud){
+       if($etud){
         if($etud && $request->password == $etud->password){
-            $request->session()->put('etudiant', $etud->id);
+            $request->session()->put('LoginId', $etud->id);
             return redirect('dashboard');
         }else{
             return back()->with('fail','le mot de passe ne correspond pas.');
@@ -128,24 +128,35 @@ class StudentController extends Controller
         }
          
     }
+
+    
     public function dashboard(){
         $etud = array();
-       if(Session::has('etudiant')){
-        $etud = Student::where('id','=', Session::get('id'))->first();
+       if(Session::has('LoginId')){
+        $etud = Student::where('id','=', Session::get('LoginId'))->first();
        }
 
-        return view('/dashboard1', compact('etud'));
+                
+        return view('/index', compact('etud'))->with('success'," Bienvenue a votre espace etudiant...!");
+
     }
 
     public function logout(){
-        if(Session::has('etudiant'))
+        if(Session::has('LoginId'))
         {
-            Session::pull('etudiant');
+            Session::pull('LoginId');
             return redirect('/');
         }
         else
-        return redirect('/cours');
+        return redirect('/');
     } 
+
+   
+
+                
+       
+
+    
    
 }
 

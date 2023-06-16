@@ -49,13 +49,12 @@ class=active
       
      
 
-      <h2 class="mb-0">Espace Etudiant</h2>
+      <h2 class="mb-0">Espace Administrateur</h2>
     </div>
   </div>
           </div>
         </div>
       </div>
-      
       </div> 
     
 
@@ -70,8 +69,8 @@ class=active
       <div class="col-md-9 col-lg-6 col-xl-5">
         <img src="images/student.jpg" class="img-fluid" alt="Sample image">
       </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="{{route('getLogin')}}" method="post" >
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 inputBox">
+        <form action="{{route('getLoginAdmin')}}" method="POST" >
 
 
           {{ csrf_field() }}
@@ -120,7 +119,6 @@ class=active
 
         </form>
       </div>
-    </div>
   </div>
 
 </section> 

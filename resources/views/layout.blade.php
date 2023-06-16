@@ -45,6 +45,7 @@
   </head>
   
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    
   
     <div class="site-wrap">
   
@@ -83,11 +84,81 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 
+                @if (Session::has('LoginId'))
+                 
+                
+                <li>
+                  <a class="nav-link text-left text-success">Espace Etudiant</button></a>
+                  
+                </li>
+                        
+                <li class="has-children">
+                 
+                  <a style="background-image: url('ImageLocation');background-size: cover; height:40px; padding-top:8px;">
+                    <img src="{{asset("images/admin.png")}}" style="height:40px">
+                   
+                    
+                  </a>
+                  <ul class="dropdown">
+                 
+                    <li><a>parametres</a></li>
+                    <li><a class="text-danger" href="{{ url('/logout')}}">logout</a></li>
+            
+                  </ul>
+                     
+                </li>
 
-           <li @yield('activeConnex')>
-              <a href="{{ route('getLogin')}} " class="nav-link text-left"><button class="btn btn-success text-white">Connexion</button></a>
-              
-            </li>
+                <!--  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="{{ asset('images/admin.png') }}" alt="Profile Icon" width="30" height="30" class="rounded-circle">
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                          <a class="dropdown-item" href="#">Name</a>
+                          <a class="dropdown-item" href="#">Settings</a>
+                          <a class="dropdown-item" href="#">Logout</a>
+                      </div>
+                  </li>-->
+                @elseif (Session::has('prof'))
+                  
+                <li>
+                  <a class="nav-link text-left text-success">Espace Enseignant</button></a>
+                  
+                </li>
+
+
+                <li class="has-children">
+                 
+                  <a style="background-image: url('ImageLocation');background-size: cover; height:40px; padding-top:8px;">
+                    <img src="{{asset("images/admin.png")}}" style="height:40px">
+                    
+                    
+                  </a>
+                  <ul class="dropdown">
+                  
+                    <li><a>parametres</a></li>
+                    <li><a class="text-danger" href="{{ url('/logoutProf')}}">logout</a></li>
+            
+                  </ul>
+                     
+                </li>
+                
+                @else
+                
+                <li class="has-children btn btn-primary " style=" border-radius: 10px;">
+                  <a  class="nav-link text-left text-white" style="padding: 10px 20px;
+                  font-size: 17px;">connexion</a>
+                  <ul class="dropdown">
+                    <li><a href="{{ route('getLogin')}} ">Espace Étudiant</a></li>
+                    <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
+                    <li><a href="{{ url('/loginAdmin')}}">Espace Admin</a></li>
+                    
+                  </ul>
+                </li>
+                             
+                     
+                
+                @endif
+          
 
            <!-- <li class="has-children  active" >
               <a  class="nav-link text-left">Se Connecter</a>
@@ -161,7 +232,7 @@
   <!-- .site-wrap -->
 
 
-  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="8px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#0c50ed"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#0c50ed"/></svg></div>
+  <div id="loader" class="show fullscreen"><svg class="circular" width="50px" height="8px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#0c50ed"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#0c50ed"/></svg></div>
   <script src="js/bootstrap.min.css"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

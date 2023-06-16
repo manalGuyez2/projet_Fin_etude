@@ -25,35 +25,45 @@
             <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
           
-          @auth
+          
+
             
-                            @if (Session::has('etud'))
+                     @if (Session::has('LoginId'))
+                       @auth
+                          <!--  @if (Route::has('LoginId'))-->
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('etud') }}">{{ __('etud') }}</a>
                                 </li>
                             @endif
 
                             
-                        @else
+                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
                                     {{ Session::get('nom') }}
+
+                                
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ url('/logout')}}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
+
                       
-          @endauth
+                      @endauth
+                 @endif
 
 
           
@@ -79,6 +89,10 @@
             </div>
           </div>
         </div>
+        @if(Session::has('fail'))
+          <div class="alert alert-danger">{{Session::get('fail')}}</div>
+          @endif
+           @csrf 
       </div> 
     
 
@@ -92,20 +106,58 @@
 
     <div class="site-section">
         <div class="container">
+          <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+            <form  method="POST">
+                @csrf
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(233, 67, 61)">Vous devez d'abord connecter.....</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    
+                  </button>
+                </div>
+                <div class="modal-body container">
+                  
+                  <h2>Etes-vous .. </h2>
+                  <br>
+                  <a href="{{  route('getLogin') }}"  style="background-color: rgb(54, 37, 239);border-radius: 10px;padding: 10px 20px;
+                  font-size: 17px; color:aliceblue;"><i class="fa fa-user"> Etudiants</i></a>
+                   
+                    <a href="{{ url('/enseignant') }}" style="background-color: rgb(54, 37, 239);border-radius: 10px;padding: 10px 20px;
+                    font-size: 17px;color:aliceblue;"><i class="fa fa-edit"> Enseignants</i></a>
+
+                  <a href="{{  route('getLogin') }}"  style="background-color: rgb(54, 37, 239);border-radius: 10px;padding: 10px 20px;
+                        font-size: 17px;color:aliceblue;"><i class="fa fa-user-secret"> Admin</i></a>
+
+                        <br>
+                        <br>
+  
+                </div>
+                
+            </form>
+              </div>
+            </div>
+          </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="image view view-first">
                         <figure class="course-1-item">
-                          @if (Route::has('prof'))
-                          
+                      @if (Session::has('prof'))
+                     
+                       
+                    
                               
-                              <a href="{{ url('/courEnsg')}}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
-                            @elseif (Route::has('etudiant'))
+                              <a href="{{ url('/test')}}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+
+                        @elseif (Session::has('LoginId'))
                             
-                                  <a href="{{ route('dashboard') }}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
-                                 
+                                  <a href="{{ url('cours') }}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                     
+
                           @else 
-                                      <a href="{{ url('cours') }}" ><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                                      <a ><img data-toggle="modal" data-target="#deleteModal" src="images/course_1.jpg" alt="Image" class="img-fluid">
+                                      </a>
                         
                            
                        

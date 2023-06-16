@@ -1,25 +1,26 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
-class AppServiceProvider extends ServiceProvider
+
+class UserDataServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      */
     public function register(): void
     {
-        //
+       
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      */
     public function boot(): void
     {
-       
-    
+        //
     }
 }
