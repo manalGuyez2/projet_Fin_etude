@@ -1,6 +1,6 @@
 @extends('layout')
-@section('activeConnex')
-class=active
+@section('activeEtud')
+class="active"
 @endsection
 @section('navBar')
 <div class="mr-auto">
@@ -36,7 +36,7 @@ class=active
   </div>
 @endsection
 @section('content')
- <div class="site-wrap">   
+    
     <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
       <div class="container">
         <div class="row align-items-end justify-content-center text-center">
@@ -64,11 +64,11 @@ class=active
         <div class="container" >
 
 
-        <section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+       
+       <div class="container-fluid h-custom">
+         <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="images/student.jpg" class="img-fluid" alt="Sample image">
+        <img src="images/etud.gif" class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form action="{{route('getLogin')}}" method="post" >
@@ -84,8 +84,8 @@ class=active
           @endif
            @csrf 
 
-          <div class="divider d-flex align-items-start my-4">
-            <p class="text-center fw-bold mx-3 mb-0">connexion</p>
+          <div class="fw-bold mb-2 text-uppercase">
+            <h2 class="lead fw-normal mb-0 me-3 text-center text-darck">connexion</h2>
           </div>
 
           <!-- Email input -->
@@ -106,15 +106,21 @@ class=active
             <span class="text-danger">@error('password') {{"Mot passe est obligatoire!!!"}} @enderror</span>
           </div>
            <!-- Simple link -->
-           <div class="forgot">
-            <a href="{{route('forgot.password.get')}}">Forgot password?</a>
-    </div>
+           <div class="d-flex justify-content-between align-items-center">
+            <div class="form-check mb-0">
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <label class="form-check-label" for="form2Example3">
+                Mémoriser mon compte
+              </label>
+            </div>
+            <a href="{{route('forgot.password.get')}}" class="text-body">Mot de passe oublié?</a>
+           </div>
 
           
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Suivant</button>
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">SE CONNECTER</button>
             
           </div>
 
@@ -123,11 +129,11 @@ class=active
     </div>
   </div>
 
-</section> 
+
 </div>
     </div>
 
- </div>
+
 
 
    @endsection

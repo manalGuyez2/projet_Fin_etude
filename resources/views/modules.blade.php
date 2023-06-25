@@ -139,20 +139,50 @@
               </div>
             </div>
           </div>
+          <div class="modal fade" id="accessModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+            <form  method="POST">
+                @csrf
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(233, 67, 61)">Message Erreur:</h5>
+                  <button type="button" class="close " data-dismiss="modal"  aria-label="Close" style="color: red">
+                    
+                  </button>
+                </div>
+                <div class="modal-body container">
+                  
+                  <h2>Vous n'avez pas le droit d'accès à ce Module </h2>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+
+                 </div>
+                
+            </form>
+              </div>
+            </div>
+          </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="image view view-first">
                         <figure class="course-1-item">
                       @if (Session::has('prof'))
-                     
-                       
-                    
-                              
-                              <a href="{{ url('/test')}}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                          @if (Session::get('nameModule')=='CONCEPTION ORIENTEE OBJETS')
+                            
+                          <a href="{{ url('/coursShow')}}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
 
+
+                       
+                    @else
+                              
+                          <a ><img data-toggle="modal" data-target="#accessModal" src="images/course_1.jpg" alt="Image" class="img-fluid">
+                          </a>
+                          @endif
                         @elseif (Session::has('LoginId'))
                             
-                                  <a href="{{ url('cours') }}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                                  <a href="{{ url('/cours') }}"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
                      
 
                           @else 

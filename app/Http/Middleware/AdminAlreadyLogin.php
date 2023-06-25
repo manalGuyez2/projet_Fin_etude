@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
-class moduleCheckLogin
+class AdminAlreadyLogin
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,8 @@ class moduleCheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Session::has('prof')){
-            return redirect('etud')->with('fail', 'u have to login first');
-        }
+        if(Session::has('adminLoginId')&&(url('etud')==$request->url() || url('enseignant')==$request->url() || url('loginAdmin')==$request->url()))
+        return redirect('admin');
         return $next($request);
     }
 }

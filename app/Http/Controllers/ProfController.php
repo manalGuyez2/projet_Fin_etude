@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Prof;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 class ProfController extends Controller
 {
@@ -29,9 +30,9 @@ class ProfController extends Controller
             'nom'=>'required',
             'email'=>'required',
             'naissance'=>'required',
-            'module1'=>'required',
-            'module2'=>'required',
-            'module3'=>'required',
+            'nameModule'=>'required',
+            'etat'=>'required',
+           
             'password'=>'required',
 
         ]);
@@ -40,10 +41,10 @@ class ProfController extends Controller
         $nom = $request->nom;
         $email = $request->email;
         $naissance = $request->naissance;
-        $module1 = $request->module1;
-        $module2 = $request->module2;
-        $module3 = $request->module3;
-        $password = $request->password;
+        $nameModule = $request->nameModule;
+        $etat = $request->etat;
+      
+        $password = $password = Hash::make($request->password);
 
         $prf = new Prof();
        
@@ -51,10 +52,9 @@ class ProfController extends Controller
         $prf->nom = $nom;
         $prf->email = $email;
         $prf->naissance = $naissance;
+        $prf->nameModule = $nameModule;
+        $prf->etat = $etat;
        
-        $prf->module1 = $module1;
-        $prf->module2= $module2;
-        $prf->module3= $module3;
         $prf->password = $password;
         $prf->save();
         return redirect()->back()->with('success'," L'enseignat est ajouté avec succès");
@@ -73,9 +73,9 @@ class ProfController extends Controller
             'nom'=>'required',
             'email'=>'required',
             'naissance'=>'required',
-            'module1'=>'required',
-            'module2'=>'required',
-            'module3'=>'required',
+            'nameModule'=>'required',
+            'etat'=>'required',
+            
             'password'=>'required',
          ]);
          $id=$request->id;
@@ -83,10 +83,11 @@ class ProfController extends Controller
          $nom = $request->nom;
          $email = $request->email;
          $naissance = $request->naissance;
-         $module1 = $request->module1;
-         $module2 = $request->module2;
-         $module3 = $request->module3;
-         $password = $request->password;
+         $nameModule = $request->nameModule;
+        
+         $etat = $request->etat;
+         
+         $password = Hash::make($request->password);
          
          Prof::where('id','=',$id)->update([
            
@@ -94,9 +95,9 @@ class ProfController extends Controller
            'nom'=>$nom, 
            'email'=>$email,
            'naissance'=>$naissance,
-           'module1'=>$module1,
-           'module2'=>$module2,
-           'module3'=>$module3,
+           'nameModule'=>$nameModule,
+           'etat'=>$etat,
+          
            'password'=>$password 
          ]); 
          return redirect()->back()->with('success'," L'enseignant est modifier avec succès"); 
@@ -127,9 +128,12 @@ class ProfController extends Controller
      //echo 'value posted';
          $profData = Prof::where('email','=', $request->email)->first();
     if($profData){
-        if($profData && $request->password == $profData->password){
+        if($profData && Hash::check($request->password , $profData->password)){
             $request->session()->put('prof', $profData->id);
-            return redirect('courEnsg');
+            Session::put('nom', $profData->nom);
+            Session::put('email', $profData->email);
+            Session::put('nameModule', $profData->nameModule);
+            return redirect('DashboardProf');
         }else{
             return back()->with('fail','le mot de passe ne correspond pas.');
         }
@@ -139,7 +143,7 @@ class ProfController extends Controller
         }
          
     }
-    public function courEnsg(){
+    public function DashboardProf(){
         $prof = array();
        if(Session::has('prof')){
         $prof = Prof::where('id','=', Session::get('prof'))->first();
@@ -157,9 +161,12 @@ class ProfController extends Controller
     }
    
 
-    public function logoutProf(){
+    public function logoutProf(Request $request){
         if(Session::has('prof'))
         {
+            $request->session()->forget('nom');
+            $request->session()->forget('email');
+            $request->session()->forget('nameModule');
             Session::pull('prof');
             return redirect('/');
         }

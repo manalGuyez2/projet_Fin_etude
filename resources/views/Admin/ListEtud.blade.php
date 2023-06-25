@@ -66,7 +66,7 @@
                   <td>NOM</td>
                   <td>Naissance</td>
                   <td>E-mail</td>
-                  <td>Mot passe </td>
+                  
                   <td></td>
 
               </tr>
@@ -82,8 +82,9 @@
                   <td>{{$stu->nom}}</td>
                   <td>{{$stu->naissance}}</td>
                   <td>{{$stu->email}}</td>
-                  <td>{{$stu->password}}</td>
-                  <td><a href="{{ url('editerEtudiant/'.$stu->id)}}" class="btn btn-primary">Editer</a> | <button type="button" class="btn btn-danger deleteEtudiantBtn " value="{{ $stu->id }}" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
+                  
+                  
+                  <td><a href="{{ url('editerEtudiant/'.$stu->id)}}" class="btn btn-primary">Editer</a>  <button type="button" class="btn btn-danger deleteEtudiantBtn " value="{{ $stu->id }}" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
                     {{--<a href="{{ url('deleteEtudiant/'.$stu->id)}}"  class="btn btn-danger deleteUser">Supprimer</a>--}}</td>
 
               </tr>

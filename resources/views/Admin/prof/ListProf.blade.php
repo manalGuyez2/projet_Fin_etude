@@ -80,8 +80,8 @@
                   <td>NOM</td>
                   <td>Naissance</td>
                   <td>E-mail</td>
-                  <td>Module 1</td>
-                  <td>Module 2</td>
+                  <td>Module </td>
+                  <td>etat</td>
                   <td>Module 3</td>
                   <td>Mot passe </td>
                   <td></td>
@@ -99,11 +99,11 @@
                   
                   <td>{{$ensg->naissance}}</td>
                   <td>{{$ensg->email}}</td>
-                  <td>{{$ensg->module1}}</td>
-                  <td>{{$ensg->module2}}</td>
-                  <td>{{$ensg->module3}}</td>
+                  <td>{{$ensg->nameModule}}</td>
+                  <td>{{$ensg->etat}}</td>
+                 
                   <td>{{$ensg->password}}</td>
-                  <td><a href="{{ url('editerProf/'.$ensg->id)}}" class="btn btn-primary">Editer</a> | <button type="button" class="btn btn-danger deleteEtudiantBtn " value="{{ $ensg->id }}" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
+                  <td><a href="{{ url('editerProf/'.$ensg->id)}}" class="btn btn-primary">Editer</a>  <button type="button" class="btn btn-danger deleteEtudiantBtn " value="{{ $ensg->id }}" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
                     {{--<a href="{{ url('deleteEtudiant/'.$stu->id)}}"  class="btn btn-danger deleteUser">Supprimer</a>--}}</td>
 
               </tr>

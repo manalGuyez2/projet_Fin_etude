@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use  Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session ;
 use \Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\View;
 
 
 class StudentController extends Controller
@@ -43,7 +44,7 @@ class StudentController extends Controller
         $nom = $request->nom;
         $naissance = $request->naissance;
         $email = $request->email;
-        $password = $request->password;
+        $password = $password = Hash::make($request->password);
 
         $stu = new Student();
         $stu->apoge = $apoge;
@@ -53,6 +54,10 @@ class StudentController extends Controller
         $stu->email = $email;
         $stu->password = $password;
         $stu->save();
+        
+        
+
+       
         return redirect()->back()->with('success'," L'etudiant est ajouté avec succès");
        
     }
@@ -78,7 +83,7 @@ class StudentController extends Controller
          $nom = $request->nom;
          $naissance = $request->naissance;
          $email = $request->email;
-         $password = $request->password;
+         $password = $password = Hash::make($request->password);
          
          Student::where('id','=',$id)->update([
            'apoge'=> $apoge, 
@@ -88,6 +93,7 @@ class StudentController extends Controller
            'email'=>$email, 
            'password'=>$password 
          ]); 
+         
          return redirect()->back()->with('success'," L'etudiant est modifier avec succès"); 
    }
 
@@ -116,8 +122,12 @@ class StudentController extends Controller
      //echo 'value posted';
          $etud = Student::where('email','=', $request->email)->first();
        if($etud){
-        if($etud && $request->password == $etud->password){
+        if($etud && Hash::check($request->password , $etud->password)){
             $request->session()->put('LoginId', $etud->id);
+            Session::put('nom', $etud->nom);
+            Session::put('email', $etud->email);
+            Session::put('password', $etud->password);
+            Session::put('id', $etud->id);
             return redirect('dashboard');
         }else{
             return back()->with('fail','le mot de passe ne correspond pas.');
@@ -140,10 +150,22 @@ class StudentController extends Controller
         return view('/index', compact('etud'))->with('success'," Bienvenue a votre espace etudiant...!");
 
     }
+    public function __construct()
+    {
+      //its just a dummy data object.
+      $etud = Student::all();
+  
+      // Sharing is caring
+      View::share('id', $etud);
+    }
 
-    public function logout(){
+    public function logout(Request $request){
         if(Session::has('LoginId'))
         {
+            $request->session()->forget('nom');
+            $request->session()->forget('email');
+            $request->session()->forget('password');
+            $request->session()->forget('id');
             Session::pull('LoginId');
             return redirect('/');
         }
@@ -152,7 +174,38 @@ class StudentController extends Controller
     } 
 
    
+/*------------------change Pass------------------*/
+public function showChangePasswordForm(){
+    return view('auth.changepassword');
+}
 
+public function changePassword(Request $request){
+   
+    # Validation
+    $request->validate([
+       
+        'old_password' => 'required',
+        'new_password' => 'required',
+        'new-password-confirm' => 'required|same:new_password',
+    ]);
+
+   
+    #Match The Old Password
+   $passHashed = Hash::make(Session::get('[password]'));
+    if(Hash::check($request->old_password , $passHashed)){
+        $etud=Session::get('[id]');
+        $etud->password = bcrypt($request->new_password);
+       $etud->save();
+
+        return redirect()->back()->with("status", "Password changed successfully!");
+    }
+
+     else{  
+    #Update the new Password
+   
+    return back()->with("error", "Old Password Doesn't match!");
+}
+}
                 
        
 

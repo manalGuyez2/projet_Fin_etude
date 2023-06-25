@@ -19,9 +19,8 @@ return new class extends Migration
                 $table->string('nom');
                 $table->string('email')->unique();
                 $table->date('naissance');
-                $table->string('module1');
-                $table->string('module2');
-                $table->string('module3');
+                $table->String('nameModule')->nullable();
+                $table->string('etat');
                 $table->string('password');
                 $table->timestamps();
         });

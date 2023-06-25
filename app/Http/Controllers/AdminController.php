@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session ;
 class AdminController extends Controller
 {
@@ -18,7 +19,8 @@ class AdminController extends Controller
      //echo 'value posted';
          $admin = Admin::where('email','=', $request->email)->first();
        if($admin){
-        if($admin && $request->password == $admin->password){
+        if($admin && Hash::check($request->password, $admin->password)){
+        
             $request->session()->put('adminLoginId', $admin->id);
             return redirect('admin');
         }else{

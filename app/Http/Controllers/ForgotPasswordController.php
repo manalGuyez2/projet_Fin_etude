@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
@@ -19,7 +20,7 @@ class ForgotPasswordController extends Controller
 
     public function submitForgotPasswordForm(Request $request){
         $request->validate([
-            'email'=>'required|email'
+            'email'=>'required|email|exists:students'
         ]);
 
         $token = Str::random(64);
@@ -69,6 +70,35 @@ class ForgotPasswordController extends Controller
         return redirect('/etud')->with('message','Votre mot de passe a été changé!');
 
     }
+
+
+    /*----------------change password-------------*/
+    public function showChangePasswordForm(){
+        return view('auth.changepassword');
+    }
+
+    public function updatePassword(Request $request){
+       
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+#Match The Old Password
+if(!Hash::check($request->old_password, Session::get('password'))){
+    return back()->with("error", "Old Password Doesn't match!");
 }
+
+
+#Update the new Password
+Student::whereId(Session::get('id'))->update([
+    'password' => Hash::make($request->new_password)
+]);
+
+return back()->with("status", "Password changed successfully!");
+}
+}
+
 
 

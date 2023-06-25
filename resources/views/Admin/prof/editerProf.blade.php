@@ -107,7 +107,7 @@ $(function(){
 
     var month = 12;
     var day = 30;
-    var year = dtToday.getFullYear() - 17;
+    var year = dtToday.getFullYear() - 28;
     if(month < 10)
         month = '0' + month.toString();
     if(day < 10)

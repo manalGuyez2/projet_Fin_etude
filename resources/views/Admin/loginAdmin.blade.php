@@ -1,6 +1,6 @@
 @extends('layout')
-@section('activeConnex')
-class=active
+@section('activeAdmin')
+class="active"
 @endsection
 @section('navBar')
 <div class="mr-auto">
@@ -67,7 +67,7 @@ class=active
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="images/student.jpg" class="img-fluid" alt="Sample image">
+        <img src="images/administrateur.gif" class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 inputBox">
         <form action="{{route('getLoginAdmin')}}" method="POST" >

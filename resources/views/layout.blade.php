@@ -1,3 +1,5 @@
+@php( $etuds = \App\Models\Student::all() )  
+@php( $profs = \App\Models\Prof::all() ) 
 <!DOCTYPE html>
   <html lang="fr">
   
@@ -5,6 +7,14 @@
     <title>Département d'informatique</title>
     <meta charset="utf-8">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script  src=//code.jquery.com/jquery-3.5.1.slim.min.js integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin=anonymous></script>
+
+
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     
 
     <link rel="stylesheet" href="css/styleModule.css">
@@ -20,6 +30,23 @@
 
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
   
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -91,18 +118,27 @@
                   <a class="nav-link text-left text-success">Espace Etudiant</button></a>
                   
                 </li>
+                
                         
                 <li class="has-children">
                  
                   <a style="background-image: url('ImageLocation');background-size: cover; height:40px; padding-top:8px;">
-                    <img src="{{asset("images/admin.png")}}" style="height:40px">
-                   
+                    
+                   <img src="https://ui-avatars.com/api/?name={{ urlencode(Session::get('nom'))}}&rounded=true&font-size=0.33&size=50&background=random">
                     
                   </a>
                   <ul class="dropdown">
-                 
-                    <li><a>parametres</a></li>
-                    <li><a class="text-danger" href="{{ url('/logout')}}">logout</a></li>
+                   
+                    <li><a  class="dropdown-item">{{Session::get('nom')}}</a></li>
+                   
+                    <li>
+                      <a class="dropdown-item" href="/changePassword">
+                         Change Password
+                      </a>
+                  </li>
+                    <li><a class="dropdown-item">parametres</a></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a class="text-danger dropdown-item " href="{{ url('/logout')}}">se deconnecter</a></li>
             
                   </ul>
                      
@@ -129,14 +165,15 @@
                 <li class="has-children">
                  
                   <a style="background-image: url('ImageLocation');background-size: cover; height:40px; padding-top:8px;">
-                    <img src="{{asset("images/admin.png")}}" style="height:40px">
+                    <img src="https://ui-avatars.com/api/?name={{ urlencode(Session::get('nom'))}}&rounded=true&font-size=0.33&size=50&background=random">
                     
                     
                   </a>
                   <ul class="dropdown">
-                  
-                    <li><a>parametres</a></li>
-                    <li><a class="text-danger" href="{{ url('/logoutProf')}}">logout</a></li>
+
+                    <li><a class="dropdown-item">{{Session::get('nom')}}</a></li>
+                    <li><a class="dropdown-item">parametres</a></li>
+                    <li><a class="text-danger dropdown-item" href="{{ url('/logoutProf')}}">se deconnecter</a></li>
             
                   </ul>
                      
@@ -148,9 +185,9 @@
                   <a  class="nav-link text-left text-white" style="padding: 10px 20px;
                   font-size: 17px;">connexion</a>
                   <ul class="dropdown">
-                    <li><a href="{{ route('getLogin')}} ">Espace Étudiant</a></li>
-                    <li><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
-                    <li><a href="{{ url('/loginAdmin')}}">Espace Admin</a></li>
+                    <li @yield('activeEtud')><a href="{{ route('getLogin')}} " >Espace Étudiant</a></li>
+                    <li @yield('activeEnsg')><a href="{{ url('/enseignant')}}">Espace Enseignant</a></li>
+                    <li @yield('activeAdmin')><a href="{{ url('/loginAdmin')}}">Espace Admin</a></li>
                     
                   </ul>
                 </li>
@@ -250,6 +287,9 @@
   <script src="js/jquery.mb.YTPlayer.min.js"></script>
 
 
+  <script src="../build/js/custom.min.js"></script>
+
+  <script src="js/jsAdmin.js"></script>
 
 
   <script src="js/main.js"></script>

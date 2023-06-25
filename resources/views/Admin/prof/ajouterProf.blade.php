@@ -1,3 +1,4 @@
+@php( $modules = \App\Models\Module::all() ) 
 @extends('Admin.layoutAdmin')
 @section('layoutADMIN')
 
@@ -48,35 +49,32 @@
                     </div>
                 @enderror
             </div>
+            
             <div class="md-3">
-             <label class="form-lebel">module 1</label>
-             <input type="text" class="form-control" name="module1" placeholder="Entrer module 1 "  value="{{old('module1')}}">
-             @error('module1')
-                 <div class="alert alert-danger" role="alert">
-                     {{'module 1 est obligatoire'}}
+                <label class="form-lebel" for="nameModule" >choisir module nom:</label>
+ 
+                 <select id="nameModule" class="form-control" value="{{old('nameModule')}}"  name="nameModule">
+                    @foreach ($modules as $module)
+                        
+                   
+                 <option value="{{$module->name}}">{{$module->name}}</option>
+                
+                 @endforeach
+                 
+                   </select>
+                   
                  </div>
-             @enderror
-            </div>
-        
-        <div class="md-3">
-         <label class="form-lebel">module 2</label>
-         <input type="text" class="form-control" name="module2" placeholder="Entrer module 2 "  value="{{old('module2')}}">
-         @error('module2')
-             <div class="alert alert-danger" role="alert">
-                 {{'module 2 est obligatoire'}}
-             </div>
-         @enderror
-        </div>
-    
-     <div class="md-3">
-     <label class="form-lebel">module 3</label>
-     <input type="text" class="form-control" name="module3" placeholder="Entrer module 3 "  value="{{old('module3')}}">
-     @error('module3')
-         <div class="alert alert-danger" role="alert">
-             {{'module 3 est obligatoire'}}
-         </div>
-     @enderror
-    </div>
+            <div class="md-3">
+                <label class="form-lebel" for="etat" >choisir etat:</label>
+ 
+                 <select id="etat" class="form-control" value="{{old('etat')}}"  name="etat">
+                 <option value="actif">actif</option>
+                 <option value="passif">passif</option>
+                 
+                 
+                   </select>
+                   
+                 </div>
 
                <div class="md-3">
                 <label class="form-lebel">Mot passe</label>
@@ -102,5 +100,21 @@
 
 
 
-
+<script>
+    $(function(){
+        var dtToday = new Date();
+    
+        var month = 12;
+        var day = 30;
+        var year = dtToday.getFullYear() - 28;
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+    
+        var maxDate= year + '-' + month + '-' + day;
+    
+        $('#txtDate').attr('max', maxDate);
+    });
+    </script>
 @endsection

@@ -1,3 +1,5 @@
+@php( $etuds = \App\Models\Student::all() )  
+@php( $etuds = \App\Models\Prof::all() ) 
 @extends('layout')
 @section('navBar')
 <div class="mr-auto">
@@ -24,7 +26,7 @@
         <li  class="active">
             <a href="{{ url('/contact')}}" class="nav-link text-left">Contact</a>
           </li>
-         
+          
       </ul>                                                                                                                                                                                                                                                                                          </ul>
     </nav>
 

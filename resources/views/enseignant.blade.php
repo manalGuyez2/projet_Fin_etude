@@ -1,4 +1,7 @@
 @extends('layout')
+@section('activeEnsg')
+class="active"
+@endsection
 @section('navBar')
 <div class="mr-auto">
     <nav class="site-navigation position-relative text-right" role="navigation">
@@ -63,7 +66,7 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="images/teacher.jpg" alt="Image" class="img-fluid">
+        <img src="images/prof.gif" alt="Image" class="img-fluid">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form action="{{route('getLoginProf')}}" method="post">
@@ -98,7 +101,8 @@
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
+            <a href="{{route('forgot.password.get')}}" class="text-body">Mot de passe oublié?</a>
+           </div>
            
 
           <div class="text-center text-lg-start mt-4 pt-2">

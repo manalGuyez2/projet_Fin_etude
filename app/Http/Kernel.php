@@ -53,8 +53,8 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
-        
-        'ModuleCheckLogin'=> \App\Http\Middleware\moduleCheckLogin::class,
+        'adminAlreadyLogin'=> \App\Http\Middleware\AdminAlreadyLogin::class,
+        'adminCheckLogin'=> \App\Http\Middleware\AdminCheckLogin::class,
         'profAlreadyLogged'=> \App\Http\Middleware\ProfAlreadyLogged::class,
        'profIsLoggedIn' => \App\Http\Middleware\AuthCheckProf::class,
         'alreadyLogged'=> \App\Http\Middleware\AlreadyLogged::class,
