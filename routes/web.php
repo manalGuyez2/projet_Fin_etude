@@ -191,17 +191,7 @@ Route::get('/view/{id}', [CoursController::class, 'view']);
 Route::get('/viewTd/{id}', [TdController::class, 'viewTd']);
 Route::get('/viewExam/{id}', [ExamController::class, 'viewExam']);
 /***testcours**** */
-/*
-Route::get('test',  [CoursController::class, 'index']);
- 
-Route::get('test', [CoursController::class, 'getCours']);
- 
-Route::post('/save', [CoursController::class, 'save']);
- 
-Route::patch('/update/{id}', ['as' => 'Cours.update', 'uses' => 'CoursController@update']);
- 
-Route::delete('/delete/{id}', ['as' => 'Cours.delete', 'uses' => 'CoursController@delete']);
-*/
+
 
 /////---------------
 /*----------------------TD-----------------*/
@@ -226,11 +216,7 @@ Route::post('deleteExam', [ExamController::class, 'suppExam']);
 Route::get('edit-exam/{id}', [ExamController::class, 'edit']);
 Route::put('update-exam/{id}', [ExamController::class, 'update']);
 //------------------------------
-/*Route::post('/store', [CoursController::class, 'store'])->name('store');
-Route::get('/fetchall', [CoursController::class, 'fetchAll'])->name('fetchAll');
-Route::delete('/delete', [CoursController::class, 'delete'])->name('delete');
-Route::get('/edit', [CoursController::class, 'edit'])->name('edit');
-Route::post('/update', [CoursController::class, 'update'])->name('update');*/
+
 
 
 ///////---------------Cours---------
