@@ -10,7 +10,7 @@ define(function (require) {
     roamHelper.updateCenterAndZoom = function (
         view, payload, zoomLimit
     ) {
-        var previousZoom = view.getZoom();
+        var PrécédentZoom = view.getZoom();
         var center = view.getCenter();
         var zoom = payload.zoom;
 
@@ -28,9 +28,9 @@ define(function (require) {
                 var zoomMin = zoomLimit.min || 0;
                 var zoomMax = zoomLimit.max || Infinity;
                 zoom = Math.max(
-                    Math.min(previousZoom * zoom, zoomMax),
+                    Math.min(PrécédentZoom * zoom, zoomMax),
                     zoomMin
-                ) / previousZoom;
+                ) / PrécédentZoom;
             }
 
             // Zoom on given point(originX, originY)
@@ -47,7 +47,7 @@ define(function (require) {
             // Get the new center
             var center = view.pointToData(point);
             view.setCenter(center);
-            view.setZoom(zoom * previousZoom);
+            view.setZoom(zoom * PrécédentZoom);
         }
 
         return {

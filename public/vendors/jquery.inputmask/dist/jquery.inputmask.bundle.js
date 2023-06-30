@@ -459,9 +459,9 @@
             var latestMatch, maskTokens = getMaskSet().maskToken, testPos = ndxIntlzr ? tstPs : 0, ndxInitializer = ndxIntlzr || [ 0 ], matches = [], insertStop = !1, cacheDependency = ndxIntlzr ? ndxIntlzr.join("") : "";
             if (pos > -1) {
                 if (void 0 === ndxIntlzr) {
-                    for (var test, previousPos = pos - 1; void 0 === (test = getMaskSet().validPositions[previousPos] || getMaskSet().tests[previousPos]) && previousPos > -1; ) previousPos--;
-                    void 0 !== test && previousPos > -1 && (ndxInitializer = mergeLocators(test), cacheDependency = ndxInitializer.join(""), 
-                    testPos = previousPos);
+                    for (var test, PrécédentPos = pos - 1; void 0 === (test = getMaskSet().validPositions[PrécédentPos] || getMaskSet().tests[PrécédentPos]) && PrécédentPos > -1; ) PrécédentPos--;
+                    void 0 !== test && PrécédentPos > -1 && (ndxInitializer = mergeLocators(test), cacheDependency = ndxInitializer.join(""), 
+                    testPos = PrécédentPos);
                 }
                 if (getMaskSet().tests[pos] && getMaskSet().tests[pos][0].cd === cacheDependency) return getMaskSet().tests[pos];
                 for (var mtndx = ndxInitializer.shift(); mtndx < maskTokens.length; mtndx++) {
@@ -676,7 +676,7 @@
             for (var position = pos; ++position < maskL && (newBlock === !0 && (getTest(position).newBlockMarker !== !0 || !isMask(position)) || newBlock !== !0 && !isMask(position) && (opts.nojumps !== !0 || opts.nojumpsThreshold > position)); ) ;
             return position;
         }
-        function seekPrevious(pos, newBlock) {
+        function seekPrécédent(pos, newBlock) {
             var position = pos;
             if (0 >= position) return 0;
             for (;--position > 0 && (newBlock === !0 && getTest(position).newBlockMarker !== !0 || newBlock !== !0 && !isMask(position)); ) ;
@@ -812,7 +812,7 @@
         function isComplete(buffer) {
             if ($.isFunction(opts.isComplete)) return opts.isComplete(buffer, opts);
             if ("*" === opts.repeat) return void 0;
-            var complete = !1, lrp = determineLastRequiredPosition(!0), aml = seekPrevious(lrp.l);
+            var complete = !1, lrp = determineLastRequiredPosition(!0), aml = seekPrécédent(lrp.l);
             if (void 0 === lrp.def || lrp.def.newBlockMarker || lrp.def.optionality || lrp.def.optionalQuantifier) {
                 complete = !0;
                 for (var i = 0; aml >= i; i++) {
@@ -922,7 +922,7 @@
                 var pend = pos.end;
                 pos.end = pos.begin, pos.begin = pend;
             }
-            k === Inputmask.keyCode.BACKSPACE && (pos.end - pos.begin < 1 || opts.insertMode === !1) ? (pos.begin = seekPrevious(pos.begin), 
+            k === Inputmask.keyCode.BACKSPACE && (pos.end - pos.begin < 1 || opts.insertMode === !1) ? (pos.begin = seekPrécédent(pos.begin), 
             void 0 === getMaskSet().validPositions[pos.begin] || getMaskSet().validPositions[pos.begin].input !== opts.groupSeparator && getMaskSet().validPositions[pos.begin].input !== opts.radixPoint || pos.begin--) : k === Inputmask.keyCode.DELETE && pos.begin === pos.end && (pos.end = isMask(pos.end) ? pos.end + 1 : seekNext(pos.end) + 1, 
             void 0 === getMaskSet().validPositions[pos.begin] || getMaskSet().validPositions[pos.begin].input !== opts.groupSeparator && getMaskSet().validPositions[pos.begin].input !== opts.radixPoint || pos.end++), 
             stripValidPositions(pos.begin, pos.end, !1, strict), strict !== !0 && generalize();
@@ -941,7 +941,7 @@
             } else k === Inputmask.keyCode.HOME && !e.shiftKey || k === Inputmask.keyCode.PAGE_UP ? (e.preventDefault(), 
             caret(input, 0, e.shiftKey ? pos.begin : 0, !0)) : (opts.undoOnEscape && k === Inputmask.keyCode.ESCAPE || 90 === k && e.ctrlKey) && e.altKey !== !0 ? (checkVal(input, !0, !1, undoValue.split("")), 
             $input.trigger("click")) : k !== Inputmask.keyCode.INSERT || e.shiftKey || e.ctrlKey ? opts.tabThrough === !0 && k === Inputmask.keyCode.TAB ? (e.shiftKey === !0 ? (null === getTest(pos.begin).fn && (pos.begin = seekNext(pos.begin)), 
-            pos.end = seekPrevious(pos.begin, !0), pos.begin = seekPrevious(pos.end, !0)) : (pos.begin = seekNext(pos.begin, !0), 
+            pos.end = seekPrécédent(pos.begin, !0), pos.begin = seekPrécédent(pos.end, !0)) : (pos.begin = seekNext(pos.begin, !0), 
             pos.end = seekNext(pos.begin, !0), pos.end < getMaskLength() && pos.end--), pos.begin < getMaskLength() && (e.preventDefault(), 
             caret(input, pos.begin, pos.end))) : opts.insertMode !== !1 || e.shiftKey || (k === Inputmask.keyCode.RIGHT ? setTimeout(function() {
                 var caretPos = caret(input);
@@ -980,7 +980,7 @@
                         opts.onKeyValidation.call(self, k, valResult, opts);
                     }, 0), getMaskSet().writeOutBuffer && valResult !== !1) {
                         var buffer = getBuffer();
-                        writeBuffer(input, buffer, opts.numericInput && void 0 === valResult.caret ? seekPrevious(forwardPosition) : forwardPosition, e, checkval !== !0), 
+                        writeBuffer(input, buffer, opts.numericInput && void 0 === valResult.caret ? seekPrécédent(forwardPosition) : forwardPosition, e, checkval !== !0), 
                         checkval !== !0 && setTimeout(function() {
                             isComplete(buffer) === !0 && $input.trigger("complete");
                         }, 0);

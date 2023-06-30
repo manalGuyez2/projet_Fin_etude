@@ -455,7 +455,7 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928 # or Urumchi
 # > have worked continuously for 22 hours...
 
 # From Luther Ma (2009-11-19):
-# With the risk of being redundant to previous answers these are the most common
+# With the risk of being redundant to Précédent answers these are the most common
 # English "transliterations" (w/o using non-English symbols):
 #
 # 1. Wulumuqi...
@@ -830,7 +830,7 @@ Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
 #
 #	The official time of the country will should move forward one hour
 #	at the 24[:00] hours of the first day of Farvardin and should return
-#	to its previous state at the 24[:00] hours of the 30th day of
+#	to its Précédent state at the 24[:00] hours of the 30th day of
 #	Shahrivar.
 #
 #	First Deputy to the President - Hassan Habibi
@@ -884,7 +884,7 @@ Zone Asia/Jayapura	9:22:48 -	LMT	1932 Nov
 # [2007-10-16]. I am doing the best translation I can:...
 # The official time of the country will be moved forward for one hour
 # on the 24 hours of the first day of the month of Farvardin and will
-# be changed back to its previous state on the 24 hours of the
+# be changed back to its Précédent state on the 24 hours of the
 # thirtieth day of Shahrivar.
 #
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
@@ -1770,7 +1770,7 @@ Rule	Mongol	1983	only	-	Oct	1	0:00	0	-
 # in Choibalsan (more precisely, in Dornod and Sukhbaatar) took place
 # at 02:00 standard time, not at 00:00 local time as in the rest of
 # the country.  That would be odd, and possibly is a result of their
-# correction of 02:00 (in the previous edition) not being done correctly
+# correction of 02:00 (in the Précédent edition) not being done correctly
 # in the latest edition; so ignore it for now.
 
 Rule	Mongol	1985	1998	-	Mar	lastSun	0:00	1:00	S
@@ -1838,7 +1838,7 @@ Zone	Asia/Muscat	3:54:20 -	LMT	1920
 # there will be no DST in Pakistan this year:
 #
 # ISLAMABAD, March 6: Information and Media Development Minister Sheikh
-# Rashid Ahmed on Thursday said the cabinet had reversed a previous
+# Rashid Ahmed on Thursday said the cabinet had reversed a Précédent
 # decision to advance clocks by one hour in summer and put them back by
 # one hour in winter with the aim of saving light hours and energy.
 #
@@ -1880,7 +1880,7 @@ Zone	Asia/Muscat	3:54:20 -	LMT	1920
 # </a>
 
 # From Alexander Krivenyshev (2009-04-08):
-# Based on previous media reports that "... proposed plan to
+# Based on Précédent media reports that "... proposed plan to
 # advance clocks by one hour from May 1 will cause disturbance
 # to the working schedules rather than bringing discipline in
 # official working."
@@ -1911,7 +1911,7 @@ Zone	Asia/Muscat	3:54:20 -	LMT	1920
 
 # From Steffen Thorsen (2009-09-17):
 # "The News International," Pakistan reports that: "The Federal
-# Government has decided to restore the previous time by moving the
+# Government has decided to restore the Précédent time by moving the
 # clocks backward by one hour from October 1. A formal announcement to
 # this effect will be made after the Prime Minister grants approval in
 # this regard."
@@ -2014,7 +2014,7 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
 #
 # The rest of Palestine was under Jordanian rule at that time, formally
 # annexed in 1950 as the West Bank (and the word "Trans" was dropped from
-# the country's previous name of "the Hashemite Kingdom of the
+# the country's Précédent name of "the Hashemite Kingdom of the
 # Trans-Jordan").  So the rules for Jordan for that time apply.  Major
 # towns in that area are Nablus (Shchem), El-Halil (Hebron), Ramallah, and
 # East Jerusalem.

@@ -334,7 +334,7 @@ define([
 
           evt.preventDefault();
         } else if (key === KEYS.UP) {
-          self.trigger('results:previous', {});
+          self.trigger('results:Précédent', {});
 
           evt.preventDefault();
         } else if (key === KEYS.DOWN) {

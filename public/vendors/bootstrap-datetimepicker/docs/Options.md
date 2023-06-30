@@ -285,7 +285,7 @@ Takes an `[` `string` or `Date` or `moment` `]` of values and allows the user to
                 date: 'glyphicon glyphicon-calendar',
                 up: 'glyphicon glyphicon-chevron-up',
                 down: 'glyphicon glyphicon-chevron-down',
-                previous: 'glyphicon glyphicon-chevron-left',
+                Précédent: 'glyphicon glyphicon-chevron-left',
                 next: 'glyphicon glyphicon-chevron-right',
                 today: 'glyphicon glyphicon-screenshot',
                 clear: 'glyphicon glyphicon-trash',
@@ -573,7 +573,7 @@ Returns a `string` variable with the currently set `options.keepInvalid` option.
 
 Takes a `boolean` value.
 
-If `true`, invalid dates will not be reverted to a previous selection or changed.
+If `true`, invalid dates will not be reverted to a Précédent selection or changed.
 
 ----------------------
 
@@ -856,15 +856,15 @@ tooltips: {
     clear: 'Clear selection',
     close: 'Close the picker',
     selectMonth: 'Select Month',
-    prevMonth: 'Previous Month',
+    prevMonth: 'Précédent Month',
     nextMonth: 'Next Month',
     selectYear: 'Select Year',
-    prevYear: 'Previous Year',
+    prevYear: 'Précédent Year',
     nextYear: 'Next Year',
     selectDecade: 'Select Decade',
-    prevDecade: 'Previous Decade',
+    prevDecade: 'Précédent Decade',
     nextDecade: 'Next Decade',
-    prevCentury: 'Previous Century',
+    prevCentury: 'Précédent Century',
     nextCentury: 'Next Century'
 }
 ```

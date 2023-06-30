@@ -44,7 +44,7 @@ Parameters:
 ```
 e = {
     date, //date the picker changed to. Type: moment object (clone)
-    oldDate //previous date. Type: moment object (clone) or false in the event of a null
+    oldDate //Précédent date. Type: moment object (clone) or false in the event of a null
 }
 ```
 
@@ -68,7 +68,7 @@ Parameters:
 ```
 e = {
     date //the invalid date. Type: moment object (clone)
-    oldDate //previous date. Type: moment object (clone) or false in the event of a null
+    oldDate //Précédent date. Type: moment object (clone) or false in the event of a null
 }
 ```
 
@@ -85,7 +85,7 @@ Emmited from:
 
 <small>4.14.30</small>
 
-Fired (in most cases) when the `viewDate` changes. E.g. Next and Previous buttons, selecting a year.
+Fired (in most cases) when the `viewDate` changes. E.g. Next and Précédent buttons, selecting a year.
 
 Parameters:
 

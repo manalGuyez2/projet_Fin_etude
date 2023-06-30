@@ -25,7 +25,7 @@ function createOptions( options ) {
  *
  *	once:			will ensure the callback list can only be fired once (like a Deferred)
  *
- *	memory:			will keep track of previous values and will call any callback added
+ *	memory:			will keep track of Précédent values and will call any callback added
  *					after the list has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *

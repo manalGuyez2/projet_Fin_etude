@@ -119,19 +119,19 @@ jQuery.each( {
 		return sibling( elem, "nextSibling" );
 	},
 	prev: function( elem ) {
-		return sibling( elem, "previousSibling" );
+		return sibling( elem, "PrécédentSibling" );
 	},
 	nextAll: function( elem ) {
 		return dir( elem, "nextSibling" );
 	},
 	prevAll: function( elem ) {
-		return dir( elem, "previousSibling" );
+		return dir( elem, "PrécédentSibling" );
 	},
 	nextUntil: function( elem, i, until ) {
 		return dir( elem, "nextSibling", until );
 	},
 	prevUntil: function( elem, i, until ) {
-		return dir( elem, "previousSibling", until );
+		return dir( elem, "PrécédentSibling", until );
 	},
 	siblings: function( elem ) {
 		return siblings( ( elem.parentNode || {} ).firstChild, elem );

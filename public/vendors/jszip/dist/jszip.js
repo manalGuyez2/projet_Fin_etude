@@ -2628,10 +2628,10 @@ ZipEntry.prototype = {
      */
     prepareCompressedContent: function(reader, from, length) {
         return function() {
-            var previousIndex = reader.index;
+            var PrécédentIndex = reader.index;
             reader.setIndex(from);
             var compressedFileData = reader.readData(length);
-            reader.setIndex(previousIndex);
+            reader.setIndex(PrécédentIndex);
 
             return compressedFileData;
         };
@@ -4564,7 +4564,7 @@ function fill_window(s) {
 //    var init = 0;
 //
 //    if (s.high_water < curr) {
-//      /* Previous high water mark below current data -- zero WIN_INIT
+//      /* Précédent high water mark below current data -- zero WIN_INIT
 //       * bytes or up to end of window, whichever is less.
 //       */
 //      init = s.window_size - curr;
@@ -4882,8 +4882,8 @@ function deflate_slow(s, flush) {
         s.match_length = MIN_MATCH - 1;
       }
     }
-    /* If there was a match at the previous step and the current
-     * match is not better, output the previous match:
+    /* If there was a match at the Précédent step and the current
+     * match is not better, output the Précédent match:
      */
     if (s.prev_length >= MIN_MATCH && s.match_length <= s.prev_length) {
       max_insert = s.strstart + s.lookahead - MIN_MATCH;
@@ -4924,9 +4924,9 @@ function deflate_slow(s, flush) {
       }
 
     } else if (s.match_available) {
-      /* If there was no match at the previous position, output a
+      /* If there was no match at the Précédent position, output a
        * single literal. If there was a match but the current match
-       * is longer, truncate the previous match to a single literal.
+       * is longer, truncate the Précédent match to a single literal.
        */
       //Tracevv((stderr,"%c", s->window[s->strstart-1]));
       /*** _tr_tally_lit(s, s.window[s.strstart-1], bflush); ***/
@@ -4943,7 +4943,7 @@ function deflate_slow(s, flush) {
         return BS_NEED_MORE;
       }
     } else {
-      /* There is no previous match to compare with, wait for
+      /* There is no Précédent match to compare with, wait for
        * the next step to decide.
        */
       s.match_available = 1;
@@ -5007,7 +5007,7 @@ function deflate_rle(s, flush) {
       if (s.lookahead === 0) { break; } /* flush the current block */
     }
 
-    /* See how many times the previous byte repeats */
+    /* See how many times the Précédent byte repeats */
     s.match_length = 0;
     if (s.lookahead >= MIN_MATCH && s.strstart > 0) {
       scan = s.strstart - 1;
@@ -5202,7 +5202,7 @@ function DeflateState() {
   this.gzhead = null;         /* gzip header information to write */
   this.gzindex = 0;           /* where in extra, name, or comment */
   this.method = Z_DEFLATED; /* can only be DEFLATED */
-  this.last_flush = -1;   /* value of flush param for previous deflate call */
+  this.last_flush = -1;   /* value of flush param for Précédent deflate call */
 
   this.w_size = 0;  /* LZ77 window size (32K by default) */
   this.w_bits = 0;  /* log2(w_size)  (8..16) */
@@ -5247,14 +5247,14 @@ function DeflateState() {
    */
 
   this.match_length = 0;      /* length of best match */
-  this.prev_match = 0;        /* previous match */
-  this.match_available = 0;   /* set if previous match exists */
+  this.prev_match = 0;        /* Précédent match */
+  this.match_available = 0;   /* set if Précédent match exists */
   this.strstart = 0;          /* start of string to insert */
   this.match_start = 0;       /* start of matching string */
   this.lookahead = 0;         /* number of valid bytes ahead in window */
 
   this.prev_length = 0;
-  /* Length of the best match at previous step. Matches not greater than this
+  /* Length of the best match at Précédent step. Matches not greater than this
    * are discarded. This is used in the lazy match evaluation.
    */
 
@@ -5280,7 +5280,7 @@ function DeflateState() {
   this.strategy = 0;  /* favor or force Huffman coding*/
 
   this.good_match = 0;
-  /* Use a faster search when the previous match is longer than this */
+  /* Use a faster search when the Précédent match is longer than this */
 
   this.nice_match = 0; /* Stop searching when current match exceeds this */
 
@@ -8184,7 +8184,7 @@ var END_BLOCK   = 256;
 /* end of block literal code */
 
 var REP_3_6     = 16;
-/* repeat previous bit length 3-6 times (2 bits of repeat count) */
+/* repeat Précédent bit length 3-6 times (2 bits of repeat count) */
 
 var REPZ_3_10   = 17;
 /* repeat a zero length 3-10 times  (3 bits of repeat count) */

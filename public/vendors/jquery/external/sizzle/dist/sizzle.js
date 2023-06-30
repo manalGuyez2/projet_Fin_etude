@@ -1007,8 +1007,8 @@ Expr = Sizzle.selectors = {
 	relative: {
 		">": { dir: "parentNode", first: true },
 		" ": { dir: "parentNode" },
-		"+": { dir: "previousSibling", first: true },
-		"~": { dir: "previousSibling" }
+		"+": { dir: "PrécédentSibling", first: true },
+		"~": { dir: "PrécédentSibling" }
 	},
 
 	preFilter: {
@@ -1145,7 +1145,7 @@ Expr = Sizzle.selectors = {
 
 				function( elem, context, xml ) {
 					var cache, uniqueCache, outerCache, node, nodeIndex, start,
-						dir = simple !== forward ? "nextSibling" : "previousSibling",
+						dir = simple !== forward ? "nextSibling" : "PrécédentSibling",
 						parent = elem.parentNode,
 						name = ofType && elem.nodeName.toLowerCase(),
 						useCache = !xml && !ofType,
@@ -1176,7 +1176,7 @@ Expr = Sizzle.selectors = {
 						// non-xml :nth-child(...) stores cache data on `parent`
 						if ( forward && useCache ) {
 
-							// Seek `elem` from a previously-cached index
+							// Seek `elem` from a Précédently-cached index
 
 							// ...in a gzip-friendly way
 							node = parent;
@@ -1205,7 +1205,7 @@ Expr = Sizzle.selectors = {
 							}
 
 						} else {
-							// Use previously-cached element index if available
+							// Use Précédently-cached element index if available
 							if ( useCache ) {
 								// ...in a gzip-friendly way
 								node = elem;
@@ -1633,10 +1633,10 @@ function addCombinator( matcher, combinator, base ) {
 						if ( (oldCache = uniqueCache[ dir ]) &&
 							oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
 
-							// Assign to newCache so results back-propagate to previous elements
+							// Assign to newCache so results back-propagate to Précédent elements
 							return (newCache[ 2 ] = oldCache[ 2 ]);
 						} else {
-							// Reuse newcache so results back-propagate to previous elements
+							// Reuse newcache so results back-propagate to Précédent elements
 							uniqueCache[ dir ] = newCache;
 
 							// A match means we're done; a fail means we have to keep checking

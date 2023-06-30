@@ -222,7 +222,7 @@ define(function(require) {
                 }
             });
 
-            // Remove previous created symbols if showSymbol changed to false
+            // Remove Précédent created symbols if showSymbol changed to false
             if (!showSymbol) {
                 symbolDraw.remove();
             }
@@ -408,7 +408,7 @@ define(function(require) {
          */
         _newPolyline: function (points) {
             var polyline = this._polyline;
-            // Remove previous created polyline
+            // Remove Précédent created polyline
             if (polyline) {
                 this._lineGroup.remove(polyline);
             }
@@ -436,7 +436,7 @@ define(function(require) {
          */
         _newPolygon: function (points, stackedOnPoints) {
             var polygon = this._polygon;
-            // Remove previous created polygon
+            // Remove Précédent created polygon
             if (polygon) {
                 this._lineGroup.remove(polygon);
             }

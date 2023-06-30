@@ -89,25 +89,25 @@
       }
 
       var target;
-      var previous;
+      var Précédent;
       var listElement = $(this._element).closest(Selector.NAV_LIST_GROUP)[0];
       var selector = Util.getSelectorFromElement(this._element);
 
       if (listElement) {
         var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE;
-        previous = $.makeArray($(listElement).find(itemSelector));
-        previous = previous[previous.length - 1];
+        Précédent = $.makeArray($(listElement).find(itemSelector));
+        Précédent = Précédent[Précédent.length - 1];
       }
 
       var hideEvent = $.Event(Event.HIDE, {
         relatedTarget: this._element
       });
       var showEvent = $.Event(Event.SHOW, {
-        relatedTarget: previous
+        relatedTarget: Précédent
       });
 
-      if (previous) {
-        $(previous).trigger(hideEvent);
+      if (Précédent) {
+        $(Précédent).trigger(hideEvent);
       }
 
       $(this._element).trigger(showEvent);
@@ -127,9 +127,9 @@
           relatedTarget: _this._element
         });
         var shownEvent = $.Event(Event.SHOWN, {
-          relatedTarget: previous
+          relatedTarget: Précédent
         });
-        $(previous).trigger(hiddenEvent);
+        $(Précédent).trigger(hiddenEvent);
         $(_this._element).trigger(shownEvent);
       };
 

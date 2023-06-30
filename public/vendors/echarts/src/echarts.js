@@ -759,9 +759,9 @@ define(function (require) {
             var stack = series.get('stack');
             var data = series.getData();
             if (stack && data.type === 'list') {
-                var previousStack = stackedDataMap[stack];
-                if (previousStack) {
-                    data.stackedOn = previousStack;
+                var PrécédentStack = stackedDataMap[stack];
+                if (PrécédentStack) {
+                    data.stackedOn = PrécédentStack;
                 }
                 stackedDataMap[stack] = data;
             }

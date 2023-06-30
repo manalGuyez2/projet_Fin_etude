@@ -1582,7 +1582,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return this._handleWhitespace(value);
     },
 
-    // Actualize options that could have change since previous validation
+    // Actualize options that could have change since Précédent validation
     // Re-bind accordingly constraints (could be some new, removed or updated)
     refreshConstraints: function refreshConstraints() {
       return this.actualizeOptions()._bindConstraints();
@@ -1905,9 +1905,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       }
 
       // Check here if we don't already have a related multiple instance saved
-      var $previouslyRelated = this._findRelated();
-      for (var i = 0; i < $previouslyRelated.length; i++) {
-        parsleyMultipleInstance = $($previouslyRelated.get(i)).data('Parsley');
+      var $PrécédentlyRelated = this._findRelated();
+      for (var i = 0; i < $PrécédentlyRelated.length; i++) {
+        parsleyMultipleInstance = $($PrécédentlyRelated.get(i)).data('Parsley');
         if ('undefined' !== typeof parsleyMultipleInstance) {
 
           if (!this.$element.data('ParsleyFieldMultiple')) {
@@ -2009,7 +2009,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   // ### ParsleyField and ParsleyForm extension
-  // Ensure the extension is now defined if it wasn't previously
+  // Ensure the extension is now defined if it wasn't Précédently
   if ('undefined' === typeof window.ParsleyExtend) window.ParsleyExtend = {};
 
   // ### Parsley config

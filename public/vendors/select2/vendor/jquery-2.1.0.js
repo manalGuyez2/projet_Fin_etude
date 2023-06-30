@@ -1513,8 +1513,8 @@
                 relative: {
                     ">": { dir: "parentNode", first: true },
                     " ": { dir: "parentNode" },
-                    "+": { dir: "previousSibling", first: true },
-                    "~": { dir: "previousSibling" }
+                    "+": { dir: "PrécédentSibling", first: true },
+                    "~": { dir: "PrécédentSibling" }
                 },
 
                 preFilter: {
@@ -1651,7 +1651,7 @@
 
                             function( elem, context, xml ) {
                                 var cache, outerCache, node, diff, nodeIndex, start,
-                                    dir = simple !== forward ? "nextSibling" : "previousSibling",
+                                    dir = simple !== forward ? "nextSibling" : "PrécédentSibling",
                                     parent = elem.parentNode,
                                     name = ofType && elem.nodeName.toLowerCase(),
                                     useCache = !xml && !ofType;
@@ -1677,7 +1677,7 @@
 
                                     // non-xml :nth-child(...) stores cache data on `parent`
                                     if ( forward && useCache ) {
-                                        // Seek `elem` from a previously-cached index
+                                        // Seek `elem` from a Précédently-cached index
                                         outerCache = parent[ expando ] || (parent[ expando ] = {});
                                         cache = outerCache[ type ] || [];
                                         nodeIndex = cache[0] === dirruns && cache[1];
@@ -1696,7 +1696,7 @@
                                             }
                                         }
 
-                                        // Use previously-cached element index if available
+                                        // Use Précédently-cached element index if available
                                     } else if ( useCache && (cache = (elem[ expando ] || (elem[ expando ] = {}))[ type ]) && cache[0] === dirruns ) {
                                         diff = cache[1];
 
@@ -2091,10 +2091,10 @@
                                     if ( (oldCache = outerCache[ dir ]) &&
                                         oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
 
-                                        // Assign to newCache so results back-propagate to previous elements
+                                        // Assign to newCache so results back-propagate to Précédent elements
                                         return (newCache[ 2 ] = oldCache[ 2 ]);
                                     } else {
-                                        // Reuse newcache so results back-propagate to previous elements
+                                        // Reuse newcache so results back-propagate to Précédent elements
                                         outerCache[ dir ] = newCache;
 
                                         // A match means we're done; a fail means we have to keep checking
@@ -2923,19 +2923,19 @@
             return sibling( elem, "nextSibling" );
         },
         prev: function( elem ) {
-            return sibling( elem, "previousSibling" );
+            return sibling( elem, "PrécédentSibling" );
         },
         nextAll: function( elem ) {
             return jQuery.dir( elem, "nextSibling" );
         },
         prevAll: function( elem ) {
-            return jQuery.dir( elem, "previousSibling" );
+            return jQuery.dir( elem, "PrécédentSibling" );
         },
         nextUntil: function( elem, i, until ) {
             return jQuery.dir( elem, "nextSibling", until );
         },
         prevUntil: function( elem, i, until ) {
-            return jQuery.dir( elem, "previousSibling", until );
+            return jQuery.dir( elem, "PrécédentSibling", until );
         },
         siblings: function( elem ) {
             return jQuery.sibling( ( elem.parentNode || {} ).firstChild, elem );
@@ -3002,7 +3002,7 @@
      *
      *	once:			will ensure the callback list can only be fired once (like a Deferred)
      *
-     *	memory:			will keep track of previous values and will call any callback added
+     *	memory:			will keep track of Précédent values and will call any callback added
      *					after the list has been fired right away with the latest "memorized"
      *					values (like a Deferred)
      *
@@ -6211,7 +6211,7 @@
                     start = +target || 1;
 
                     do {
-                        // If previous iteration zeroed out, double until we get *something*
+                        // If Précédent iteration zeroed out, double until we get *something*
                         // Use a string for doubling factor so we don't accidentally see scale as unchanged below
                         scale = scale || ".5";
 
@@ -7206,7 +7206,7 @@
 
                     // If the element has a class name or if we're passed "false",
                     // then remove the whole classname (if there was one, the above saved it).
-                    // Otherwise bring back whatever was previously saved (if anything),
+                    // Otherwise bring back whatever was Précédently saved (if anything),
                     // falling back to the empty string if nothing was stored.
                     this.className = this.className || value === false ? "" : data_priv.get( this, "__className__" ) || "";
                 }

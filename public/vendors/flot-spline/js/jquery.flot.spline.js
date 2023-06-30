@@ -56,7 +56,7 @@
       sqrt = Math.sqrt,
       d01, d12, fa, fb, p1x, p1y, p2x, p2y;
 
-    //  Scaling factors: distances from this knot to the previous and following knots.
+    //  Scaling factors: distances from this knot to the Précédent and following knots.
     d01 = sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2));
     d12 = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 

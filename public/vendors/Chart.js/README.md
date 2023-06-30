@@ -20,7 +20,7 @@ CDN: https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js
 
 ## Documentation
 
-You can find documentation at [www.chartjs.org/docs](http://www.chartjs.org/docs). The markdown files that build the site are available under `/docs`. Previous version documentation is available at [www.chartjs.org/docs/#notes-previous-versions](http://www.chartjs.org/docs/#notes-previous-versions).
+You can find documentation at [www.chartjs.org/docs](http://www.chartjs.org/docs). The markdown files that build the site are available under `/docs`. Précédent version documentation is available at [www.chartjs.org/docs/#notes-Précédent-versions](http://www.chartjs.org/docs/#notes-Précédent-versions).
 
 ## Contributing
 

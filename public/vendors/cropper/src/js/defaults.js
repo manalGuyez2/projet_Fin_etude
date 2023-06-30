@@ -9,7 +9,7 @@
     // Define the aspect ratio of the crop box
     aspectRatio: NaN,
 
-    // An object with the previous cropping result data
+    // An object with the Précédent cropping result data
     data: null,
 
     // A jQuery selector for adding extra containers to preview

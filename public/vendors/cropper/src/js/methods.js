@@ -84,7 +84,7 @@
             this.isReplaced = true;
           }
 
-          // Clear previous data
+          // Clear Précédent data
           this.options.data = null;
           this.load(url);
         }

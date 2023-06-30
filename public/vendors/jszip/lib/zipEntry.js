@@ -45,10 +45,10 @@ ZipEntry.prototype = {
      */
     prepareCompressedContent: function(reader, from, length) {
         return function() {
-            var previousIndex = reader.index;
+            var PrécédentIndex = reader.index;
             reader.setIndex(from);
             var compressedFileData = reader.readData(length);
-            reader.setIndex(previousIndex);
+            reader.setIndex(PrécédentIndex);
 
             return compressedFileData;
         };

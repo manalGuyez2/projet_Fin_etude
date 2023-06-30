@@ -130,7 +130,7 @@ Use contextual classes to style list items with a stateful background and color.
 {% endcapture %}
 {% include example.html content=example %}
 
-Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in the previous example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual list group item.
+Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in the Précédent example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual list group item.
 
 {% capture example %}
 <div class="list-group">
@@ -341,7 +341,7 @@ Activates a list item element and content container. Tab should have either a `d
 
 #### .tab('show')
 
-Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.bs.tab` event occurs).
+Selects the given list item and shows its associated pane. Any other list item that was Précédently selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.bs.tab` event occurs).
 
 {% highlight js %}
 $('#someListItem').tab('show')
@@ -353,7 +353,7 @@ When showing a new tab, the events fire in the following order:
 
 1. `hide.bs.tab` (on the current active tab)
 2. `show.bs.tab` (on the to-be-shown tab)
-3. `hidden.bs.tab` (on the previous active tab, the same one as for the `hide.bs.tab` event)
+3. `hidden.bs.tab` (on the Précédent active tab, the same one as for the `hide.bs.tab` event)
 4. `shown.bs.tab` (on the newly-active just-shown tab, the same one as for the `show.bs.tab` event)
 
 If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will not be fired.
@@ -368,19 +368,19 @@ If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will 
   <tbody>
     <tr>
       <td>show.bs.tab</td>
-      <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+      <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the Précédent active tab (if available) respectively.</td>
     </tr>
     <tr>
       <td>shown.bs.tab</td>
-      <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
+      <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the Précédent active tab (if available) respectively.</td>
     </tr>
     <tr>
       <td>hide.bs.tab</td>
-      <td>This event fires when a new tab is to be shown (and thus the previous active tab is to be hidden). Use <code>event.target</code> and <code>event.relatedTarget</code> to target the current active tab and the new soon-to-be-active tab, respectively.</td>
+      <td>This event fires when a new tab is to be shown (and thus the Précédent active tab is to be hidden). Use <code>event.target</code> and <code>event.relatedTarget</code> to target the current active tab and the new soon-to-be-active tab, respectively.</td>
     </tr>
     <tr>
       <td>hidden.bs.tab</td>
-      <td>This event fires after a new tab is shown (and thus the previous active tab is hidden). Use <code>event.target</code> and <code>event.relatedTarget</code> to target the previous active tab and the new active tab, respectively.</td>
+      <td>This event fires after a new tab is shown (and thus the Précédent active tab is hidden). Use <code>event.target</code> and <code>event.relatedTarget</code> to target the Précédent active tab and the new active tab, respectively.</td>
     </tr>
   </tbody>
 </table>
@@ -388,6 +388,6 @@ If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will 
 {% highlight js %}
 $('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
   e.target // newly activated tab
-  e.relatedTarget // previous active tab
+  e.relatedTarget // Précédent active tab
 })
 {% endhighlight %}

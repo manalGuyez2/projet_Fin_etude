@@ -935,7 +935,7 @@ describe("flot touch navigate plugin", function () {
               initialXmax = xaxis.max,
               initialYmin = yaxis.min,
               initialYmax = yaxis.max,
-              previousXmin, previousXmax, previousYmin, previousYmax,
+              PrécédentXmin, PrécédentXmax, PrécédentYmin, PrécédentYmax,
               initialCoords = [
                   getPairOfCoords(xaxis, yaxis, 1, 3),
                   getPairOfCoords(xaxis, yaxis, 2, 4),
@@ -956,24 +956,24 @@ describe("flot touch navigate plugin", function () {
           simulateTouchEvent(midPointCoords, eventHolder, 'touchmove');
           simulateTouchEvent(finalCoordsPinch, eventHolder, 'touchend');
 
-          previousXmin = xaxis.min;
-          previousXmax = xaxis.max;
-          previousYmin = yaxis.min;
-          previousYmax = yaxis.max;
+          PrécédentXmin = xaxis.min;
+          PrécédentXmax = xaxis.max;
+          PrécédentYmin = yaxis.min;
+          PrécédentYmax = yaxis.max;
 
-          expect(previousXmin).not.toBeCloseTo(initialXmin, 6);
-          expect(previousXmax).not.toBeCloseTo(initialXmax, 6);
-          expect(previousYmin).not.toBeCloseTo(initialYmin, 6);
-          expect(previousYmax).not.toBeCloseTo(initialYmax, 6);
+          expect(PrécédentXmin).not.toBeCloseTo(initialXmin, 6);
+          expect(PrécédentXmax).not.toBeCloseTo(initialXmax, 6);
+          expect(PrécédentYmin).not.toBeCloseTo(initialYmin, 6);
+          expect(PrécédentYmax).not.toBeCloseTo(initialYmax, 6);
 
           //simulate pan after pinch event
           simulateTouchEvent(finalCoordsPan, eventHolder, 'touchmove');
           simulateTouchEvent(finalCoordsPan, eventHolder, 'touchend');
 
-          expect(xaxis.min).toBeCloseTo(xaxis.c2p(xaxis.p2c(previousXmin) + (finalCoordsPinch[0].x - finalCoordsPan[0].x)), 6);
-          expect(xaxis.max).toBeCloseTo(xaxis.c2p(xaxis.p2c(previousXmax) + (finalCoordsPinch[0].x - finalCoordsPan[0].x)), 6);
-          expect(yaxis.min).toBe(previousYmin);
-          expect(yaxis.max).toBe(previousYmax);
+          expect(xaxis.min).toBeCloseTo(xaxis.c2p(xaxis.p2c(PrécédentXmin) + (finalCoordsPinch[0].x - finalCoordsPan[0].x)), 6);
+          expect(xaxis.max).toBeCloseTo(xaxis.c2p(xaxis.p2c(PrécédentXmax) + (finalCoordsPinch[0].x - finalCoordsPan[0].x)), 6);
+          expect(yaxis.min).toBe(PrécédentYmin);
+          expect(yaxis.max).toBe(PrécédentYmax);
         });
 
         it('can disable pinch', function() {

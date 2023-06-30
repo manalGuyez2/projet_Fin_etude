@@ -111,7 +111,7 @@ define(function (require) {
                 case '=':
                     var currentPt = oldData.getItemLayout(diffItem.idx);
                     var nextPt = newData.getItemLayout(diffItem.idx1);
-                    // If previous data is NaN, use next point directly
+                    // If Précédent data is NaN, use next point directly
                     if (isNaN(currentPt[0]) || isNaN(currentPt[1])) {
                         currentPt = nextPt.slice();
                     }

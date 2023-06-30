@@ -69,7 +69,7 @@ var data = {
 };
 ```
 The bar chart has the a very similar data structure to the line chart, and has an array of datasets, each with colours and an array of data.
-We have an array of labels too for display. In the example, we are showing the same data as the previous line chart example.
+We have an array of labels too for display. In the example, we are showing the same data as the Précédent line chart example.
 
 ### Chart Options
 

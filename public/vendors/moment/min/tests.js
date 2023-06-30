@@ -51004,7 +51004,7 @@
         assert.equal(moment([2016,0,3]).add(-1.5, 'months').month(), 10, 'adding -1.5 months at start of year wraps back');
         assert.equal(moment([2016,3,3]).subtract(1.5, 'days').date(),1, 'subtract 1.5 days is rounded to subtract 2 day');
         assert.equal(moment([2016,3,2]).subtract(1.5, 'days').date(), 31, 'subtract 1.5 days subtracts 2 days');
-        assert.equal(moment([2016,1,1]).subtract(1.1, 'days').date(), 31, 'subtract 1.1 days wraps to previous month');
+        assert.equal(moment([2016,1,1]).subtract(1.1, 'days').date(), 31, 'subtract 1.1 days wraps to Précédent month');
         assert.equal(moment([2016,3,3]).subtract(-1.5, 'days').date(), 5, 'subtract -1.5 days is rounded to subtract -2 day');
         assert.equal(moment([2016,3,30]).subtract(-1.5, 'days').date(), 2, 'subtract -1.5 days on last of month wraps around');
         assert.equal(moment([2016,3,3]).subtract(1.5, 'months').month(), 1, 'subtract 1.5 months subtract 2 months');
@@ -52457,14 +52457,14 @@
         ver('12', 'gg', '2012 01 01', 'week-year two digits');
         ver('2012', 'gggg', '2012 01 01', 'week-year four digits');
 
-        ver('99', 'gg', '1998 12 27', 'week-year two digits previous year');
-        ver('1999', 'gggg', '1998 12 27', 'week-year four digits previous year');
+        ver('99', 'gg', '1998 12 27', 'week-year two digits Précédent year');
+        ver('1999', 'gggg', '1998 12 27', 'week-year four digits Précédent year');
 
         ver('99', 'GG', '1999 01 04', 'iso week-year two digits');
         ver('1999', 'GGGG', '1999 01 04', 'iso week-year four digits');
 
-        ver('13', 'GG', '2012 12 31', 'iso week-year two digits previous year');
-        ver('2013', 'GGGG', '2012 12 31', 'iso week-year four digits previous year');
+        ver('13', 'GG', '2012 12 31', 'iso week-year two digits Précédent year');
+        ver('2013', 'GGGG', '2012 12 31', 'iso week-year four digits Précédent year');
 
         // year + week
         ver('1999 37', 'gggg w', '1999 09 05', 'week');
@@ -58073,7 +58073,7 @@
         assert.equal(m.isAfter(moment(new Date(2011, 0, 1, 0, 0, 0, 0)), 'year'), false, 'exact start of year');
         assert.equal(m.isAfter(moment(new Date(2011, 11, 31, 23, 59, 59, 999)), 'year'), false, 'exact end of year');
         assert.equal(m.isAfter(moment(new Date(2012, 0, 1, 0, 0, 0, 0)), 'year'), false, 'start of next year');
-        assert.equal(m.isAfter(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), true, 'end of previous year');
+        assert.equal(m.isAfter(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), true, 'end of Précédent year');
         assert.equal(m.isAfter(moment(new Date(1980, 11, 31, 23, 59, 59, 999)), 'year'), true, 'end of year far before');
         assert.equal(m.isAfter(m, 'year'), false, 'same moments are not after the same year');
         assert.equal(+m, +mCopy, 'isAfter year should not change moment');
@@ -58090,7 +58090,7 @@
         assert.equal(m.isAfter(moment(new Date(2011, 2, 1, 0, 0, 0, 0)), 'month'), false, 'exact start of month');
         assert.equal(m.isAfter(moment(new Date(2011, 2, 31, 23, 59, 59, 999)), 'month'), false, 'exact end of month');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 1, 0, 0, 0, 0)), 'month'), false, 'start of next month');
-        assert.equal(m.isAfter(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), true, 'end of previous month');
+        assert.equal(m.isAfter(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), true, 'end of Précédent month');
         assert.equal(m.isAfter(moment(new Date(2010, 12, 31, 23, 59, 59, 999)), 'month'), true, 'later month but earlier year');
         assert.equal(m.isAfter(m, 'month'), false, 'same moments are not after the same month');
         assert.equal(+m, +mCopy, 'isAfter month should not change moment');
@@ -58109,7 +58109,7 @@
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 0, 0, 0, 0)), 'day'), false, 'exact start of day');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 23, 59, 59, 999)), 'day'), false, 'exact end of day');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 3, 0, 0, 0, 0)), 'day'), false, 'start of next day');
-        assert.equal(m.isAfter(moment(new Date(2011, 3, 1, 23, 59, 59, 999)), 'day'), true, 'end of previous day');
+        assert.equal(m.isAfter(moment(new Date(2011, 3, 1, 23, 59, 59, 999)), 'day'), true, 'end of Précédent day');
         assert.equal(m.isAfter(moment(new Date(2010, 3, 10, 0, 0, 0, 0)), 'day'), true, 'later day but earlier year');
         assert.equal(m.isAfter(m, 'day'), false, 'same moments are not after the same day');
         assert.equal(+m, +mCopy, 'isAfter day should not change moment');
@@ -58130,7 +58130,7 @@
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 0, 0, 0)), 'hour'), false, 'exact start of hour');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 59, 59, 999)), 'hour'), false, 'exact end of hour');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 4, 0, 0, 0)), 'hour'), false, 'start of next hour');
-        assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 2, 59, 59, 999)), 'hour'), true, 'end of previous hour');
+        assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 2, 59, 59, 999)), 'hour'), true, 'end of Précédent hour');
         assert.equal(m.isAfter(m, 'hour'), false, 'same moments are not after the same hour');
         assert.equal(+m, +mCopy, 'isAfter hour should not change moment');
     });
@@ -58152,7 +58152,7 @@
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 0, 0)), 'minute'), false, 'exact start of minute');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 59, 999)), 'minute'), false, 'exact end of minute');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 5, 0, 0)), 'minute'), false, 'start of next minute');
-        assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 3, 59, 999)), 'minute'), true, 'end of previous minute');
+        assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 3, 59, 999)), 'minute'), true, 'end of Précédent minute');
         assert.equal(m.isAfter(m, 'minute'), false, 'same moments are not after the same minute');
         assert.equal(+m, +mCopy, 'isAfter minute should not change moment');
     });
@@ -58176,7 +58176,7 @@
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 5, 0)), 'second'), false, 'exact start of second');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 5, 999)), 'second'), false, 'exact end of second');
         assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 6, 0)), 'second'), false, 'start of next second');
-        assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 4, 999)), 'second'), true, 'end of previous second');
+        assert.equal(m.isAfter(moment(new Date(2011, 3, 2, 3, 4, 4, 999)), 'second'), true, 'end of Précédent second');
         assert.equal(m.isAfter(m, 'second'), false, 'same moments are not after the same second');
         assert.equal(+m, +mCopy, 'isAfter second should not change moment');
     });
@@ -58822,7 +58822,7 @@
         assert.equal(m.isBefore(moment(new Date(2011, 0, 1, 0, 0, 0, 0)), 'year'), false, 'exact start of year');
         assert.equal(m.isBefore(moment(new Date(2011, 11, 31, 23, 59, 59, 999)), 'year'), false, 'exact end of year');
         assert.equal(m.isBefore(moment(new Date(2012, 0, 1, 0, 0, 0, 0)), 'year'), true, 'start of next year');
-        assert.equal(m.isBefore(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of previous year');
+        assert.equal(m.isBefore(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of Précédent year');
         assert.equal(m.isBefore(moment(new Date(1980, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of year far before');
         assert.equal(m.isBefore(m, 'year'), false, 'same moments are not before the same year');
         assert.equal(+m, +mCopy, 'isBefore year should not change moment');
@@ -58839,7 +58839,7 @@
         assert.equal(m.isBefore(moment(new Date(2011, 2, 1, 0, 0, 0, 0)), 'month'), false, 'exact start of month');
         assert.equal(m.isBefore(moment(new Date(2011, 2, 31, 23, 59, 59, 999)), 'month'), false, 'exact end of month');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 1, 0, 0, 0, 0)), 'month'), true, 'start of next month');
-        assert.equal(m.isBefore(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), false, 'end of previous month');
+        assert.equal(m.isBefore(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), false, 'end of Précédent month');
         assert.equal(m.isBefore(moment(new Date(2010, 12, 31, 23, 59, 59, 999)), 'month'), false, 'later month but earlier year');
         assert.equal(m.isBefore(m, 'month'), false, 'same moments are not before the same month');
         assert.equal(+m, +mCopy, 'isBefore month should not change moment');
@@ -58858,7 +58858,7 @@
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 0, 0, 0, 0)), 'day'), false, 'exact start of day');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 23, 59, 59, 999)), 'day'), false, 'exact end of day');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 3, 0, 0, 0, 0)), 'day'), true, 'start of next day');
-        assert.equal(m.isBefore(moment(new Date(2011, 3, 1, 23, 59, 59, 999)), 'day'), false, 'end of previous day');
+        assert.equal(m.isBefore(moment(new Date(2011, 3, 1, 23, 59, 59, 999)), 'day'), false, 'end of Précédent day');
         assert.equal(m.isBefore(moment(new Date(2010, 3, 10, 0, 0, 0, 0)), 'day'), false, 'later day but earlier year');
         assert.equal(m.isBefore(m, 'day'), false, 'same moments are not before the same day');
         assert.equal(+m, +mCopy, 'isBefore day should not change moment');
@@ -58879,7 +58879,7 @@
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 0, 0, 0)), 'hour'), false, 'exact start of hour');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 59, 59, 999)), 'hour'), false, 'exact end of hour');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 4, 0, 0, 0)), 'hour'), true, 'start of next hour');
-        assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 2, 59, 59, 999)), 'hour'), false, 'end of previous hour');
+        assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 2, 59, 59, 999)), 'hour'), false, 'end of Précédent hour');
         assert.equal(m.isBefore(m, 'hour'), false, 'same moments are not before the same hour');
         assert.equal(+m, +mCopy, 'isBefore hour should not change moment');
     });
@@ -58901,7 +58901,7 @@
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 0, 0)), 'minute'), false, 'exact start of minute');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 59, 999)), 'minute'), false, 'exact end of minute');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 5, 0, 0)), 'minute'), true, 'start of next minute');
-        assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 3, 59, 999)), 'minute'), false, 'end of previous minute');
+        assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 3, 59, 999)), 'minute'), false, 'end of Précédent minute');
         assert.equal(m.isBefore(m, 'minute'), false, 'same moments are not before the same minute');
         assert.equal(+m, +mCopy, 'isBefore minute should not change moment');
     });
@@ -58925,7 +58925,7 @@
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 5, 0)), 'second'), false, 'exact start of second');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 5, 999)), 'second'), false, 'exact end of second');
         assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 6, 0)), 'second'), true, 'start of next second');
-        assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 4, 999)), 'second'), false, 'end of previous second');
+        assert.equal(m.isBefore(moment(new Date(2011, 3, 2, 3, 4, 4, 999)), 'second'), false, 'end of Précédent second');
         assert.equal(m.isBefore(m, 'second'), false, 'same moments are not before the same second');
         assert.equal(+m, +mCopy, 'isBefore second should not change moment');
     });
@@ -60522,7 +60522,7 @@
         assert.equal(m.isSame(moment(new Date(2011, 0, 1, 0, 0, 0, 0)), 'year'), true, 'exact start of year');
         assert.equal(m.isSame(moment(new Date(2011, 11, 31, 23, 59, 59, 999)), 'year'), true, 'exact end of year');
         assert.equal(m.isSame(moment(new Date(2012, 0, 1, 0, 0, 0, 0)), 'year'), false, 'start of next year');
-        assert.equal(m.isSame(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of previous year');
+        assert.equal(m.isSame(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of Précédent year');
         assert.equal(m.isSame(m, 'year'), true, 'same moments are in the same year');
         assert.equal(+m, +mCopy, 'isSame year should not change moment');
     });
@@ -60536,7 +60536,7 @@
         assert.equal(m.isSame(moment(new Date(2011, 2, 1, 0, 0, 0, 0)), 'month'), true, 'exact start of month');
         assert.equal(m.isSame(moment(new Date(2011, 2, 31, 23, 59, 59, 999)), 'month'), true, 'exact end of month');
         assert.equal(m.isSame(moment(new Date(2011, 3, 1, 0, 0, 0, 0)), 'month'), false, 'start of next month');
-        assert.equal(m.isSame(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), false, 'end of previous month');
+        assert.equal(m.isSame(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), false, 'end of Précédent month');
         assert.equal(m.isSame(m, 'month'), true, 'same moments are in the same month');
         assert.equal(+m, +mCopy, 'isSame month should not change moment');
     });
@@ -60551,7 +60551,7 @@
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 0, 0, 0, 0)), 'day'), true, 'exact start of day');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 23, 59, 59, 999)), 'day'), true, 'exact end of day');
         assert.equal(m.isSame(moment(new Date(2011, 1, 3, 0, 0, 0, 0)), 'day'), false, 'start of next day');
-        assert.equal(m.isSame(moment(new Date(2011, 1, 1, 23, 59, 59, 999)), 'day'), false, 'end of previous day');
+        assert.equal(m.isSame(moment(new Date(2011, 1, 1, 23, 59, 59, 999)), 'day'), false, 'end of Précédent day');
         assert.equal(m.isSame(m, 'day'), true, 'same moments are in the same day');
         assert.equal(+m, +mCopy, 'isSame day should not change moment');
     });
@@ -60567,7 +60567,7 @@
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 0, 0, 0)), 'hour'), true, 'exact start of hour');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 59, 59, 999)), 'hour'), true, 'exact end of hour');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 4, 0, 0, 0)), 'hour'), false, 'start of next hour');
-        assert.equal(m.isSame(moment(new Date(2011, 1, 2, 2, 59, 59, 999)), 'hour'), false, 'end of previous hour');
+        assert.equal(m.isSame(moment(new Date(2011, 1, 2, 2, 59, 59, 999)), 'hour'), false, 'end of Précédent hour');
         assert.equal(m.isSame(m, 'hour'), true, 'same moments are in the same hour');
         assert.equal(+m, +mCopy, 'isSame hour should not change moment');
     });
@@ -60584,7 +60584,7 @@
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 0, 0)), 'minute'), true, 'exact start of minute');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 59, 999)), 'minute'), true, 'exact end of minute');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 5, 0, 0)), 'minute'), false, 'start of next minute');
-        assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 3, 59, 999)), 'minute'), false, 'end of previous minute');
+        assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 3, 59, 999)), 'minute'), false, 'end of Précédent minute');
         assert.equal(m.isSame(m, 'minute'), true, 'same moments are in the same minute');
         assert.equal(+m, +mCopy, 'isSame minute should not change moment');
     });
@@ -60602,7 +60602,7 @@
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 5, 0)), 'second'), true, 'exact start of second');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 5, 999)), 'second'), true, 'exact end of second');
         assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 6, 0)), 'second'), false, 'start of next second');
-        assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 4, 999)), 'second'), false, 'end of previous second');
+        assert.equal(m.isSame(moment(new Date(2011, 1, 2, 3, 4, 4, 999)), 'second'), false, 'end of Précédent second');
         assert.equal(m.isSame(m, 'second'), true, 'same moments are in the same second');
         assert.equal(+m, +mCopy, 'isSame second should not change moment');
     });
@@ -60949,7 +60949,7 @@
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 0, 1, 0, 0, 0, 0)), 'year'), true, 'exact start of year');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 11, 31, 23, 59, 59, 999)), 'year'), true, 'exact end of year');
         assert.equal(m.isSameOrAfter(moment(new Date(2012, 0, 1, 0, 0, 0, 0)), 'year'), false, 'start of next year');
-        assert.equal(m.isSameOrAfter(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), true, 'end of previous year');
+        assert.equal(m.isSameOrAfter(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), true, 'end of Précédent year');
         assert.equal(m.isSameOrAfter(m, 'year'), true, 'same moments are in the same year');
         assert.equal(+m, +mCopy, 'isSameOrAfter year should not change moment');
     });
@@ -60965,7 +60965,7 @@
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 2, 1, 0, 0, 0, 0)), 'month'), true, 'exact start of month');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 2, 31, 23, 59, 59, 999)), 'month'), true, 'exact end of month');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 3, 1, 0, 0, 0, 0)), 'month'), false, 'start of next month');
-        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), true, 'end of previous month');
+        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), true, 'end of Précédent month');
         assert.equal(m.isSameOrAfter(m, 'month'), true, 'same moments are in the same month');
         assert.equal(+m, +mCopy, 'isSameOrAfter month should not change moment');
     });
@@ -60983,7 +60983,7 @@
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 0, 0, 0, 0)), 'day'), true, 'exact start of day');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 23, 59, 59, 999)), 'day'), true, 'exact end of day');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 3, 0, 0, 0, 0)), 'day'), false, 'start of next day');
-        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 1, 23, 59, 59, 999)), 'day'), true, 'end of previous day');
+        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 1, 23, 59, 59, 999)), 'day'), true, 'end of Précédent day');
         assert.equal(m.isSameOrAfter(m, 'day'), true, 'same moments are in the same day');
         assert.equal(+m, +mCopy, 'isSameOrAfter day should not change moment');
     });
@@ -61003,7 +61003,7 @@
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 0, 0, 0)), 'hour'), true, 'exact start of hour');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 59, 59, 999)), 'hour'), true, 'exact end of hour');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 4, 0, 0, 0)), 'hour'), false, 'start of next hour');
-        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 2, 59, 59, 999)), 'hour'), true, 'end of previous hour');
+        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 2, 59, 59, 999)), 'hour'), true, 'end of Précédent hour');
         assert.equal(m.isSameOrAfter(m, 'hour'), true, 'same moments are in the same hour');
         assert.equal(+m, +mCopy, 'isSameOrAfter hour should not change moment');
     });
@@ -61025,7 +61025,7 @@
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 0, 0)), 'minute'), true, 'exact start of minute');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 59, 999)), 'minute'), true, 'exact end of minute');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 5, 0, 0)), 'minute'), false, 'start of next minute');
-        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 3, 59, 999)), 'minute'), true, 'end of previous minute');
+        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 3, 59, 999)), 'minute'), true, 'end of Précédent minute');
         assert.equal(m.isSameOrAfter(m, 'minute'), true, 'same moments are in the same minute');
         assert.equal(+m, +mCopy, 'isSameOrAfter minute should not change moment');
     });
@@ -61049,7 +61049,7 @@
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 5, 0)), 'second'), true, 'exact start of second');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 5, 999)), 'second'), true, 'exact end of second');
         assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 6, 0)), 'second'), false, 'start of next second');
-        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 4, 999)), 'second'), true, 'end of previous second');
+        assert.equal(m.isSameOrAfter(moment(new Date(2011, 1, 2, 3, 4, 4, 999)), 'second'), true, 'end of Précédent second');
         assert.equal(m.isSameOrAfter(m, 'second'), true, 'same moments are in the same second');
         assert.equal(+m, +mCopy, 'isSameOrAfter second should not change moment');
     });
@@ -61406,7 +61406,7 @@
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 0, 1, 0, 0, 0, 0)), 'year'), true, 'exact start of year');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 11, 31, 23, 59, 59, 999)), 'year'), true, 'exact end of year');
         assert.equal(m.isSameOrBefore(moment(new Date(2012, 0, 1, 0, 0, 0, 0)), 'year'), true, 'start of next year');
-        assert.equal(m.isSameOrBefore(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of previous year');
+        assert.equal(m.isSameOrBefore(moment(new Date(2010, 11, 31, 23, 59, 59, 999)), 'year'), false, 'end of Précédent year');
         assert.equal(m.isSameOrBefore(m, 'year'), true, 'same moments are in the same year');
         assert.equal(+m, +mCopy, 'isSameOrBefore year should not change moment');
     });
@@ -61422,7 +61422,7 @@
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 2, 1, 0, 0, 0, 0)), 'month'), true, 'exact start of month');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 2, 31, 23, 59, 59, 999)), 'month'), true, 'exact end of month');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 3, 1, 0, 0, 0, 0)), 'month'), true, 'start of next month');
-        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), false, 'end of previous month');
+        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 27, 23, 59, 59, 999)), 'month'), false, 'end of Précédent month');
         assert.equal(m.isSameOrBefore(m, 'month'), true, 'same moments are in the same month');
         assert.equal(+m, +mCopy, 'isSameOrBefore month should not change moment');
     });
@@ -61440,7 +61440,7 @@
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 0, 0, 0, 0)), 'day'), true, 'exact start of day');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 23, 59, 59, 999)), 'day'), true, 'exact end of day');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 3, 0, 0, 0, 0)), 'day'), true, 'start of next day');
-        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 1, 23, 59, 59, 999)), 'day'), false, 'end of previous day');
+        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 1, 23, 59, 59, 999)), 'day'), false, 'end of Précédent day');
         assert.equal(m.isSameOrBefore(m, 'day'), true, 'same moments are in the same day');
         assert.equal(+m, +mCopy, 'isSameOrBefore day should not change moment');
     });
@@ -61460,7 +61460,7 @@
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 0, 0, 0)), 'hour'), true, 'exact start of hour');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 59, 59, 999)), 'hour'), true, 'exact end of hour');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 4, 0, 0, 0)), 'hour'), true, 'start of next hour');
-        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 2, 59, 59, 999)), 'hour'), false, 'end of previous hour');
+        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 2, 59, 59, 999)), 'hour'), false, 'end of Précédent hour');
         assert.equal(m.isSameOrBefore(m, 'hour'), true, 'same moments are in the same hour');
         assert.equal(+m, +mCopy, 'isSameOrBefore hour should not change moment');
     });
@@ -61482,7 +61482,7 @@
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 0, 0)), 'minute'), true, 'exact start of minute');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 59, 999)), 'minute'), true, 'exact end of minute');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 5, 0, 0)), 'minute'), true, 'start of next minute');
-        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 3, 59, 999)), 'minute'), false, 'end of previous minute');
+        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 3, 59, 999)), 'minute'), false, 'end of Précédent minute');
         assert.equal(m.isSameOrBefore(m, 'minute'), true, 'same moments are in the same minute');
         assert.equal(+m, +mCopy, 'isSameOrBefore minute should not change moment');
     });
@@ -61506,7 +61506,7 @@
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 5, 0)), 'second'), true, 'exact start of second');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 5, 999)), 'second'), true, 'exact end of second');
         assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 6, 0)), 'second'), true, 'start of next second');
-        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 4, 999)), 'second'), false, 'end of previous second');
+        assert.equal(m.isSameOrBefore(moment(new Date(2011, 1, 2, 3, 4, 4, 999)), 'second'), false, 'end of Précédent second');
         assert.equal(m.isSameOrBefore(m, 'second'), true, 'same moments are in the same second');
         assert.equal(+m, +mCopy, 'isSameOrBefore second should not change moment');
     });
@@ -66860,7 +66860,7 @@
                 4, 'diff 4 quarters');
     });
 
-    test('quarter setter bubble to previous year', function (assert) {
+    test('quarter setter bubble to Précédent year', function (assert) {
         var m = moment([2014, 4, 11, 1, 2, 3, 4]).quarter(-3);
         assert.equal(m.year(), 2013, 'year bubbled');
         assert.equal(m.month(), 1, 'set month');
@@ -70005,7 +70005,7 @@
                 for (wd = 0; wd < 7; ++wd) {
                     localeName = 'dow: ' + dow + ', doy: ' + doy;
                     moment.locale(localeName, {week: {dow: dow, doy: doy}});
-                    // We use the 10th week as the 1st one can spill to the previous year
+                    // We use the 10th week as the 1st one can spill to the Précédent year
                     m = moment('2015 10 ' + wd, 'gggg w d', true);
                     assert.equal(m.format('gggg w d'), '2015 10 ' + wd, 'dow: ' + dow + ' doy: ' + doy + ' wd: ' + wd);
                     m = moment('2015 10 ' + wd, 'gggg w e', true);

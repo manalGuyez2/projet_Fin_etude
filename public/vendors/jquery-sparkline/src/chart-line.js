@@ -256,7 +256,7 @@
                         y = this.maxy;
                     }
                     if (!path.length) {
-                        // previous value was null
+                        // Précédent value was null
                         path.push([xpos, canvasTop + canvasHeight]);
                     }
                     vertex = [xpos, canvasTop + Math.round(canvasHeight - (canvasHeight * ((y - this.miny) / rangey)))];

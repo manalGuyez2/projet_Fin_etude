@@ -145,8 +145,8 @@ describe('Radar controller tests', function() {
 		].forEach(function(expected, i) {
 			expect(meta.data[i]._model.x).toBeCloseToPixel(expected.x);
 			expect(meta.data[i]._model.y).toBeCloseToPixel(expected.y);
-			expect(meta.data[i]._model.controlPointPreviousX).toBeCloseToPixel(expected.cppx);
-			expect(meta.data[i]._model.controlPointPreviousY).toBeCloseToPixel(expected.cppy);
+			expect(meta.data[i]._model.controlPointPrécédentX).toBeCloseToPixel(expected.cppx);
+			expect(meta.data[i]._model.controlPointPrécédentY).toBeCloseToPixel(expected.cppy);
 			expect(meta.data[i]._model.controlPointNextX).toBeCloseToPixel(expected.cpnx);
 			expect(meta.data[i]._model.controlPointNextY).toBeCloseToPixel(expected.cpny);
 			expect(meta.data[i]._model).toEqual(jasmine.objectContaining({
@@ -172,8 +172,8 @@ describe('Radar controller tests', function() {
 		].forEach(function(expected, i) {
 			expect(meta.data[i]._model.x).toBeCloseToPixel(expected.x);
 			expect(meta.data[i]._model.y).toBeCloseToPixel(expected.y);
-			expect(meta.data[i]._model.controlPointPreviousX).toBeCloseToPixel(expected.cppx);
-			expect(meta.data[i]._model.controlPointPreviousY).toBeCloseToPixel(expected.cppy);
+			expect(meta.data[i]._model.controlPointPrécédentX).toBeCloseToPixel(expected.cppx);
+			expect(meta.data[i]._model.controlPointPrécédentY).toBeCloseToPixel(expected.cppy);
 			expect(meta.data[i]._model.controlPointNextX).toBeCloseToPixel(expected.cpnx);
 			expect(meta.data[i]._model.controlPointNextY).toBeCloseToPixel(expected.cpny);
 			expect(meta.data[i]._model).toEqual(jasmine.objectContaining({
@@ -290,8 +290,8 @@ describe('Radar controller tests', function() {
 
 		expect(meta.data[0]._model.x).toBeCloseToPixel(256);
 		expect(meta.data[0]._model.y).toBeCloseToPixel(133);
-		expect(meta.data[0]._model.controlPointPreviousX).toBeCloseToPixel(241);
-		expect(meta.data[0]._model.controlPointPreviousY).toBeCloseToPixel(133);
+		expect(meta.data[0]._model.controlPointPrécédentX).toBeCloseToPixel(241);
+		expect(meta.data[0]._model.controlPointPrécédentY).toBeCloseToPixel(133);
 		expect(meta.data[0]._model.controlPointNextX).toBeCloseToPixel(281);
 		expect(meta.data[0]._model.controlPointNextY).toBeCloseToPixel(133);
 		expect(meta.data[0]._model).toEqual(jasmine.objectContaining({

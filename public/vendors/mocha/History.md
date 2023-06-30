@@ -9,7 +9,7 @@
 ==================
 
   * add: able to require globals (describe, it, etc.) through mocha (#1077)
-  * fix: abort previous run on --watch change (#1100)
+  * fix: abort Précédent run on --watch change (#1100)
   * fix: reset context for each --watch triggered run (#1099)
   * fix: error when cli can't resolve path or pattern (#799)
   * fix: canonicalize objects before stringifying and diffing them (#1079)

@@ -379,7 +379,7 @@ $(function () {
     assert.ok($('.tooltip').is('.fade.show'), 'tooltip is faded active')
   })
 
-  QUnit.test('should hide previously shown tooltip when toggle is called on tooltip', function (assert) {
+  QUnit.test('should hide Précédently shown tooltip when toggle is called on tooltip', function (assert) {
     assert.expect(1)
     $('<a href="#" rel="tooltip" title="tooltip on toggle">@ResentedHook</a>')
       .appendTo('#qunit-fixture')

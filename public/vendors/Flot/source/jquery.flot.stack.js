@@ -26,7 +26,7 @@ You can also specify it for a single series, like this:
     }])
 
 The stacking order is determined by the order of the data series in the array
-(later series end up on top of the previous).
+(later series end up on top of the Précédent).
 
 Internally, the plugin modifies the datapoints in each series, adding an
 offset to the y value. For line series, extra data points are inserted through

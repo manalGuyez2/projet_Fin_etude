@@ -225,7 +225,7 @@ var config = {
 	// Block until document ready
 	blocking: true,
 
-	// By default, run previously failed tests first
+	// By default, run Précédently failed tests first
 	// very useful in combination with "Hide passed tests" checked
 	reorder: true,
 
@@ -681,17 +681,17 @@ function done() {
 	config.autorun = true;
 
 	// Log the last module results
-	if ( config.previousModule ) {
+	if ( config.PrécédentModule ) {
 		runLoggingCallbacks( "moduleDone", {
-			name: config.previousModule.name,
-			tests: config.previousModule.tests,
+			name: config.PrécédentModule.name,
+			tests: config.PrécédentModule.tests,
 			failed: config.moduleStats.bad,
 			passed: config.moduleStats.all - config.moduleStats.bad,
 			total: config.moduleStats.all,
 			runtime: now() - config.moduleStats.started
 		} );
 	}
-	delete config.previousModule;
+	delete config.PrécédentModule;
 
 	runtime = now() - config.started;
 	passed = config.stats.all - config.stats.bad;
@@ -762,25 +762,25 @@ Test.prototype = {
 		if (
 
 			// Emit moduleStart when we're switching from one module to another
-			this.module !== config.previousModule ||
+			this.module !== config.PrécédentModule ||
 
-				// They could be equal (both undefined) but if the previousModule property doesn't
+				// They could be equal (both undefined) but if the PrécédentModule property doesn't
 				// yet exist it means this is the first test in a suite that isn't wrapped in a
 				// module, in which case we'll just emit a moduleStart event for 'undefined'.
 				// Without this, reporters can get testStart before moduleStart  which is a problem.
-				!hasOwn.call( config, "previousModule" )
+				!hasOwn.call( config, "PrécédentModule" )
 		) {
-			if ( hasOwn.call( config, "previousModule" ) ) {
+			if ( hasOwn.call( config, "PrécédentModule" ) ) {
 				runLoggingCallbacks( "moduleDone", {
-					name: config.previousModule.name,
-					tests: config.previousModule.tests,
+					name: config.PrécédentModule.name,
+					tests: config.PrécédentModule.tests,
 					failed: config.moduleStats.bad,
 					passed: config.moduleStats.all - config.moduleStats.bad,
 					total: config.moduleStats.all,
 					runtime: now() - config.moduleStats.started
 				} );
 			}
-			config.previousModule = this.module;
+			config.PrécédentModule = this.module;
 			config.moduleStats = { all: 0, bad: 0, started: now() };
 			runLoggingCallbacks( "moduleStart", {
 				name: this.module.name,
@@ -981,7 +981,7 @@ Test.prototype = {
 			] );
 		}
 
-		// Prioritize previously failed tests, detected from sessionStorage
+		// Prioritize Précédently failed tests, detected from sessionStorage
 		priority = QUnit.config.reorder && defined.sessionStorage &&
 				+sessionStorage.getItem( "qunit-test-" + this.module.name + "-" + this.testName );
 
@@ -2971,7 +2971,7 @@ QUnit.testStart( function( details ) {
 			+sessionStorage.getItem( "qunit-test-" + details.module + "-" + details.name );
 
 		running.innerHTML = ( bad ?
-			"Rerunning previously failed test: <br />" :
+			"Rerunning Précédently failed test: <br />" :
 			"Running: <br />" ) +
 			getNameHtml( details.name, details.module );
 	}
@@ -3351,11 +3351,11 @@ QUnit.diff = ( function() {
 					lastequality = null;
 					if ( preIns && preDel ) {
 
-						// No changes made which could affect previous entry, keep going.
+						// No changes made which could affect Précédent entry, keep going.
 						postIns = postDel = true;
 						equalitiesLength = 0;
 					} else {
-						equalitiesLength--; // Throw away the previous equality.
+						equalitiesLength--; // Throw away the Précédent equality.
 						pointer = equalitiesLength > 0 ? equalities[ equalitiesLength - 1 ] : -1;
 						postIns = postDel = false;
 					}
@@ -3521,7 +3521,7 @@ QUnit.diff = ( function() {
 		if ( shorttext.length === 1 ) {
 
 			// Single character string.
-			// After the previous speedup, the character can't be an equality.
+			// After the Précédent speedup, the character can't be an equality.
 			return [
 				[ DIFF_DELETE, text1 ],
 				[ DIFF_INSERT, text2 ]
@@ -3955,7 +3955,7 @@ QUnit.diff = ( function() {
 					// Throw away the equality we just deleted.
 					equalitiesLength--;
 
-					// Throw away the previous equality (it needs to be reevaluated).
+					// Throw away the Précédent equality (it needs to be reevaluated).
 					equalitiesLength--;
 					pointer = equalitiesLength > 0 ? equalities[ equalitiesLength - 1 ] : -1;
 
@@ -4255,7 +4255,7 @@ QUnit.diff = ( function() {
 						( countDelete ? 1 : 0 ) + ( countInsert ? 1 : 0 ) + 1;
 				} else if ( pointer !== 0 && diffs[ pointer - 1 ][ 0 ] === DIFF_EQUAL ) {
 
-					// Merge this equality with the previous one.
+					// Merge this equality with the Précédent one.
 					diffs[ pointer - 1 ][ 1 ] += diffs[ pointer ][ 1 ];
 					diffs.splice( pointer, 1 );
 				} else {
@@ -4291,7 +4291,7 @@ QUnit.diff = ( function() {
 				// This is a single edit surrounded by equalities.
 				if ( position === diffs[ pointer - 1 ][ 1 ] ) {
 
-					// Shift the edit over the previous equality.
+					// Shift the edit over the Précédent equality.
 					diffs[ pointer ][ 1 ] = diffs[ pointer - 1 ][ 1 ] +
 						diffs[ pointer ][ 1 ].substring( 0, diffs[ pointer ][ 1 ].length -
 							diffs[ pointer - 1 ][ 1 ].length );

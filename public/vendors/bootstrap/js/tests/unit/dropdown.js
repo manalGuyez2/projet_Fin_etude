@@ -624,7 +624,7 @@ $(function () {
     $dropdown.trigger('click')
   })
 
-  QUnit.test('should focus next/previous element when using keyboard navigation', function (assert) {
+  QUnit.test('should focus next/Précédent element when using keyboard navigation', function (assert) {
     assert.expect(4)
     var done = assert.async()
     var dropdownHTML = '<div class="tabs">' +

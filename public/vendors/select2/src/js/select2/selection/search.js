@@ -77,11 +77,11 @@ define([
       var key = evt.which;
 
       if (key === KEYS.BACKSPACE && self.$search.val() === '') {
-        var $previousChoice = self.$searchContainer
+        var $PrécédentChoice = self.$searchContainer
           .prev('.select2-selection__choice');
 
-        if ($previousChoice.length > 0) {
-          var item = $previousChoice.data('data');
+        if ($PrécédentChoice.length > 0) {
+          var item = $PrécédentChoice.data('data');
 
           self.searchRemoveChoice(item);
 

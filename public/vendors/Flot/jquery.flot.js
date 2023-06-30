@@ -1300,7 +1300,7 @@ Licensed under the MIT license.
         function setupCanvases() {
 
             // Make sure the placeholder is clear of everything except canvases
-            // from a previous plot in this container that we'll try to re-use.
+            // from a Précédent plot in this container that we'll try to re-use.
 
             placeholder.css("padding", 0) // padding messes up the positioning
                 .children().filter(function(){
@@ -2448,7 +2448,7 @@ Licensed under the MIT license.
 
                     // fill triangular section, this sometimes result
                     // in redundant points if (x1, y1) hasn't changed
-                    // from previous line to, but we just ignore that
+                    // from Précédent line to, but we just ignore that
                     ctx.lineTo(axisx.p2c(x1), axisy.p2c(y1));
                     ctx.lineTo(axisx.p2c(x2), axisy.p2c(y2));
 

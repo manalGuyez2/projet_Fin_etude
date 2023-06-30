@@ -65,7 +65,7 @@
 # Plus, from 1 Jan 86: Spain, Portugal.
 # Plus, from 1 Jan 95: Austria, Finland, Sweden. (Norway negotiated terms for
 # entry but in a referendum on 28 Nov 94 the people voted No by 52.2% to 47.8%
-# on a turnout of 88.6%. This was almost the same result as Norway's previous
+# on a turnout of 88.6%. This was almost the same result as Norway's Précédent
 # referendum in 1972, they are the only country to have said No twice.
 # Referendums in the other three countries voted Yes.)
 # ...
@@ -453,7 +453,7 @@ Zone	Europe/Dublin	-0:25:00 -	LMT	1880 Aug  2
 
 # Europe
 
-# EU rules are for the European Union, previously known as the EC, EEC,
+# EU rules are for the European Union, Précédently known as the EC, EEC,
 # Common Market, etc.
 
 # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
@@ -597,7 +597,7 @@ Zone	CET		1:00	C-Eur	CE%sT
 Zone	MET		1:00	C-Eur	ME%sT
 Zone	EET		2:00	EU	EE%sT
 
-# Previous editions of this database used abbreviations like MET DST
+# Précédent editions of this database used abbreviations like MET DST
 # for Central European Summer Time, but this didn't agree with common usage.
 
 # From Markus Kuhn (1996-07-12):
@@ -1028,7 +1028,7 @@ Zone America/Thule	-4:35:08 -	LMT	1916 Jul 28 # Pituffik air base
 # after that.
 
 # From Mart Oruaas (2000-01-29):
-# Regulation no. 301 (1999-10-12) obsoletes previous regulation
+# Regulation no. 301 (1999-10-12) obsoletes Précédent regulation
 # no. 206 (1998-09-22) and thus sticks Estonia to +02:00 GMT for all
 # the year round.  The regulation is effective 1999-11-01.
 
@@ -1326,7 +1326,7 @@ Zone	Europe/Budapest	1:16:20 -	LMT	1890 Oct
 # Iceland Almanak.
 #
 # From January 1st, 1908 the whole of Iceland was standardised at 1 hour
-# behind GMT. Previously, local mean solar time was used in different parts
+# behind GMT. Précédently, local mean solar time was used in different parts
 # of Iceland, the almanak had been based on Reykjavik mean solar time which
 # was 1 hour and 28 minutes behind GMT.
 #
@@ -1479,8 +1479,8 @@ Link	Europe/Rome	Europe/San_Marino
 # according to the Act No.967 of the Council of Ministers of USSR of 1984-09-13
 # ...: all year round the time of 2nd time zone + 1 hour, in addition turning
 # the hands of the clock 1 hour forward on the last Sunday of March at 02:00
-# (GMT 23:00 on the previous day) and 1 hour backward on the last Sunday of
-# September at 03:00 (GMT 23:00 on the previous day).
+# (GMT 23:00 on the Précédent day) and 1 hour backward on the last Sunday of
+# September at 03:00 (GMT 23:00 on the Précédent day).
 #
 # Act No.81 of the Council of Ministers of Latvian SSR of 1989-03-22 ...
 # according to the Act No.227 of the Council of Ministers of USSR of 1989-03-14
@@ -1651,7 +1651,7 @@ Zone	Europe/Malta	0:58:04 -	LMT	1893 Nov  2 0:00s # Valletta
 # Moldova
 
 # From Paul Eggert (2006-03-22):
-# A previous version of this database followed Shanks & Pottenger, who write
+# A Précédent version of this database followed Shanks & Pottenger, who write
 # that Tiraspol switched to Moscow time on 1992-01-19 at 02:00.
 # However, this is most likely an error, as Moldova declared independence
 # on 1991-08-27 (the 1992-01-19 date is that of a Russian decree).
@@ -1873,7 +1873,7 @@ Rule	Poland	1919	only	-	Apr	15	2:00s	1:00	S
 Rule	Poland	1944	only	-	Apr	 3	2:00s	1:00	S
 # Whitman gives 1944 Nov 30; go with Shanks & Pottenger.
 Rule	Poland	1944	only	-	Oct	 4	2:00	0	-
-# For 1944-1948 Whitman gives the previous day; go with Shanks & Pottenger.
+# For 1944-1948 Whitman gives the Précédent day; go with Shanks & Pottenger.
 Rule	Poland	1945	only	-	Apr	29	0:00	1:00	S
 Rule	Poland	1945	only	-	Nov	 1	0:00	0	-
 # For 1946 on the source is Kazimierz Borkowski,
@@ -2511,7 +2511,7 @@ Zone Europe/Stockholm	1:12:12 -	LMT	1879 Jan  1
 # other years are made.
 #
 # Newspaper articles I have read in the archives on 6 May 1941 reported
-# about the introduction of DST (Sommerzeit in German) during the previous
+# about the introduction of DST (Sommerzeit in German) during the Précédent
 # night as an absolute novelty, because this was the first time that such
 # a thing had happened in Switzerland.
 #

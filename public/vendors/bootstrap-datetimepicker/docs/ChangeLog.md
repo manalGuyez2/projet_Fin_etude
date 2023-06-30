@@ -115,7 +115,7 @@ Bug squashing
 
 * `hide()`, `show()`, `toggle()`, `enable()`, `disable()` and the rest of setter functions now support chaining. ie `$('#id').data('DateTimePicker').format('DD-MM-YYYY').minDate(moment()).defaultDate(moment()).show()` works
 
-* Replaced previous - next buttons in Date subviews with configurable icons
+* Replaced Précédent - next buttons in Date subviews with configurable icons
 
 * Changed `language` option name to `locale` to be inline with moment naming
 
@@ -189,7 +189,7 @@ Bug squashing
 
 #### 2.1.32 (Hotfix)
 
-* Fix for #151: When a bad date value or the picker is cleared, the plugin will not longer attempt to reset it back to the previous date
+* Fix for #151: When a bad date value or the picker is cleared, the plugin will not longer attempt to reset it back to the Précédent date
 * Fix for #140: `setDate` can be given `null` to force clear the picker
 
 #### 2.1.30
@@ -226,7 +226,7 @@ Bug squashing
 * Fix for #42, plugin will now check for `A` or `a` in the format string to determine if the AM/PM selector should display.
 * Fix for #45, fixed null/empty and invalid dates
 * Fix for #46, fixed active date highlighting
-* Fix for #47, `change.dp` event to also include the previous date.
+* Fix for #47, `change.dp` event to also include the Précédent date.
 
 ####2.0.1
 * New event `error.dp` fires when plugin cannot parse date or when increase/descreasing hours/minutes to a disabled date.

@@ -137,7 +137,7 @@ Rule	US	2007	max	-	Nov	Sun>=1	2:00	0	S
 # From Arthur David Olson, 2005-12-19
 # We generate the files specified below to guard against old files with
 # obsolete information being left in the time zone binary directory.
-# We limit the list to names that have appeared in previous versions of
+# We limit the list to names that have appeared in Précédent versions of
 # this time zone package.
 # We do these as separate Zones rather than as Links to avoid problems if
 # a particular place changes whether it observes DST.
@@ -413,7 +413,7 @@ Zone America/Los_Angeles -7:52:58 -	LMT	1883 Nov 18 12:07:02
 # From Paul Eggert (2001-05-30):
 # Howse writes that Alaska switched from the Julian to the Gregorian calendar,
 # and from east-of-GMT to west-of-GMT days, when the US bought it from Russia.
-# This was on 1867-10-18, a Friday; the previous day was 1867-10-06 Julian,
+# This was on 1867-10-18, a Friday; the Précédent day was 1867-10-06 Julian,
 # also a Friday.  Include only the time zone part of this transition,
 # ignoring the switch from Julian to Gregorian, since we can't represent
 # the Julian calendar.
@@ -906,7 +906,7 @@ Zone America/Kentucky/Monticello -5:39:24 - LMT	1883 Nov 18 12:20:36
 # From Rives McDow (2000-08-30):
 # Here ... are all the changes in the US since 1985.
 # Kearny County, KS (put all of county on central;
-#	previously split between MST and CST) ... 1990-10
+#	Précédently split between MST and CST) ... 1990-10
 # Starke County, IN (from CST to EST) ... 1991-10
 # Oliver County, ND (from MST to CST) ... 1992-10
 # West Wendover, NV (from PST TO MST) ... 1999-10
@@ -2056,7 +2056,7 @@ Zone America/Creston	-7:46:04 -	LMT	1884
 # Resolute Bay had been using Central Standard Time over the winter of
 # 2010-2011 and that the clocks had therefore been moved one hour ahead
 # on March 13/2011. The person I talked to was aware that Resolute Bay
-# had previously experimented with Eastern Standard Time but he could not
+# had Précédently experimented with Eastern Standard Time but he could not
 # tell me when the practice had stopped.
 #
 # On March 17/2011 I searched the Web to find an e-mail address of
@@ -2738,7 +2738,7 @@ Zone America/Costa_Rica	-5:36:20 -	LMT	1890		# San Jose
 # From Alexander Krivenyshev (2009-03-04)
 # According to the Radio Reloj - Cuba will start Daylight Saving Time on
 # midnight between Saturday, March 07, 2009 and Sunday, March 08, 2009-
-# not on midnight March 14 / March 15 as previously thought.
+# not on midnight March 14 / March 15 as Précédently thought.
 #
 # <a href="http://www.worldtimezone.com/dst_news/dst_news_cuba05.html">
 # http://www.worldtimezone.com/dst_news/dst_news_cuba05.html

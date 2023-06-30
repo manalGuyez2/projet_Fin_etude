@@ -32,8 +32,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0
 			}
@@ -44,8 +44,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10
 			}
@@ -56,8 +56,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5
 			}
@@ -147,8 +147,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0
 			}
@@ -159,8 +159,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10
 			}
@@ -171,8 +171,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5
 			}
@@ -304,8 +304,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0
 			}
@@ -316,8 +316,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10,
 				skip: true
@@ -329,8 +329,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5
 			}
@@ -447,8 +447,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 0,
 				y: 10,
-				controlPointPreviousX: 0,
-				controlPointPreviousY: 10,
+				controlPointPrécédentX: 0,
+				controlPointPrécédentY: 10,
 				controlPointNextX: 0,
 				controlPointNextY: 10
 			}
@@ -459,8 +459,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0
 			}
@@ -471,8 +471,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10
 			}
@@ -483,8 +483,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5
 			}
@@ -601,8 +601,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 0,
 				y: 10,
-				controlPointPreviousX: 0,
-				controlPointPreviousY: 10,
+				controlPointPrécédentX: 0,
+				controlPointPrécédentY: 10,
 				controlPointNextX: 0,
 				controlPointNextY: 10
 			}
@@ -613,8 +613,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0,
 				skip: true
@@ -626,8 +626,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10
 			}
@@ -638,8 +638,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5
 			}
@@ -756,8 +756,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 0,
 				y: 10,
-				controlPointPreviousX: 0,
-				controlPointPreviousY: 10,
+				controlPointPrécédentX: 0,
+				controlPointPrécédentY: 10,
 				controlPointNextX: 0,
 				controlPointNextY: 10,
 				skip: true
@@ -769,8 +769,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0,
 			}
@@ -781,8 +781,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10
 			}
@@ -793,8 +793,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5
 			}
@@ -905,8 +905,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 0,
 				y: 10,
-				controlPointPreviousX: 0,
-				controlPointPreviousY: 10,
+				controlPointPrécédentX: 0,
+				controlPointPrécédentY: 10,
 				controlPointNextX: 0,
 				controlPointNextY: 10
 			}
@@ -917,8 +917,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 5,
 				y: 0,
-				controlPointPreviousX: 5,
-				controlPointPreviousY: 0,
+				controlPointPrécédentX: 5,
+				controlPointPrécédentY: 0,
 				controlPointNextX: 5,
 				controlPointNextY: 0,
 			}
@@ -929,8 +929,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 15,
 				y: -10,
-				controlPointPreviousX: 15,
-				controlPointPreviousY: -10,
+				controlPointPrécédentX: 15,
+				controlPointPrécédentY: -10,
 				controlPointNextX: 15,
 				controlPointNextY: -10
 			}
@@ -941,8 +941,8 @@ describe('Line element tests', function() {
 			_view: {
 				x: 19,
 				y: -5,
-				controlPointPreviousX: 19,
-				controlPointPreviousY: -5,
+				controlPointPrécédentX: 19,
+				controlPointPrécédentY: -5,
 				controlPointNextX: 19,
 				controlPointNextY: -5,
 				skip: true

@@ -143,7 +143,7 @@ test('clicking clear will trigger the unselect event', function (assert) {
     assert.equal(
       ev.data.id,
       'One',
-      'The previous object should be unselected'
+      'The Précédent object should be unselected'
     );
   });
 

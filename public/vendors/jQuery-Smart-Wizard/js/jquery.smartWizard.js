@@ -22,7 +22,7 @@ function SmartWizard(target, options) {
     this.loader = $('<div>Loading</div>').addClass("loader");
     this.buttons = {
         next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
-        previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
+        Précédent : $('<a>'+options.labelPrécédent+'</a>').attr("href","#").addClass("buttonPrécédent"),
         finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish")
     };
 
@@ -54,7 +54,7 @@ function SmartWizard(target, options) {
         $this.target.append($this.elmStepContainer);
         elmActionBar.append($this.buttons.finish)
                     .append($this.buttons.next)
-                    .append($this.buttons.previous);
+                    .append($this.buttons.Précédent);
         $this.target.append(elmActionBar);
         this.contentWidth = $this.elmStepContainer.width();
 
@@ -62,7 +62,7 @@ function SmartWizard(target, options) {
             $this.goForward();
             return false;
         });
-        $($this.buttons.previous).click(function() {
+        $($this.buttons.Précédent).click(function() {
             $this.goBackward();
             return false;
         });
@@ -261,14 +261,14 @@ function SmartWizard(target, options) {
     var _adjustButton = function($this) {
         if (! $this.options.cycleSteps){
             if (0 >= $this.curStepIdx) {
-                $($this.buttons.previous).addClass("buttonDisabled");
+                $($this.buttons.Précédent).addClass("buttonDisabled");
 				if ($this.options.hideButtonsOnDisabled) {
-                    $($this.buttons.previous).hide();
+                    $($this.buttons.Précédent).hide();
                 }
             }else{
-                $($this.buttons.previous).removeClass("buttonDisabled");
+                $($this.buttons.Précédent).removeClass("buttonDisabled");
                 if ($this.options.hideButtonsOnDisabled) {
-                    $($this.buttons.previous).show();
+                    $($this.buttons.Précédent).show();
                 }
             }
             if (($this.steps.length-1) <= $this.curStepIdx){
@@ -435,10 +435,10 @@ $.fn.smartWizard.defaults = {
     contentCache:true, // cache step contents, if false content is fetched always from ajax url
     cycleSteps: false, // cycle step navigation
     enableFinishButton: false, // make finish button enabled always
-	hideButtonsOnDisabled: false, // when the previous/next/finish buttons are disabled, hide them instead?
+	hideButtonsOnDisabled: false, // when the Précédent/next/finish buttons are disabled, hide them instead?
     errorSteps:[],    // Array Steps with errors
     labelNext:'Next',
-    labelPrevious:'Previous',
+    labelPrécédent:'Précédent',
     labelFinish:'Finish',
     noForwardJumping: false,
     onLeaveStep: null, // triggers when leaving a step

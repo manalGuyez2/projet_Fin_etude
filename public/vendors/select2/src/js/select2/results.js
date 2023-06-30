@@ -332,7 +332,7 @@ define([
       }
     });
 
-    container.on('results:previous', function () {
+    container.on('results:Précédent', function () {
       var $highlighted = self.getHighlightedResults();
 
       var $options = self.$results.find('[aria-selected]');

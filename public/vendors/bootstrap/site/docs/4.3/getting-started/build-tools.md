@@ -52,6 +52,6 @@ Learn more about using Jekyll by reading its [documentation](https://jekyllrb.co
 
 ## Troubleshooting
 
-Should you encounter problems with installing dependencies, uninstall all previous dependency versions (global and local). Then, rerun `npm install`.
+Should you encounter problems with installing dependencies, uninstall all Précédent dependency versions (global and local). Then, rerun `npm install`.
 
 [autoprefixer]: https://github.com/postcss/autoprefixer

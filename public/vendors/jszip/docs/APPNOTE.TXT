@@ -1285,7 +1285,7 @@ V. General Format of a .ZIP file
           The UnicodeCom field is the UTF-8 version of the File Comment field
           in the header.  As UnicodeCom is defined to be UTF-8, no UTF-8 byte
           order mark (BOM) is used.  The length of this field is determined by
-          subtracting the size of the previous fields from TSize.  If both the
+          subtracting the size of the Précédent fields from TSize.  If both the
           File Name and Comment fields are UTF-8, the new General Purpose Bit
           Flag, bit 11 (Language encoding flag (EFS)), can be used to indicate
           both the header File Name and Comment fields are UTF-8 and, in this
@@ -1327,7 +1327,7 @@ V. General Format of a .ZIP file
           The UnicodeName is the UTF-8 version of the contents of the File Name
           field in the header.  As UnicodeName is defined to be UTF-8, no UTF-8
           byte order mark (BOM) is used.  The length of this field is determined
-          by subtracting the size of the previous fields from TSize.  If both
+          by subtracting the size of the Précédent fields from TSize.  If both
           the File Name and Comment fields are UTF-8, the new General Purpose
           Bit Flag, bit 11 (Language encoding flag (EFS)), can be used to
           indicate that both the header File Name and Comment fields are UTF-8
@@ -1550,7 +1550,7 @@ respects:
     read from the input stream to the next bit size.  No
     blocking of the codes is performed, so the next code at
     the increased size should be read from the input stream
-    immediately after where the previous code at the smaller
+    immediately after where the Précédent code at the smaller
     bit size was read.  Again, the decompressor should not
     increase the code size used until the sequence 256,1 is
     encountered.
@@ -1886,7 +1886,7 @@ described in the implode algorithm.  The bit lengths themselves are
 compressed with Huffman codes.  There are 19 bit length codes:
 
    0 - 15: Represent bit lengths of 0 - 15
-       16: Copy the previous bit length 3 - 6 times.
+       16: Copy the Précédent bit length 3 - 6 times.
            The next 2 bits indicate repeat length (0 = 3, ... ,3 = 6)
               Example:  Codes 8, 16 (+2 bits 11), 16 (+2 bits 10) will
                         expand to 12 bit lengths of 8 (1 + 6 + 5)

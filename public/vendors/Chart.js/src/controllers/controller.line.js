@@ -233,15 +233,15 @@ module.exports = function(Chart) {
 				point = points[i];
 				model = point._model;
 				controlPoints = helpers.splineCurve(
-					helpers.previousItem(points, i)._model,
+					helpers.PrécédentItem(points, i)._model,
 					model,
 					helpers.nextItem(points, i)._model,
 					meta.dataset._model.tension
 				);
 
 				// Prevent the bezier going outside of the bounds of the graph
-				model.controlPointPreviousX = Math.max(Math.min(controlPoints.previous.x, area.right), area.left);
-				model.controlPointPreviousY = Math.max(Math.min(controlPoints.previous.y, area.bottom), area.top);
+				model.controlPointPrécédentX = Math.max(Math.min(controlPoints.Précédent.x, area.right), area.left);
+				model.controlPointPrécédentY = Math.max(Math.min(controlPoints.Précédent.y, area.bottom), area.top);
 				model.controlPointNextX = Math.max(Math.min(controlPoints.next.x, area.right), area.left);
 				model.controlPointNextY = Math.max(Math.min(controlPoints.next.y, area.bottom), area.top);
 

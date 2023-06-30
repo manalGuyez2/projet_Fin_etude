@@ -12,15 +12,15 @@ module('DOM', {
   }
 });
 
-var equalNodePosition = function(node, expectedParent, expectedPreviousSibling, expectedNextSibling) {
+var equalNodePosition = function(node, expectedParent, expectedPrécédentSibling, expectedNextSibling) {
   equal(node.parentNode, expectedParent);
-  equal(node.previousSibling, expectedPreviousSibling);
+  equal(node.PrécédentSibling, expectedPrécédentSibling);
   equal(node.nextSibling, expectedNextSibling);
 };
 
-var equalNodePositionWrapped = function(node, anchor, expectedParent, expectedPreviousSibling, expectedNextSibling) {
+var equalNodePositionWrapped = function(node, anchor, expectedParent, expectedPrécédentSibling, expectedNextSibling) {
   equal(node.parentNode, anchor);
-  equalNodePosition(anchor, expectedParent, expectedPreviousSibling, expectedNextSibling);
+  equalNodePosition(anchor, expectedParent, expectedPrécédentSibling, expectedNextSibling);
 };
 
 // Element#insertBefore

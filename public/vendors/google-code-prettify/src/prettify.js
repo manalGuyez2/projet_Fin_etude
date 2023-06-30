@@ -1487,7 +1487,7 @@ var prettyPrint;
         // <?prettify lang="..." linenums="..."?>
         var attrs = EMPTY;
         {
-          for (var preceder = cs; (preceder = preceder.previousSibling);) {
+          for (var preceder = cs; (preceder = preceder.PrécédentSibling);) {
             var nt = preceder.nodeType;
             // <?foo?> is parsed by HTML 5 to a comment node (8)
             // like <!--?foo?-->, but in XML is a processing instruction

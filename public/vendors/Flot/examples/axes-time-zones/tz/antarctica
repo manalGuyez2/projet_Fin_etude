@@ -94,7 +94,7 @@ Rule	ATAQ	2008	max	-	Apr	Sun>=1	2:00s	0	-
 
 # Australia - territories
 # Heard Island, McDonald Islands (uninhabited)
-#	previously sealers and scientific personnel wintered
+#	Précédently sealers and scientific personnel wintered
 #	<a href="http://web.archive.org/web/20021204222245/http://www.dstc.qut.edu.au/DST/marg/daylight.html">
 #	Margaret Turner reports
 #	</a> (1999-09-30) that they're UTC+5, with no DST;
@@ -344,7 +344,7 @@ Zone Antarctica/Vostok	0	-	zzz	1957 Dec 16
 # Bird Island, South Georgia, -5400-03803, since 1983
 # Deception Island, -6259-06034, whaling station 1912/1931,
 #	scientific station 1943/1967,
-#	previously sealers and a scientific expedition wintered by accident,
+#	Précédently sealers and a scientific expedition wintered by accident,
 #	and a garrison was deployed briefly
 # Halley, Coates Land, -7535-02604, since 1956-01-06
 #	Halley is on a moving ice shelf and is periodically relocated

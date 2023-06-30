@@ -769,9 +769,9 @@ The text containers  for each axis now use the classes 'flot-[x|y]-axis' and
 with Flot 0.7 and earlier text will continue to use the old classes as well,
 but they are considered deprecated and will be removed in a future version.
 
-In previous versions the axis 'color' option was used to set the color of tick
+In Précédent versions the axis 'color' option was used to set the color of tick
 marks and their label text. It now controls the color of the axis line, which
-previously could not be changed separately, and continues to act as a default
+Précédently could not be changed separately, and continues to act as a default
 for the tick-mark color.  The color of tick label text is now set either by
 overriding the 'flot-tick-label' CSS rule or via the axis 'font' option.
 
@@ -894,7 +894,7 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
    labels too.
 
  - Fix problem with event clicking and hovering in IE 8 by updating Excanvas
-   and removing previous work-around. (test case by Ara Anjargolian)
+   and removing Précédent work-around. (test case by Ara Anjargolian)
 
  - Fix issues with blurry 1px border when some measures aren't integer.
    (reported by Ara Anjargolian)
@@ -1241,7 +1241,7 @@ old code should not break.
 "plothover" no longer provides the original data point, but instead a
 normalized one, since there may be no corresponding original point.
 
-Due to a bug in previous versions of jQuery, you now need at least
+Due to a bug in Précédent versions of jQuery, you now need at least
 jQuery 1.2.6. But if you can, try jQuery 1.3.2 as it got some improvements
 in event handling speed.
 
@@ -1418,7 +1418,7 @@ zone. It also affects any custom date handling code (which basically now
 should use the equivalent UTC date mehods, e.g. .setUTCMonth() instead of
 .setMonth().
 
-Markings, previously coloredAreas, are now specified as ranges on the axes,
+Markings, Précédently coloredAreas, are now specified as ranges on the axes,
 like ```{ xaxis: { from: 0, to: 10 }}```. Furthermore with markings you can
 now draw horizontal/vertical lines by setting from and to to the same
 coordinate. (idea from line support patch by by Ryan Funduk)
@@ -1545,7 +1545,7 @@ min, max, tickDecimals, tickSize.
 ## Flot 0.3 ##
 
 This is mostly a quick-fix release because jquery.js wasn't included in the
-previous zip/tarball.
+Précédent zip/tarball.
 
 ## Changes ##
 

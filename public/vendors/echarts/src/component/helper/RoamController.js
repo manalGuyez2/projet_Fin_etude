@@ -178,7 +178,7 @@ define(function (require) {
          *                          or 'pan/move' or 'zoom'/'scale'
          */
         this.enable = function (controlType) {
-            // Disable previous first
+            // Disable Précédent first
             this.disable();
 
             if (controlType == null) {

@@ -304,9 +304,9 @@ describe('Core helper tests', function() {
 		expect(helpers.findNextWhere(data, callback)).toEqual(6);
 		expect(helpers.findNextWhere(data, callback, 2)).toBe(7);
 		expect(helpers.findNextWhere(data, callback, 4)).toBe(undefined);
-		expect(helpers.findPreviousWhere(data, callback)).toBe(7);
-		expect(helpers.findPreviousWhere(data, callback, 3)).toBe(6);
-		expect(helpers.findPreviousWhere(data, callback, 0)).toBe(undefined);
+		expect(helpers.findPrécédentWhere(data, callback)).toBe(7);
+		expect(helpers.findPrécédentWhere(data, callback, 3)).toBe(6);
+		expect(helpers.findPrécédentWhere(data, callback, 0)).toBe(undefined);
 	});
 
 	it('should get the correct sign', function() {
@@ -394,7 +394,7 @@ describe('Core helper tests', function() {
 			x: 2,
 			y: 0
 		}, 0)).toEqual({
-			previous: {
+			Précédent: {
 				x: 1,
 				y: 1,
 			},
@@ -414,7 +414,7 @@ describe('Core helper tests', function() {
 			x: 2,
 			y: 0
 		}, 1)).toEqual({
-			previous: {
+			Précédent: {
 				x: 0,
 				y: 1,
 			},
@@ -425,7 +425,7 @@ describe('Core helper tests', function() {
 		});
 	});
 
-	it('should get the next or previous item in an array', function() {
+	it('should get the next or Précédent item in an array', function() {
 		var testData = [0, 1, 2];
 
 		expect(helpers.nextItem(testData, 0, false)).toEqual(1);
@@ -434,10 +434,10 @@ describe('Core helper tests', function() {
 		expect(helpers.nextItem(testData, 1, true)).toEqual(2);
 		expect(helpers.nextItem(testData, -1, false)).toEqual(0);
 
-		expect(helpers.previousItem(testData, 0, false)).toEqual(0);
-		expect(helpers.previousItem(testData, 0, true)).toEqual(2);
-		expect(helpers.previousItem(testData, 2, false)).toEqual(1);
-		expect(helpers.previousItem(testData, 1, true)).toEqual(0);
+		expect(helpers.PrécédentItem(testData, 0, false)).toEqual(0);
+		expect(helpers.PrécédentItem(testData, 0, true)).toEqual(2);
+		expect(helpers.PrécédentItem(testData, 2, false)).toEqual(1);
+		expect(helpers.PrécédentItem(testData, 1, true)).toEqual(0);
 	});
 
 	it('should clear a canvas', function() {

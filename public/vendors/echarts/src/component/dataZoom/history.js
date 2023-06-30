@@ -18,7 +18,7 @@ define(function(require) {
         push: function (ecModel, newSnapshot) {
             var store = giveStore(ecModel);
 
-            // If previous dataZoom can not be found,
+            // If Précédent dataZoom can not be found,
             // complete an range with current range.
             each(newSnapshot, function (batchItem, dataZoomId) {
                 var i = store.length - 1;

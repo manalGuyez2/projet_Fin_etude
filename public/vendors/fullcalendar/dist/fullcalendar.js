@@ -833,7 +833,7 @@ function mergeProps(propObjs, complexProps) {
 		props = propObjs[i];
 
 		for (name in props) {
-			if (!(name in dest)) { // if already assigned by previous props or complex props, don't reassign
+			if (!(name in dest)) { // if already assigned by Précédent props or complex props, don't reassign
 				dest[name] = props[name];
 			}
 		}
@@ -4317,7 +4317,7 @@ Grid.mixin({
 
 
 	// Updates internal state and triggers handlers for when an event element is moused out.
-	// Can be given no arguments, in which case it will mouseout the segment that was previously moused over.
+	// Can be given no arguments, in which case it will mouseout the segment that was Précédently moused over.
 	handleSegMouseout: function(seg, ev) {
 		ev = ev || {}; // if given no args, make a mock mouse event
 
@@ -4443,7 +4443,7 @@ Grid.mixin({
 			},
 			dragStart: function(ev) {
 				if (dragListener.isTouch && !view.isEventSelected(event)) {
-					// if not previously selected, will fire after a delay. then, select the event
+					// if not Précédently selected, will fire after a delay. then, select the event
 					view.selectEvent(event);
 				}
 				isDragging = true;
@@ -4538,7 +4538,7 @@ Grid.mixin({
 		var dragListener = this.segDragListener = new DragListener({
 			dragStart: function(ev) {
 				if (dragListener.isTouch && !view.isEventSelected(event)) {
-					// if not previously selected, will fire after a delay. then, select the event
+					// if not Précédently selected, will fire after a delay. then, select the event
 					view.selectEvent(event);
 				}
 			},
@@ -5175,7 +5175,7 @@ Grid.mixin({
 		var viewStart = view.start.clone(); // need a copy
 		var viewEnd = view.end.clone(); // need a copy
 		var inverseRanges = [];
-		var start = viewStart; // the end of the previous range. the start of the new range
+		var start = viewStart; // the end of the Précédent range. the start of the new range
 		var i, range;
 
 		// ranges need to be in order. required for our date-walking algorithm
@@ -8298,7 +8298,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 		var end = range.end;
 
 		if (!end.hasTime()) { // all-day?
-			end = end.clone().subtract(1); // convert to inclusive. last ms of previous day
+			end = end.clone().subtract(1); // convert to inclusive. last ms of Précédent day
 		}
 
 		return formatRange(range.start, end, formatStr, separator, this.opt('isRTL'));
@@ -8610,7 +8610,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 	},
 
 
-	// Unrenders previously-rendered business-hours
+	// Unrenders Précédently-rendered business-hours
 	unrenderBusinessHours: function() {
 		// subclasses should implement
 	},
@@ -8935,7 +8935,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 	// -----------------------------------------------------------------------------------------------------------------
 
 
-	// assumes any previous event renders have been cleared already
+	// assumes any Précédent event renders have been cleared already
 	requestEventsRender: function(events) {
 		var _this = this;
 
@@ -9373,7 +9373,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 	/* Mouse / Touch Unselecting (time range & event unselection)
 	------------------------------------------------------------------------------------------------------------------*/
 	// TODO: move consistently to down/start or up/end?
-	// TODO: don't kill previous selection if touch scrolling
+	// TODO: don't kill Précédent selection if touch scrolling
 
 
 	handleDocumentMousedown: function(ev) {
@@ -10743,7 +10743,7 @@ function Calendar_constructor(element, overrides) {
 	-----------------------------------------------------------------------------*/
 
 
-	function rerenderEvents() { // API method. destroys old events if previously rendered.
+	function rerenderEvents() { // API method. destroys old events if Précédently rendered.
 		if (elementVisible()) {
 			t.reportEventChange(); // will re-trasmit events to the view, causing a rerender
 		}

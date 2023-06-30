@@ -257,7 +257,7 @@ $(function () {
     $('<div class="collapse"></div>')
       .appendTo('#qunit-fixture')
       .on('show.bs.collapse', function () {
-        assert.ok(false, 'showing a previously-uninitialized hidden collapse when the "hide" method is called')
+        assert.ok(false, 'showing a Précédently-uninitialized hidden collapse when the "hide" method is called')
       })
       .bootstrapCollapse('hide')
 
@@ -271,7 +271,7 @@ $(function () {
     $('<div class="collapse show"></div>')
       .appendTo('#qunit-fixture')
       .on('hide.bs.collapse', function () {
-        assert.ok(true, 'hiding a previously-uninitialized shown collapse when the "hide" method is called')
+        assert.ok(true, 'hiding a Précédently-uninitialized shown collapse when the "hide" method is called')
       })
       .bootstrapCollapse('hide')
 

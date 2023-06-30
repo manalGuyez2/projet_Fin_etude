@@ -671,8 +671,8 @@
 		/**
 		 * Change the pagination - provides the internal logic for pagination in a simple API
 		 * function. With this function you can have a DataTables table go to the next,
-		 * previous, first or last pages.
-		 *  @param {string|int} mAction Paging action to take: "first", "previous", "next" or "last"
+		 * Précédent, first or last pages.
+		 *  @param {string|int} mAction Paging action to take: "first", "Précédent", "next" or "last"
 		 *    or page number to jump to (integer), note that page 0 is the first page.
 		 *  @param {bool} [bRedraw=true] Redraw the table or not
 		 *  @dtopt API
@@ -930,7 +930,7 @@
 					}
 				}
 			
-				/* If the element we are initialising has the same ID as a table which was previously
+				/* If the element we are initialising has the same ID as a table which was Précédently
 				 * initialised, but the table nodes don't match (from before) then we destroy the old
 				 * instance by simply deleting it. This is under the assumption that the table has been
 				 * destroyed by other methods. Anyone using non-id selectors will need to do this manually
@@ -1021,7 +1021,7 @@
 				"searchDelay",
 				"rowId",
 				[ "iCookieDuration", "iStateDuration" ], // backwards compat
-				[ "oSearch", "oPreviousSearch" ],
+				[ "oSearch", "oPrécédentSearch" ],
 				[ "aoSearchCols", "aoPreSearchCols" ],
 				[ "iDisplayLength", "_iDisplayLength" ],
 				[ "bJQueryUI", "bJUI" ]
@@ -3514,7 +3514,7 @@
 		}
 	
 		if ( filter ) {
-			_fnFilterComplete( settings, settings.oPreviousSearch );
+			_fnFilterComplete( settings, settings.oPrécédentSearch );
 		}
 		else {
 			// No filtering, so we want to just use the display master
@@ -3978,7 +3978,7 @@
 			columns = settings.aoColumns,
 			columnCount = columns.length,
 			features = settings.oFeatures,
-			preSearch = settings.oPreviousSearch,
+			preSearch = settings.oPrécédentSearch,
 			preColSearch = settings.aoPreSearchCols,
 			i, data = [], dataProp, column, columnSearch,
 			sort = _fnSortFlatten( settings ),
@@ -4158,7 +4158,7 @@
 		var classes = settings.oClasses;
 		var tableId = settings.sTableId;
 		var language = settings.oLanguage;
-		var previousSearch = settings.oPreviousSearch;
+		var PrécédentSearch = settings.oPrécédentSearch;
 		var features = settings.aanFeatures;
 		var input = '<input type="search" class="'+classes.sFilterInput+'"/>';
 	
@@ -4179,12 +4179,12 @@
 			var val = !this.value ? "" : this.value; // mental IE8 fix :-(
 	
 			/* Now do the filter */
-			if ( val != previousSearch.sSearch ) {
+			if ( val != PrécédentSearch.sSearch ) {
 				_fnFilterComplete( settings, {
 					"sSearch": val,
-					"bRegex": previousSearch.bRegex,
-					"bSmart": previousSearch.bSmart ,
-					"bCaseInsensitive": previousSearch.bCaseInsensitive
+					"bRegex": PrécédentSearch.bRegex,
+					"bSmart": PrécédentSearch.bSmart ,
+					"bCaseInsensitive": PrécédentSearch.bCaseInsensitive
 				} );
 	
 				// Need to redraw, without resorting
@@ -4200,7 +4200,7 @@
 				0;
 	
 		var jqFilter = $('input', filter)
-			.val( previousSearch.sSearch )
+			.val( PrécédentSearch.sSearch )
 			.attr( 'placeholder', language.sSearchPlaceholder )
 			.bind(
 				'keyup.DT search.DT input.DT paste.DT cut.DT',
@@ -4223,7 +4223,7 @@
 				// inside an iframe or frame...
 				try {
 					if ( jqFilter[0] !== document.activeElement ) {
-						jqFilter.val( previousSearch.sSearch );
+						jqFilter.val( PrécédentSearch.sSearch );
 					}
 				}
 				catch ( e ) {}
@@ -4243,7 +4243,7 @@
 	 */
 	function _fnFilterComplete ( oSettings, oInput, iForce )
 	{
-		var oPrevSearch = oSettings.oPreviousSearch;
+		var oPrevSearch = oSettings.oPrécédentSearch;
 		var aoPrevSearch = oSettings.aoPreSearchCols;
 		var fnSaveFilter = function ( oFilter ) {
 			/* Save the filtering values */
@@ -4364,7 +4364,7 @@
 	function _fnFilter( settings, input, force, regex, smart, caseInsensitive )
 	{
 		var rpSearch = _fnFilterCreateSearch( input, regex, smart, caseInsensitive );
-		var prevSearch = settings.oPreviousSearch.sSearch;
+		var prevSearch = settings.oPrécédentSearch.sSearch;
 		var displayMaster = settings.aiDisplayMaster;
 		var display, invalidated, i;
 	
@@ -4895,7 +4895,7 @@
 	/**
 	 * Alter the display settings to change the page
 	 *  @param {object} settings DataTables settings object
-	 *  @param {string|int} action Paging action to take: "first", "previous",
+	 *  @param {string|int} action Paging action to take: "first", "Précédent",
 	 *    "next" or "last" or page number to jump to (integer)
 	 *  @param [bool] redraw Automatically draw the update or not
 	 *  @returns {bool} true page has changed, false - no change
@@ -4925,7 +4925,7 @@
 		{
 			start = 0;
 		}
-		else if ( action == "previous" )
+		else if ( action == "Précédent" )
 		{
 			start = len >= 0 ?
 				start - len :
@@ -6274,7 +6274,7 @@
 			start:   settings._iDisplayStart,
 			length:  settings._iDisplayLength,
 			order:   $.extend( true, [], settings.aaSorting ),
-			search:  _fnSearchToCamel( settings.oPreviousSearch ),
+			search:  _fnSearchToCamel( settings.oPrécédentSearch ),
 			columns: $.map( settings.aoColumns, function ( col, i ) {
 				return {
 					visible: col.bVisible,
@@ -6355,7 +6355,7 @@
 	
 		// Search
 		if ( state.search !== undefined ) {
-			$.extend( settings.oPreviousSearch, _fnSearchToHung( state.search ) );
+			$.extend( settings.oPrécédentSearch, _fnSearchToHung( state.search ) );
 		}
 	
 		// Columns
@@ -7412,7 +7412,7 @@
 	 *  * `string` - An action to take:
 	 *    * `first` - Jump to first page.
 	 *    * `next` - Jump to the next page
-	 *    * `previous` - Jump to previous page
+	 *    * `Précédent` - Jump to Précédent page
 	 *    * `last` - Jump to the last page.
 	 * @returns {DataTables.Api} this
 	 */
@@ -8941,7 +8941,7 @@
 		if ( input === undefined ) {
 			// get
 			return ctx.length !== 0 ?
-				ctx[0].oPreviousSearch.sSearch :
+				ctx[0].oPrécédentSearch.sSearch :
 				undefined;
 		}
 	
@@ -8951,7 +8951,7 @@
 				return;
 			}
 	
-			_fnFilterComplete( settings, $.extend( {}, settings.oPreviousSearch, {
+			_fnFilterComplete( settings, $.extend( {}, settings.oPrécédentSearch, {
 				"sSearch": input+"",
 				"bRegex":  regex === null ? false : regex,
 				"bSmart":  smart === null ? true  : smart,
@@ -8985,7 +8985,7 @@
 					"bCaseInsensitive": caseInsen === null ? true : caseInsen
 				} );
 	
-				_fnFilterComplete( settings, settings.oPreviousSearch, 1 );
+				_fnFilterComplete( settings, settings.oPrécédentSearch, 1 );
 			} );
 		}
 	);
@@ -10543,7 +10543,7 @@
 		 * Enable or disable state saving. When enabled HTML5 `localStorage` will be
 		 * used to save table display information such as pagination information,
 		 * display length, filtering and sorting. As such when the end user reloads
-		 * the page the display display will match what thy had previously set up.
+		 * the page the display display will match what thy had Précédently set up.
 		 *
 		 * Due to the use of `localStorage` the default state saving is not supported
 		 * in IE6 or 7. If state saving is required in those browsers, use
@@ -11321,26 +11321,26 @@
 	
 	
 				/**
-				 * Text to use for the 'previous' pagination button (to take the user to
-				 * the previous page).
+				 * Text to use for the 'Précédent' pagination button (to take the user to
+				 * the Précédent page).
 				 *  @type string
-				 *  @default Previous
+				 *  @default Précédent
 				 *
 				 *  @dtopt Language
-				 *  @name DataTable.defaults.language.paginate.previous
+				 *  @name DataTable.defaults.language.paginate.Précédent
 				 *
 				 *  @example
 				 *    $(document).ready( function() {
 				 *      $('#example').dataTable( {
 				 *        "language": {
 				 *          "paginate": {
-				 *            "previous": "Previous page"
+				 *            "Précédent": "Précédent page"
 				 *          }
 				 *        }
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrécédent": "Précédent"
 			},
 	
 			/**
@@ -11840,10 +11840,10 @@
 		 * DataTables features four different built-in options for the buttons to
 		 * display for pagination control:
 		 *
-		 * * `simple` - 'Previous' and 'Next' buttons only
-		 * * 'simple_numbers` - 'Previous' and 'Next' buttons, plus page numbers
-		 * * `full` - 'First', 'Previous', 'Next' and 'Last' buttons
-		 * * `full_numbers` - 'First', 'Previous', 'Next' and 'Last' buttons, plus
+		 * * `simple` - 'Précédent' and 'Next' buttons only
+		 * * 'simple_numbers` - 'Précédent' and 'Next' buttons, plus page numbers
+		 * * `full` - 'First', 'Précédent', 'Next' and 'Last' buttons
+		 * * `full_numbers` - 'First', 'Précédent', 'Next' and 'Last' buttons, plus
 		 *   page numbers
 		 *  
 		 * Further methods can be added using {@link DataTable.ext.oPagination}.
@@ -13174,7 +13174,7 @@
 		 *  @namespace
 		 *  @extends DataTable.models.oSearch
 		 */
-		"oPreviousSearch": {},
+		"oPrécédentSearch": {},
 	
 		/**
 		 * Store the applied search for each column - see
@@ -14023,7 +14023,7 @@
 		 *
 		 * * `first` - Jump to first page when activated
 		 * * `last` - Jump to last page when activated
-		 * * `previous` - Show previous page when activated
+		 * * `Précédent` - Show Précédent page when activated
 		 * * `next` - Show next page when activated
 		 * * `{int}` - Show page of the index given
 		 * * `{array}` - A nested array containing the above elements to add a
@@ -14039,9 +14039,9 @@
 		 *  @default {}
 		 *
 		 *  @example
-		 *    // Show previous, next and current page buttons only
+		 *    // Show Précédent, next and current page buttons only
 		 *    $.fn.dataTableExt.oPagination.current = function ( page, pages ) {
-		 *      return [ 'previous', page, 'next' ];
+		 *      return [ 'Précédent', page, 'next' ];
 		 *    };
 		 */
 		pager: {},
@@ -14475,11 +14475,11 @@
 	
 	$.extend( extPagination, {
 		simple: function ( page, pages ) {
-			return [ 'previous', 'next' ];
+			return [ 'Précédent', 'next' ];
 		},
 	
 		full: function ( page, pages ) {
-			return [  'first', 'previous', 'next', 'last' ];
+			return [  'first', 'Précédent', 'next', 'last' ];
 		},
 	
 		numbers: function ( page, pages ) {
@@ -14487,11 +14487,11 @@
 		},
 	
 		simple_numbers: function ( page, pages ) {
-			return [ 'previous', _numbers(page, pages), 'next' ];
+			return [ 'Précédent', _numbers(page, pages), 'next' ];
 		},
 	
 		full_numbers: function ( page, pages ) {
-			return [ 'first', 'previous', _numbers(page, pages), 'next', 'last' ];
+			return [ 'first', 'Précédent', _numbers(page, pages), 'next', 'last' ];
 		},
 	
 		// For testing and plug-ins to use
@@ -14539,8 +14539,8 @@
 										'' : ' '+classes.sPageButtonDisabled);
 									break;
 	
-								case 'previous':
-									btnDisplay = lang.sPrevious;
+								case 'Précédent':
+									btnDisplay = lang.sPrécédent;
 									btnClass = button + (page > 0 ?
 										'' : ' '+classes.sPageButtonDisabled);
 									break;

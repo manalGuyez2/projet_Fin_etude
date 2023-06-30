@@ -111,7 +111,7 @@ $.fn.modal.Constructor.Default.keyboard = false
 Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call `.noConflict` on the plugin you wish to revert the value of.
 
 {% highlight js %}
-var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
+var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to Précédently assigned value
 $.fn.bootstrapBtn = bootstrapButton // give $().bootstrapBtn the Bootstrap functionality
 {% endhighlight %}
 

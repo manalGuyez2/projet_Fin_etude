@@ -4600,7 +4600,7 @@ module.exports = {
         }
         // behaves the same as moment#day except
         // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
-        // as a setter, sunday should belong to the previous week.
+        // as a setter, sunday should belong to the Précédent week.
         return input == null ? this.day() || 7 : this.day(this.day() % 7 ? input : input - 7);
     }
 
@@ -7071,15 +7071,15 @@ module.exports = function(Chart) {
 				point = points[i];
 				model = point._model;
 				controlPoints = helpers.splineCurve(
-					helpers.previousItem(points, i)._model,
+					helpers.PrécédentItem(points, i)._model,
 					model,
 					helpers.nextItem(points, i)._model,
 					meta.dataset._model.tension
 				);
 
 				// Prevent the bezier going outside of the bounds of the graph
-				model.controlPointPreviousX = Math.max(Math.min(controlPoints.previous.x, area.right), area.left);
-				model.controlPointPreviousY = Math.max(Math.min(controlPoints.previous.y, area.bottom), area.top);
+				model.controlPointPrécédentX = Math.max(Math.min(controlPoints.Précédent.x, area.right), area.left);
+				model.controlPointPrécédentY = Math.max(Math.min(controlPoints.Précédent.y, area.bottom), area.top);
 				model.controlPointNextX = Math.max(Math.min(controlPoints.next.x, area.right), area.left);
 				model.controlPointNextY = Math.max(Math.min(controlPoints.next.y, area.bottom), area.top);
 
@@ -7498,15 +7498,15 @@ module.exports = function(Chart) {
 			helpers.each(meta.data, function(point, index) {
 				var model = point._model;
 				var controlPoints = helpers.splineCurve(
-					helpers.previousItem(meta.data, index, true)._model,
+					helpers.PrécédentItem(meta.data, index, true)._model,
 					model,
 					helpers.nextItem(meta.data, index, true)._model,
 					model.tension
 				);
 
 				// Prevent the bezier going outside of the bounds of the graph
-				model.controlPointPreviousX = Math.max(Math.min(controlPoints.previous.x, chartArea.right), chartArea.left);
-				model.controlPointPreviousY = Math.max(Math.min(controlPoints.previous.y, chartArea.bottom), chartArea.top);
+				model.controlPointPrécédentX = Math.max(Math.min(controlPoints.Précédent.x, chartArea.right), chartArea.left);
+				model.controlPointPrécédentY = Math.max(Math.min(controlPoints.Précédent.y, chartArea.bottom), chartArea.top);
 
 				model.controlPointNextX = Math.max(Math.min(controlPoints.next.x, chartArea.right), chartArea.left);
 				model.controlPointNextY = Math.max(Math.min(controlPoints.next.y, chartArea.bottom), chartArea.top);
@@ -8789,7 +8789,7 @@ module.exports = function(Chart) {
 			}
 		}
 	};
-	helpers.findPreviousWhere = function(arrayToSearch, filterCallback, startIndex) {
+	helpers.findPrécédentWhere = function(arrayToSearch, filterCallback, startIndex) {
 		// Default to end of the array
 		if (startIndex === undefined || startIndex === null) {
 			startIndex = arrayToSearch.length;
@@ -8912,11 +8912,11 @@ module.exports = function(Chart) {
 
 		// This function must also respect "skipped" points
 
-		var previous = firstPoint.skip ? middlePoint : firstPoint,
+		var Précédent = firstPoint.skip ? middlePoint : firstPoint,
 			current = middlePoint,
 			next = afterPoint.skip ? middlePoint : afterPoint;
 
-		var d01 = Math.sqrt(Math.pow(current.x - previous.x, 2) + Math.pow(current.y - previous.y, 2));
+		var d01 = Math.sqrt(Math.pow(current.x - Précédent.x, 2) + Math.pow(current.y - Précédent.y, 2));
 		var d12 = Math.sqrt(Math.pow(next.x - current.x, 2) + Math.pow(next.y - current.y, 2));
 
 		var s01 = d01 / (d01 + d12);
@@ -8930,13 +8930,13 @@ module.exports = function(Chart) {
 		var fb = t * s12;
 
 		return {
-			previous: {
-				x: current.x - fa * (next.x - previous.x),
-				y: current.y - fa * (next.y - previous.y)
+			Précédent: {
+				x: current.x - fa * (next.x - Précédent.x),
+				y: current.y - fa * (next.y - Précédent.y)
 			},
 			next: {
-				x: current.x + fb * (next.x - previous.x),
-				y: current.y + fb * (next.y - previous.y)
+				x: current.x + fb * (next.x - Précédent.x),
+				y: current.y + fb * (next.y - Précédent.y)
 			}
 		};
 	};
@@ -8947,7 +8947,7 @@ module.exports = function(Chart) {
 
 		return index >= collection.length - 1 ? collection[collection.length - 1] : collection[index + 1];
 	};
-	helpers.previousItem = function(collection, index, loop) {
+	helpers.PrécédentItem = function(collection, index, loop) {
 		if (loop) {
 			return index <= 0 ? collection[collection.length - 1] : collection[index - 1];
 		}
@@ -12084,22 +12084,22 @@ module.exports = function(Chart) {
 	};
 
 	Chart.elements.Line = Chart.Element.extend({
-		lineToNextPoint: function(previousPoint, point, nextPoint, skipHandler, previousSkipHandler) {
+		lineToNextPoint: function(PrécédentPoint, point, nextPoint, skipHandler, PrécédentSkipHandler) {
 			var ctx = this._chart.ctx;
 
 			if (point._view.skip) {
-				skipHandler.call(this, previousPoint, point, nextPoint);
-			} else if (previousPoint._view.skip) {
-				previousSkipHandler.call(this, previousPoint, point, nextPoint);
+				skipHandler.call(this, PrécédentPoint, point, nextPoint);
+			} else if (PrécédentPoint._view.skip) {
+				PrécédentSkipHandler.call(this, PrécédentPoint, point, nextPoint);
 			} else if (point._view.tension === 0) {
 				ctx.lineTo(point._view.x, point._view.y);
 			} else {
 				// Line between points
 				ctx.bezierCurveTo(
-					previousPoint._view.controlPointNextX,
-					previousPoint._view.controlPointNextY,
-					point._view.controlPointPreviousX,
-					point._view.controlPointPreviousY,
+					PrécédentPoint._view.controlPointNextX,
+					PrécédentPoint._view.controlPointNextY,
+					point._view.controlPointPrécédentX,
+					point._view.controlPointPrécédentY,
 					point._view.x,
 					point._view.y
 				);
@@ -12120,8 +12120,8 @@ module.exports = function(Chart) {
 					ctx.bezierCurveTo(
 						last._view.controlPointNextX,
 						last._view.controlPointNextY,
-						first._view.controlPointPreviousX,
-						first._view.controlPointPreviousY,
+						first._view.controlPointPrécédentX,
+						first._view.controlPointPrécédentY,
 						first._view.x,
 						first._view.y
 					);
@@ -12139,7 +12139,7 @@ module.exports = function(Chart) {
 				ctx.beginPath();
 
 				helpers.each(this._children, function(point, index) {
-					var previous = helpers.previousItem(this._children, index);
+					var Précédent = helpers.PrécédentItem(this._children, index);
 					var next = helpers.nextItem(this._children, index);
 
 					// First point moves to it's starting position no matter what
@@ -12158,15 +12158,15 @@ module.exports = function(Chart) {
 							ctx.lineTo(point._view.x, point._view.y);
 						}
 					} else {
-						this.lineToNextPoint(previous, point, next, function(previousPoint, point, nextPoint) {
+						this.lineToNextPoint(Précédent, point, next, function(PrécédentPoint, point, nextPoint) {
 							if (this._loop) {
 								// Go to center
 								ctx.lineTo(this._view.scaleZero.x, this._view.scaleZero.y);
 							} else {
-								ctx.lineTo(previousPoint._view.x, this._view.scaleZero);
+								ctx.lineTo(PrécédentPoint._view.x, this._view.scaleZero);
 								ctx.moveTo(nextPoint._view.x, this._view.scaleZero);
 							}
-						}, function(previousPoint, point) {
+						}, function(PrécédentPoint, point) {
 							// If we skipped the last point, draw a line to ourselves so that the fill is nice
 							ctx.lineTo(point._view.x, point._view.y);
 						});
@@ -12203,15 +12203,15 @@ module.exports = function(Chart) {
 			ctx.beginPath();
 
 			helpers.each(this._children, function(point, index) {
-				var previous = helpers.previousItem(this._children, index);
+				var Précédent = helpers.PrécédentItem(this._children, index);
 				var next = helpers.nextItem(this._children, index);
 
 				if (index === 0) {
 					ctx.moveTo(point._view.x, point._view.y);
 				} else {
-					this.lineToNextPoint(previous, point, next, function(previousPoint, point, nextPoint) {
+					this.lineToNextPoint(Précédent, point, next, function(PrécédentPoint, point, nextPoint) {
 						ctx.moveTo(nextPoint._view.x, nextPoint._view.y);
-					}, function(previousPoint, point) {
+					}, function(PrécédentPoint, point) {
 						// If we skipped the last point, move up to our point preventing a line from being drawn
 						ctx.moveTo(point._view.x, point._view.y);
 					});

@@ -75,14 +75,14 @@ class Tab {
     }
 
     let target
-    let previous
+    let Précédent
     const listElement = $(this._element).closest(Selector.NAV_LIST_GROUP)[0]
     const selector = Util.getSelectorFromElement(this._element)
 
     if (listElement) {
       const itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE
-      previous = $.makeArray($(listElement).find(itemSelector))
-      previous = previous[previous.length - 1]
+      Précédent = $.makeArray($(listElement).find(itemSelector))
+      Précédent = Précédent[Précédent.length - 1]
     }
 
     const hideEvent = $.Event(Event.HIDE, {
@@ -90,11 +90,11 @@ class Tab {
     })
 
     const showEvent = $.Event(Event.SHOW, {
-      relatedTarget: previous
+      relatedTarget: Précédent
     })
 
-    if (previous) {
-      $(previous).trigger(hideEvent)
+    if (Précédent) {
+      $(Précédent).trigger(hideEvent)
     }
 
     $(this._element).trigger(showEvent)
@@ -119,10 +119,10 @@ class Tab {
       })
 
       const shownEvent = $.Event(Event.SHOWN, {
-        relatedTarget: previous
+        relatedTarget: Précédent
       })
 
-      $(previous).trigger(hiddenEvent)
+      $(Précédent).trigger(hiddenEvent)
       $(this._element).trigger(shownEvent)
     }
 

@@ -927,7 +927,7 @@ v1.2 (2009-05-31)
 - bugfixes
 	- rightToLeft month start bug
 	- off-by-one errors with month formatting commands
-	- events from previous months sticking when clicking prev/next quickly
+	- events from Précédent months sticking when clicking prev/next quickly
 - Google Calendar API changed to work w/ multiple event sources
 	- can also provide 'className' and 'draggable' options
 - date utilties moved from $ to $.fullCalendar
@@ -935,7 +935,7 @@ v1.2 (2009-05-31)
 - minified version of fullcalendar.js
 - test suit (available from svn)
 - top buttons now use `<button>` w/ an inner `<span>` for better css cusomization
-	- thus CSS has changed. IF UPGRADING FROM PREVIOUS VERSIONS,
+	- thus CSS has changed. IF UPGRADING FROM Précédent VERSIONS,
 	  UPGRADE YOUR FULLCALENDAR.CSS FILE
 
 

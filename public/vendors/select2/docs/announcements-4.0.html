@@ -20,7 +20,7 @@ slug: announcements-4.0
           The 4.0 release of Select2 is the result of three years of working on the
           code base and watching where it needs to go. At the core, it is a full
           rewrite that addresses many of the extensibility and usability problems
-          that could not be addressed in previous versions.
+          that could not be addressed in Précédent versions.
         </p>
 
         <p>
@@ -148,7 +148,7 @@ slug: announcements-4.0
           In Select2 4.0, the <code>&lt;select&gt;</code> element supports all core
           options, and support for the old
           <code>&lt;input type="hidden" /&gt;</code> has been deprecated. This means
-          that if you previously declared an AJAX field with some pre-selected
+          that if you Précédently declared an AJAX field with some pre-selected
           options that looked like…
         </p>
 
@@ -288,7 +288,7 @@ $.fn.select2.amd.require(['select2/compat/matcher'], function (oldMatcher) {
 {% endhighlight %}
 
         <p>
-          You would have previously had to get the placeholder option through the
+          You would have Précédently had to get the placeholder option through the
           <code>placeholderOption</code>, but now you can do it through the
           <code>placeholder</code> option by setting an <code>id</code>.
         </p>
@@ -331,7 +331,7 @@ $("select").select2({
           When designing the future option set for Select2 4.0, special care was
           taken to ensure that the most commonly used options were brought over.
           For the most part, the commonly used options of Select2 can still be
-          referenced under their previous names, but there were some changes which
+          referenced under their Précédent names, but there were some changes which
           have been noted.
         </p>
 
@@ -559,7 +559,7 @@ $.fn.select2.amd.require([
         <h3 id="changed-templating">Renamed templating options</h3>
 
         <p>
-          Select2 previously provided multiple options for formatting the results
+          Select2 Précédently provided multiple options for formatting the results
           list and selected options, commonly referred to as "formatters", using the
           <code>formatSelection</code> and <code>formatResult</code> options. As the
           "formatters" were also used for things such as localization,
@@ -571,7 +571,7 @@ $.fn.select2.amd.require([
         <p>
           You should refer to the updated
           <a href="options.html#templating">documentation on templates</a> when
-          migrating from previous versions of Select2.
+          migrating from Précédent versions of Select2.
         </p>
 
         <h3 id="changed-id">
@@ -598,7 +598,7 @@ $.fn.select2.amd.require([
         </h4>
 
         <p>
-          Select2 previously supported defining array data as an object that matched
+          Select2 Précédently supported defining array data as an object that matched
           the signature of an AJAX response. A <code>text</code> property could be
           specified that would map the given property to the <code>text</code>
           property on the individual objects. You can now do this when initializing
@@ -644,7 +644,7 @@ var data = $.map([
         <h3 id="changed-translations">Renamed translation options</h3>
 
         <p>
-          In previous versions of Select2, the default messages provided to users
+          In Précédent versions of Select2, the default messages provided to users
           could be localized to fit the language of the website that it was being
           used on. Select2 only comes with the English language by default, but
           provides
@@ -666,7 +666,7 @@ var data = $.map([
         </p>
 
         <p>
-          You could previously declare the URL that was used for AJAX requests using
+          You could Précédently declare the URL that was used for AJAX requests using
           the <code>data-ajax-url</code> attribute. While Select2 still allows for
           this, the new attribute that should be used is the
           <code>data-ajax--url</code> attribute. Support for the old attribute will
@@ -685,7 +685,7 @@ var data = $.map([
         </p>
 
         <p>
-          If you previously declared the list of tags as…
+          If you Précédently declared the list of tags as…
         </p>
 
 {% highlight html linenos %}

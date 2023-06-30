@@ -841,9 +841,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var stack = series.get('stack');
 	            var data = series.getData();
 	            if (stack && data.type === 'list') {
-	                var previousStack = stackedDataMap[stack];
-	                if (previousStack) {
-	                    data.stackedOn = previousStack;
+	                var PrécédentStack = stackedDataMap[stack];
+	                if (PrécédentStack) {
+	                    data.stackedOn = PrécédentStack;
 	                }
 	                stackedDataMap[stack] = data;
 	            }
@@ -6978,7 +6978,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                clipPath.addSelfToZr(zr);
 	            }
 
-	            // Remove previous clip path
+	            // Remove Précédent clip path
 	            if (this.clipPath && this.clipPath !== clipPath) {
 	                this.removeClipPath();
 	            }
@@ -7786,7 +7786,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            else if (!time) {
 	                time = 500;
 	            }
-	            // Stop all previous animations
+	            // Stop all Précédent animations
 	            this.stopAnimation();
 	            this._animateToShallow('', this, target, time, delay, easing, callback);
 
@@ -7964,13 +7964,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var arr1Len = arr1.length;
 	        if (arr0Len !== arr1Len) {
 	            // FIXME Not work for TypedArray
-	            var isPreviousLarger = arr0Len > arr1Len;
-	            if (isPreviousLarger) {
-	                // Cut the previous
+	            var isPrécédentLarger = arr0Len > arr1Len;
+	            if (isPrécédentLarger) {
+	                // Cut the Précédent
 	                arr0.length = arr1Len;
 	            }
 	            else {
-	                // Fill the previous
+	                // Fill the Précédent
 	                for (var i = arr0Len; i < arr1Len; i++) {
 	                    arr0.push(
 	                        arrDim === 1 ? arr1[i] : arraySlice.call(arr1[i])
@@ -10014,7 +10014,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            })
 	            : setElementHoverStl(el, hoverStyle);
-	        // Remove previous bound handlers
+	        // Remove Précédent bound handlers
 	        el.on('mouseover', onElementMouseOver)
 	          .on('mouseout', onElementMouseOut);
 
@@ -12133,7 +12133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                if (i == 1) {
 	                    // 如果第一个命令是 L, C, Q
-	                    // 则 previous point 同绘制命令的第一个 point
+	                    // 则 Précédent point 同绘制命令的第一个 point
 	                    //
 	                    // 第一个命令为 Arc 的情况下会在后面特殊处理
 	                    xi = data[i];
@@ -12251,7 +12251,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                if (i == 1) {
 	                    // 如果第一个命令是 L, C, Q
-	                    // 则 previous point 同绘制命令的第一个 point
+	                    // 则 Précédent point 同绘制命令的第一个 point
 	                    //
 	                    // 第一个命令为 Arc 的情况下会在后面特殊处理
 	                    xi = d[i];
@@ -13337,7 +13337,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var cmd = data[i++];
 	            // Begin a new subpath
 	            if (cmd === CMD.M && i > 1) {
-	                // Close previous subpath
+	                // Close Précédent subpath
 	                if (!isStroke) {
 	                    w += windingLine(xi, yi, x0, y0, x, y);
 	                }
@@ -13349,7 +13349,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            if (i == 1) {
 	                // 如果第一个命令是 L, C, Q
-	                // 则 previous point 同绘制命令的第一个 point
+	                // 则 Précédent point 同绘制命令的第一个 point
 	                //
 	                // 第一个命令为 Arc 的情况下会在后面特殊处理
 	                xi = data[i];
@@ -15855,7 +15855,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this._hovered = hovered;
 
 	            this.root.style.cursor = hovered ? hovered.cursor : this._defaultCursorStyle;
-	            // Mouse out on previous hovered element
+	            // Mouse out on Précédent hovered element
 	            if (lastHovered && hovered !== lastHovered && lastHovered.__zr) {
 	                this._dispatchProxy(lastHovered, 'mouseout', event);
 	            }
@@ -17405,7 +17405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                    // Optimize when clipping on group with several elements
 	                    if (isClipPathChanged(clipPaths, prevElClipPaths)) {
-	                        // If has previous clipping state, restore from it
+	                        // If has Précédent clipping state, restore from it
 	                        if (prevElClipPaths) {
 	                            ctx.restore();
 	                        }
@@ -20219,7 +20219,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            });
 
-	            // Remove previous created symbols if showSymbol changed to false
+	            // Remove Précédent created symbols if showSymbol changed to false
 	            if (!showSymbol) {
 	                symbolDraw.remove();
 	            }
@@ -20405,7 +20405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 	        _newPolyline: function (points) {
 	            var polyline = this._polyline;
-	            // Remove previous created polyline
+	            // Remove Précédent created polyline
 	            if (polyline) {
 	                this._lineGroup.remove(polyline);
 	            }
@@ -20433,7 +20433,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 	        _newPolygon: function (points, stackedOnPoints) {
 	            var polygon = this._polygon;
-	            // Remove previous created polygon
+	            // Remove Précédent created polygon
 	            if (polygon) {
 	                this._lineGroup.remove(polygon);
 	            }
@@ -21407,7 +21407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                case '=':
 	                    var currentPt = oldData.getItemLayout(diffItem.idx);
 	                    var nextPt = newData.getItemLayout(diffItem.idx1);
-	                    // If previous data is NaN, use next point directly
+	                    // If Précédent data is NaN, use next point directly
 	                    if (isNaN(currentPt[0]) || isNaN(currentPt[1])) {
 	                        currentPt = nextPt.slice();
 	                    }
@@ -27243,7 +27243,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         *                          or 'pan/move' or 'zoom'/'scale'
 	         */
 	        this.enable = function (controlType) {
-	            // Disable previous first
+	            // Disable Précédent first
 	            this.disable();
 
 	            if (controlType == null) {
@@ -35723,7 +35723,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        push: function (ecModel, newSnapshot) {
 	            var store = giveStore(ecModel);
 
-	            // If previous dataZoom can not be found,
+	            // If Précédent dataZoom can not be found,
 	            // complete an range with current range.
 	            each(newSnapshot, function (batchItem, dataZoomId) {
 	                var i = store.length - 1;

@@ -1010,7 +1010,7 @@ function createFlags( flags ) {
  *
  *	once:			will ensure the callback list can only be fired once (like a Deferred)
  *
- *	memory:			will keep track of previous values and will call any callback added
+ *	memory:			will keep track of Précédent values and will call any callback added
  *					after the list has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *
@@ -1103,7 +1103,7 @@ jQuery.Callbacks = function( flags ) {
 					if ( firing ) {
 						firingLength = list.length;
 					// With memory, if we're not firing then
-					// we should call right away, unless previous
+					// we should call right away, unless Précédent
 					// firing was halted (stopOnFalse)
 					} else if ( memory && memory !== true ) {
 						firingStart = length;
@@ -4348,7 +4348,7 @@ var Expr = Sizzle.selectors = {
 
 			for ( var i = 0, l = checkSet.length, elem; i < l; i++ ) {
 				if ( (elem = checkSet[i]) ) {
-					while ( (elem = elem.previousSibling) && elem.nodeType !== 1 ) {}
+					while ( (elem = elem.PrécédentSibling) && elem.nodeType !== 1 ) {}
 
 					checkSet[i] = isPartStrNotTag || elem && elem.nodeName.toLowerCase() === part ?
 						elem || false :
@@ -4421,7 +4421,7 @@ var Expr = Sizzle.selectors = {
 				checkFn = dirNodeCheck;
 			}
 
-			checkFn( "previousSibling", part, doneName, checkSet, nodeCheck, isXML );
+			checkFn( "PrécédentSibling", part, doneName, checkSet, nodeCheck, isXML );
 		}
 	},
 
@@ -4721,7 +4721,7 @@ var Expr = Sizzle.selectors = {
 			switch ( type ) {
 				case "only":
 				case "first":
-					while ( (node = node.previousSibling) ) {
+					while ( (node = node.PrécédentSibling) ) {
 						if ( node.nodeType === 1 ) {
 							return false;
 						}
@@ -5582,19 +5582,19 @@ jQuery.each({
 		return jQuery.nth( elem, 2, "nextSibling" );
 	},
 	prev: function( elem ) {
-		return jQuery.nth( elem, 2, "previousSibling" );
+		return jQuery.nth( elem, 2, "PrécédentSibling" );
 	},
 	nextAll: function( elem ) {
 		return jQuery.dir( elem, "nextSibling" );
 	},
 	prevAll: function( elem ) {
-		return jQuery.dir( elem, "previousSibling" );
+		return jQuery.dir( elem, "PrécédentSibling" );
 	},
 	nextUntil: function( elem, i, until ) {
 		return jQuery.dir( elem, "nextSibling", until );
 	},
 	prevUntil: function( elem, i, until ) {
-		return jQuery.dir( elem, "previousSibling", until );
+		return jQuery.dir( elem, "PrécédentSibling", until );
 	},
 	siblings: function( elem ) {
 		return jQuery.sibling( ( elem.parentNode || {} ).firstChild, elem );
@@ -7894,7 +7894,7 @@ function ajaxConvert( s, response ) {
 		key,
 		length = dataTypes.length,
 		tmp,
-		// Current and previous dataTypes
+		// Current and Précédent dataTypes
 		current = dataTypes[ 0 ],
 		prev,
 		// Conversion expression
@@ -7991,7 +7991,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 		var responseContainer,
 			jsonpCallback = s.jsonpCallback =
 				jQuery.isFunction( s.jsonpCallback ) ? s.jsonpCallback() : s.jsonpCallback,
-			previous = window[ jsonpCallback ],
+			Précédent = window[ jsonpCallback ],
 			url = s.url,
 			data = s.data,
 			replace = "$1" + jsonpCallback + "$2";
@@ -8019,10 +8019,10 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 		// Clean-up function
 		jqXHR.always(function() {
-			// Set callback back to previous value
-			window[ jsonpCallback ] = previous;
+			// Set callback back to Précédent value
+			window[ jsonpCallback ] = Précédent;
 			// Call if it was a function and we have a response
-			if ( responseContainer && jQuery.isFunction( previous ) ) {
+			if ( responseContainer && jQuery.isFunction( Précédent ) ) {
 				window[ jsonpCallback ]( responseContainer[ 0 ] );
 			}
 		});
@@ -8846,7 +8846,7 @@ jQuery.fx.prototype = {
 		// Begin the animation
 		// Make sure that we start at a small width/height to avoid any flash of content
 		if ( dataShow !== undefined ) {
-			// This show is picking up where a previous hide or show left off
+			// This show is picking up where a Précédent hide or show left off
 			this.custom( this.cur(), dataShow );
 		} else {
 			this.custom( this.prop === "width" || this.prop === "height" ? 1 : 0, this.cur() );

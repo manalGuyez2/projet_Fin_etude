@@ -209,7 +209,7 @@
 	 * %g		like %G, but without the century											"08"
 	 * %G		The 4-digit year corresponding to the ISO week number (see %V).				"2008"
 	 *		This has the same format and value as %Y, except that if the ISO week number
-	 *		belongs to the previous or next year, that year is used instead.
+	 *		belongs to the Précédent or next year, that year is used instead.
 	 * %h		same as %b																	"Jan" through "Dec"
 	 * %H		hour as a decimal number using a 24-hour clock.								"00" to "23"
 	 * %I		hour as a decimal number using a 12-hour clock.								"01" to "12"
@@ -258,7 +258,7 @@
 	 * t		Number of days in the given month											"28" through "31"
 	 * L		Whether it's a leap year													"1" if it is a leap year, "0" otherwise
 	 * o		ISO-8601 year number. This has the same value as Y, except that if the		"2008"
-	 *		ISO week number (W) belongs to the previous or next year, that year
+	 *		ISO week number (W) belongs to the Précédent or next year, that year
 	 *		is used instead.
 	 * Y		A full numeric representation of a year, 4 digits							"2008"
 	 * y		A two digit representation of a year										"08"

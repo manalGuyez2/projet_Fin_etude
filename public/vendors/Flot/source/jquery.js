@@ -930,7 +930,7 @@ function createOptions( options ) {
  *
  *	once:			will ensure the callback list can only be fired once (like a Deferred)
  *
- *	memory:			will keep track of previous values and will call any callback added
+ *	memory:			will keep track of Précédent values and will call any callback added
  *					after the list has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *
@@ -4151,8 +4151,8 @@ Expr = Sizzle.selectors = {
 	relative: {
 		">": { dir: "parentNode", first: true },
 		" ": { dir: "parentNode" },
-		"+": { dir: "previousSibling", first: true },
-		"~": { dir: "previousSibling" }
+		"+": { dir: "PrécédentSibling", first: true },
+		"~": { dir: "PrécédentSibling" }
 	},
 
 	preFilter: {
@@ -4324,7 +4324,7 @@ Expr = Sizzle.selectors = {
 				switch ( type ) {
 					case "only":
 					case "first":
-						while ( (node = node.previousSibling) ) {
+						while ( (node = node.PrécédentSibling) ) {
 							if ( node.nodeType === 1 ) {
 								return false;
 							}
@@ -5529,19 +5529,19 @@ jQuery.each({
 		return sibling( elem, "nextSibling" );
 	},
 	prev: function( elem ) {
-		return sibling( elem, "previousSibling" );
+		return sibling( elem, "PrécédentSibling" );
 	},
 	nextAll: function( elem ) {
 		return jQuery.dir( elem, "nextSibling" );
 	},
 	prevAll: function( elem ) {
-		return jQuery.dir( elem, "previousSibling" );
+		return jQuery.dir( elem, "PrécédentSibling" );
 	},
 	nextUntil: function( elem, i, until ) {
 		return jQuery.dir( elem, "nextSibling", until );
 	},
 	prevUntil: function( elem, i, until ) {
-		return jQuery.dir( elem, "previousSibling", until );
+		return jQuery.dir( elem, "PrécédentSibling", until );
 	},
 	siblings: function( elem ) {
 		return jQuery.sibling( ( elem.parentNode || {} ).firstChild, elem );
@@ -8579,7 +8579,7 @@ var fxNow, timerId,
 					start = jQuery.css( tween.elem, prop, true ) || end || 1;
 
 					do {
-						// If previous iteration zeroed out, double until we get *something*
+						// If Précédent iteration zeroed out, double until we get *something*
 						// Use a string for doubling factor so we don't accidentally see scale as unchanged below
 						scale = scale || ".5";
 

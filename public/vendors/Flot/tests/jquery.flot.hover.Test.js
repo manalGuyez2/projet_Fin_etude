@@ -161,7 +161,7 @@ describe("flot hover plugin", function () {
             expect(getEntireCanvasData(canvas)).not.toContainPixelColor(rgba(10, 20, 30, 1));
         });
 
-        it('should unhighlight the previouse point when hovering a new one', function() {
+        it('should unhighlight the Précédente point when hovering a new one', function() {
             plot = $.plot(placeholder, [ [ [0, 0], [2, 3], [10, 10] ] ], options);
 
             var eventHolder = plot.getEventHolder(),

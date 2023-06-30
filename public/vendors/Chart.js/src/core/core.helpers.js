@@ -228,7 +228,7 @@ module.exports = function(Chart) {
 			}
 		}
 	};
-	helpers.findPreviousWhere = function(arrayToSearch, filterCallback, startIndex) {
+	helpers.findPrécédentWhere = function(arrayToSearch, filterCallback, startIndex) {
 		// Default to end of the array
 		if (startIndex === undefined || startIndex === null) {
 			startIndex = arrayToSearch.length;
@@ -351,11 +351,11 @@ module.exports = function(Chart) {
 
 		// This function must also respect "skipped" points
 
-		var previous = firstPoint.skip ? middlePoint : firstPoint,
+		var Précédent = firstPoint.skip ? middlePoint : firstPoint,
 			current = middlePoint,
 			next = afterPoint.skip ? middlePoint : afterPoint;
 
-		var d01 = Math.sqrt(Math.pow(current.x - previous.x, 2) + Math.pow(current.y - previous.y, 2));
+		var d01 = Math.sqrt(Math.pow(current.x - Précédent.x, 2) + Math.pow(current.y - Précédent.y, 2));
 		var d12 = Math.sqrt(Math.pow(next.x - current.x, 2) + Math.pow(next.y - current.y, 2));
 
 		var s01 = d01 / (d01 + d12);
@@ -369,13 +369,13 @@ module.exports = function(Chart) {
 		var fb = t * s12;
 
 		return {
-			previous: {
-				x: current.x - fa * (next.x - previous.x),
-				y: current.y - fa * (next.y - previous.y)
+			Précédent: {
+				x: current.x - fa * (next.x - Précédent.x),
+				y: current.y - fa * (next.y - Précédent.y)
 			},
 			next: {
-				x: current.x + fb * (next.x - previous.x),
-				y: current.y + fb * (next.y - previous.y)
+				x: current.x + fb * (next.x - Précédent.x),
+				y: current.y + fb * (next.y - Précédent.y)
 			}
 		};
 	};
@@ -386,7 +386,7 @@ module.exports = function(Chart) {
 
 		return index >= collection.length - 1 ? collection[collection.length - 1] : collection[index + 1];
 	};
-	helpers.previousItem = function(collection, index, loop) {
+	helpers.PrécédentItem = function(collection, index, loop) {
 		if (loop) {
 			return index <= 0 ? collection[collection.length - 1] : collection[index - 1];
 		}

@@ -227,7 +227,7 @@ History Module
 
 `history: {`
 * `history: true` - Place the notice in the history.
-* `menu: false` - Display a pull down menu to redisplay previous notices.
+* `menu: false` - Display a pull down menu to redisplay Précédent notices.
 * `fixed: true` - Make the pull down menu fixed to the top of the viewport.
 * `maxonscreen: Infinity` - Maximum number of notifications to have onscreen.
 * `labels: {redisplay: "Redisplay", all: "All", last: "Last"}` - Lets you change the displayed text, facilitating internationalization.

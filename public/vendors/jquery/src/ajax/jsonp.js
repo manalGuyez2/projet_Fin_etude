@@ -65,7 +65,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 		// Clean-up function (fires after converters)
 		jqXHR.always( function() {
 
-			// If previous value didn't exist - remove it
+			// If Précédent value didn't exist - remove it
 			if ( overwritten === undefined ) {
 				jQuery( window ).removeProp( callbackName );
 

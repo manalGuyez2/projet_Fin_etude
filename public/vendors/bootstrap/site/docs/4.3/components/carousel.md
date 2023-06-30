@@ -8,7 +8,7 @@ toc: true
 
 ## How it works
 
-The carousel is a slideshow for cycling through a series of content, built with CSS 3D transforms and a bit of JavaScript. It works with a series of images, text, or custom markup. It also includes support for previous/next controls and indicators.
+The carousel is a slideshow for cycling through a series of content, built with CSS 3D transforms and a bit of JavaScript. It works with a series of images, text, or custom markup. It also includes support for Précédent/next controls and indicators.
 
 In browsers where the [Page Visibility API](https://www.w3.org/TR/page-visibility/) is supported, the carousel will avoid sliding when the webpage is not visible to the user (such as when the browser tab is inactive, the browser window is minimized, etc.).
 
@@ -20,7 +20,7 @@ Lastly, if you're building our JavaScript from source, it [requires `util.js`]({
 
 ## Example
 
-Carousels don't automatically normalize slide dimensions. As such, you may need to use additional utilities or custom styles to appropriately size content. While carousels support previous/next controls and indicators, they're not explicitly required. Add and customize as you see fit.
+Carousels don't automatically normalize slide dimensions. As such, you may need to use additional utilities or custom styles to appropriately size content. While carousels support Précédent/next controls and indicators, they're not explicitly required. Add and customize as you see fit.
 
 **The `.active` class needs to be added to one of the slides** otherwise the carousel will not be visible. Also be sure to set a unique id on the `.carousel` for optional controls, especially if you're using multiple carousels on a single page. Control and indicator elements must have a `data-target` attribute (or `href` for links) that matches the id of the `.carousel` element.
 
@@ -47,7 +47,7 @@ Here's a carousel with slides only. Note the presence of the `.d-block` and `.w-
 
 ### With controls
 
-Adding in the previous and next controls:
+Adding in the Précédent and next controls:
 
 {% capture example %}
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -64,7 +64,7 @@ Adding in the previous and next controls:
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Précédent</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -98,7 +98,7 @@ You can also add the indicators to the carousel, alongside the controls, too.
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Précédent</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -145,7 +145,7 @@ Add captions to your slides easily with the `.carousel-caption` element within a
     </div>
     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
+      <span class="sr-only">Précédent</span>
     </a>
     <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -175,7 +175,7 @@ Add `.carousel-fade` to your carousel to animate slides with a fade transition i
   </div>
   <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Précédent</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -204,7 +204,7 @@ Add `data-interval=""` to a `.carousel-item` to change the amount of time to del
   </div>
   <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Précédent</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -313,7 +313,7 @@ Cycles the carousel to a particular frame (0 based, similar to an array). **Retu
 
 #### `.carousel('prev')`
 
-Cycles to the previous item. **Returns to the caller before the previous item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
+Cycles to the Précédent item. **Returns to the caller before the Précédent item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
 
 #### `.carousel('next')`
 

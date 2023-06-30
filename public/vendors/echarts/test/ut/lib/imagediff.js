@@ -24,7 +24,7 @@
 
     canvas            = getCanvas(),
     context           = canvas.getContext('2d'),
-    previous          = root[name],
+    Précédent          = root[name],
     imagediff, jasmine;
 
   // Creation
@@ -379,7 +379,7 @@
 
     // Compatibility
     noConflict : function () {
-      root[name] = previous;
+      root[name] = Précédent;
       return imagediff;
     }
   };

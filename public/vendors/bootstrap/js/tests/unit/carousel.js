@@ -579,7 +579,7 @@ $(function () {
     assert.strictEqual($template.find('.carousel-item')[1], $template.find('.active')[0], 'second item active')
   })
 
-  QUnit.test('should go to previous item if left arrow key is pressed', function (assert) {
+  QUnit.test('should go to Précédent item if left arrow key is pressed', function (assert) {
     assert.expect(2)
     var templateHTML = '<div id="myCarousel" class="carousel" data-interval="false">' +
         '<div class="carousel-inner">' +

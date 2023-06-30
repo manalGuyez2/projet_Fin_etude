@@ -2226,9 +2226,9 @@
 	}
 
 	function updatePageOrientationInOptions(currentPage, pdfKitDoc) {
-		var previousPageOrientation = pdfKitDoc.options.size[0] > pdfKitDoc.options.size[1] ? 'landscape' : 'portrait';
+		var PrécédentPageOrientation = pdfKitDoc.options.size[0] > pdfKitDoc.options.size[1] ? 'landscape' : 'portrait';
 
-		if(currentPage.pageSize.orientation !== previousPageOrientation) {
+		if(currentPage.pageSize.orientation !== PrécédentPageOrientation) {
 			var width = pdfKitDoc.options.size[0];
 			var height = pdfKitDoc.options.size[1];
 			pdfKitDoc.options.size = [height, width];
@@ -4882,8 +4882,8 @@
 	      var length = array ? indexes.length : 0;
 	      while (length--) {
 	        var index = indexes[length];
-	        if (index != previous && isIndex(index)) {
-	          var previous = index;
+	        if (index != Précédent && isIndex(index)) {
+	          var Précédent = index;
 	          splice.call(array, index, 1);
 	        }
 	      }
@@ -5149,7 +5149,7 @@
 	    /**
 	     * The base implementation of `wrapperValue` which returns the result of
 	     * performing a sequence of actions on the unwrapped `value`, where each
-	     * successive action is supplied the return value of the previous.
+	     * successive action is supplied the return value of the Précédent.
 	     *
 	     * @private
 	     * @param {*} value The unwrapped value.
@@ -8443,14 +8443,14 @@
 	      while (parent instanceof baseLodash) {
 	        var clone = wrapperClone(parent);
 	        if (result) {
-	          previous.__wrapped__ = clone;
+	          Précédent.__wrapped__ = clone;
 	        } else {
 	          result = clone;
 	        }
-	        var previous = clone;
+	        var Précédent = clone;
 	        parent = parent.__wrapped__;
 	      }
-	      previous.__wrapped__ = value;
+	      Précédent.__wrapped__ = value;
 	      return result;
 	    }
 
@@ -9204,7 +9204,7 @@
 	    /**
 	     * Reduces `collection` to a value which is the accumulated result of running
 	     * each element in `collection` through `iteratee`, where each successive
-	     * invocation is supplied the return value of the previous. If `accumulator`
+	     * invocation is supplied the return value of the Précédent. If `accumulator`
 	     * is not provided the first element of `collection` is used as the initial
 	     * value. The `iteratee` is bound to `thisArg` and invoked with four arguments:
 	     * (accumulator, value, index|key, collection).
@@ -10206,7 +10206,7 @@
 	    /**
 	     * Creates a function that returns the result of invoking the provided
 	     * functions with the `this` binding of the created function, where each
-	     * successive invocation is supplied the return value of the previous.
+	     * successive invocation is supplied the return value of the Précédent.
 	     *
 	     * @static
 	     * @memberOf _
@@ -11525,7 +11525,7 @@
 	    /**
 	     * Recursively merges own enumerable properties of the source object(s), that
 	     * don't resolve to `undefined` into the destination object. Subsequent sources
-	     * overwrite property assignments of previous sources. If `customizer` is
+	     * overwrite property assignments of Précédent sources. If `customizer` is
 	     * provided it is invoked to produce the merged values of the destination and
 	     * source properties. If `customizer` returns `undefined` merging is handled
 	     * by the method instead. The `customizer` is bound to `thisArg` and invoked
@@ -11574,7 +11574,7 @@
 
 	    /**
 	     * Assigns own enumerable properties of source object(s) to the destination
-	     * object. Subsequent sources overwrite property assignments of previous sources.
+	     * object. Subsequent sources overwrite property assignments of Précédent sources.
 	     * If `customizer` is provided it is invoked to produce the assigned values.
 	     * The `customizer` is bound to `thisArg` and invoked with five arguments:
 	     * (objectValue, sourceValue, key, object, source).
@@ -11995,7 +11995,7 @@
 	    /**
 	     * Creates an object composed of the inverted keys and values of `object`.
 	     * If `object` contains duplicate values, subsequent values overwrite property
-	     * assignments of previous values unless `multiValue` is `true`.
+	     * assignments of Précédent values unless `multiValue` is `true`.
 	     *
 	     * @static
 	     * @memberOf _
@@ -13776,7 +13776,7 @@
 	    }
 
 	    /**
-	     * Reverts the `_` variable to its previous value and returns a reference to
+	     * Reverts the `_` variable to its Précédent value and returns a reference to
 	     * the `lodash` function.
 	     *
 	     * @static
@@ -15049,14 +15049,14 @@
 	          return _.contains(node0.nodeInfo.pageNumbers, pageNumber + 1);
 	        }).value();
 
-	        var previousNodesOnPage = _.chain(followingNodeList).take(index).filter(function (node0) {
+	        var PrécédentNodesOnPage = _.chain(followingNodeList).take(index).filter(function (node0) {
 	          return _.contains(node0.nodeInfo.pageNumbers, pageNumber);
 	        }).value();
 
 	        if (pageBreakBeforeFct(node.nodeInfo,
 	          _.map(followingNodesOnPage, 'nodeInfo'),
 	          _.map(nodesOnNextPage, 'nodeInfo'),
-	          _.map(previousNodesOnPage, 'nodeInfo'))) {
+	          _.map(PrécédentNodesOnPage, 'nodeInfo'))) {
 	          node.pageBreak = 'before';
 	          return true;
 	        }
@@ -20754,7 +20754,7 @@
 	  // not happen before the first write call.
 	  this.sync = true;
 
-	  // a flag to know if we're processing previously buffered items, which
+	  // a flag to know if we're processing Précédently buffered items, which
 	  // may call the _write() callback in the same tick, so that we don't
 	  // end up in an overlapped onwrite situation.
 	  this.bufferProcessing = false;
@@ -20905,7 +20905,7 @@
 	  state.length += len;
 
 	  var ret = state.length < state.highWaterMark;
-	  // we must ensure that previous needDrain will not be reset to false.
+	  // we must ensure that Précédent needDrain will not be reset to false.
 	  if (!ret)
 	    state.needDrain = true;
 
@@ -21420,7 +21420,7 @@
 	//
 	// However, even in such a pathological case, only a single written chunk
 	// would be consumed, and then the rest would wait (un-transformed) until
-	// the results of the previous transformed chunk were consumed.
+	// the results of the Précédent transformed chunk were consumed.
 
 	module.exports = Transform;
 
@@ -23280,7 +23280,7 @@
 	//    var init = 0;
 	//
 	//    if (s.high_water < curr) {
-	//      /* Previous high water mark below current data -- zero WIN_INIT
+	//      /* Précédent high water mark below current data -- zero WIN_INIT
 	//       * bytes or up to end of window, whichever is less.
 	//       */
 	//      init = s.window_size - curr;
@@ -23598,8 +23598,8 @@
 	        s.match_length = MIN_MATCH-1;
 	      }
 	    }
-	    /* If there was a match at the previous step and the current
-	     * match is not better, output the previous match:
+	    /* If there was a match at the Précédent step and the current
+	     * match is not better, output the Précédent match:
 	     */
 	    if (s.prev_length >= MIN_MATCH && s.match_length <= s.prev_length) {
 	      max_insert = s.strstart + s.lookahead - MIN_MATCH;
@@ -23640,9 +23640,9 @@
 	      }
 
 	    } else if (s.match_available) {
-	      /* If there was no match at the previous position, output a
+	      /* If there was no match at the Précédent position, output a
 	       * single literal. If there was a match but the current match
-	       * is longer, truncate the previous match to a single literal.
+	       * is longer, truncate the Précédent match to a single literal.
 	       */
 	      //Tracevv((stderr,"%c", s->window[s->strstart-1]));
 	      /*** _tr_tally_lit(s, s.window[s.strstart-1], bflush); ***/
@@ -23659,7 +23659,7 @@
 	        return BS_NEED_MORE;
 	      }
 	    } else {
-	      /* There is no previous match to compare with, wait for
+	      /* There is no Précédent match to compare with, wait for
 	       * the next step to decide.
 	       */
 	      s.match_available = 1;
@@ -23723,7 +23723,7 @@
 	      if (s.lookahead === 0) { break; } /* flush the current block */
 	    }
 
-	    /* See how many times the previous byte repeats */
+	    /* See how many times the Précédent byte repeats */
 	    s.match_length = 0;
 	    if (s.lookahead >= MIN_MATCH && s.strstart > 0) {
 	      scan = s.strstart - 1;
@@ -23918,7 +23918,7 @@
 	  this.gzhead = null;         /* gzip header information to write */
 	  this.gzindex = 0;           /* where in extra, name, or comment */
 	  this.method = Z_DEFLATED; /* can only be DEFLATED */
-	  this.last_flush = -1;   /* value of flush param for previous deflate call */
+	  this.last_flush = -1;   /* value of flush param for Précédent deflate call */
 
 	  this.w_size = 0;  /* LZ77 window size (32K by default) */
 	  this.w_bits = 0;  /* log2(w_size)  (8..16) */
@@ -23963,14 +23963,14 @@
 	   */
 
 	  this.match_length = 0;      /* length of best match */
-	  this.prev_match = 0;        /* previous match */
-	  this.match_available = 0;   /* set if previous match exists */
+	  this.prev_match = 0;        /* Précédent match */
+	  this.match_available = 0;   /* set if Précédent match exists */
 	  this.strstart = 0;          /* start of string to insert */
 	  this.match_start = 0;       /* start of matching string */
 	  this.lookahead = 0;         /* number of valid bytes ahead in window */
 
 	  this.prev_length = 0;
-	  /* Length of the best match at previous step. Matches not greater than this
+	  /* Length of the best match at Précédent step. Matches not greater than this
 	   * are discarded. This is used in the lazy match evaluation.
 	   */
 
@@ -23996,7 +23996,7 @@
 	  this.strategy = 0;  /* favor or force Huffman coding*/
 
 	  this.good_match = 0;
-	  /* Use a faster search when the previous match is longer than this */
+	  /* Use a faster search when the Précédent match is longer than this */
 
 	  this.nice_match = 0; /* Stop searching when current match exceeds this */
 
@@ -24793,7 +24793,7 @@
 	/* end of block literal code */
 
 	var REP_3_6     = 16;
-	/* repeat previous bit length 3-6 times (2 bits of repeat count) */
+	/* repeat Précédent bit length 3-6 times (2 bits of repeat count) */
 
 	var REPZ_3_10   = 17;
 	/* repeat a zero length 3-10 times  (3 bits of repeat count) */

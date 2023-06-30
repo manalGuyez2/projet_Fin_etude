@@ -194,8 +194,8 @@
             getDatePickerTemplate = function () {
                 var headTemplate = $('<thead>')
                         .append($('<tr>')
-                            .append($('<th>').addClass('prev').attr('data-action', 'previous')
-                                .append($('<span>').addClass(options.icons.previous))
+                            .append($('<th>').addClass('prev').attr('data-action', 'Précédent')
+                                .append($('<span>').addClass(options.icons.Précédent))
                                 )
                             .append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', (options.calendarWeeks ? '6' : '5')))
                             .append($('<th>').addClass('next').attr('data-action', 'next')
@@ -981,7 +981,7 @@
                     viewUpdate(navFnc);
                 },
 
-                previous: function () {
+                Précédent: function () {
                     var navFnc = datePickerModes[currentViewMode].navFnc;
                     viewDate.subtract(datePickerModes[currentViewMode].navStep, navFnc);
                     fillDate();
@@ -1659,15 +1659,15 @@
             if (!(daysOfWeekDisabled instanceof Array)) {
                 throw new TypeError('daysOfWeekDisabled() expects an array parameter');
             }
-            options.daysOfWeekDisabled = daysOfWeekDisabled.reduce(function (previousValue, currentValue) {
+            options.daysOfWeekDisabled = daysOfWeekDisabled.reduce(function (PrécédentValue, currentValue) {
                 currentValue = parseInt(currentValue, 10);
                 if (currentValue > 6 || currentValue < 0 || isNaN(currentValue)) {
-                    return previousValue;
+                    return PrécédentValue;
                 }
-                if (previousValue.indexOf(currentValue) === -1) {
-                    previousValue.push(currentValue);
+                if (PrécédentValue.indexOf(currentValue) === -1) {
+                    PrécédentValue.push(currentValue);
                 }
-                return previousValue;
+                return PrécédentValue;
             }, []).sort();
             if (options.useCurrent && !options.keepInvalid) {
                 var tries = 0;
@@ -2464,7 +2464,7 @@
             date: 'glyphicon glyphicon-calendar',
             up: 'glyphicon glyphicon-chevron-up',
             down: 'glyphicon glyphicon-chevron-down',
-            previous: 'glyphicon glyphicon-chevron-left',
+            Précédent: 'glyphicon glyphicon-chevron-left',
             next: 'glyphicon glyphicon-chevron-right',
             today: 'glyphicon glyphicon-screenshot',
             clear: 'glyphicon glyphicon-trash',
@@ -2475,15 +2475,15 @@
             clear: 'Clear selection',
             close: 'Close the picker',
             selectMonth: 'Select Month',
-            prevMonth: 'Previous Month',
+            prevMonth: 'Précédent Month',
             nextMonth: 'Next Month',
             selectYear: 'Select Year',
-            prevYear: 'Previous Year',
+            prevYear: 'Précédent Year',
             nextYear: 'Next Year',
             selectDecade: 'Select Decade',
-            prevDecade: 'Previous Decade',
+            prevDecade: 'Précédent Decade',
             nextDecade: 'Next Decade',
-            prevCentury: 'Previous Century',
+            prevCentury: 'Précédent Century',
             nextCentury: 'Next Century',
             pickHour: 'Pick Hour',
             incrementHour: 'Increment Hour',

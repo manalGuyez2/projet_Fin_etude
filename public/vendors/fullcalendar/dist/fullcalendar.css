@@ -263,7 +263,7 @@ NOTE: use percentage font sizes or else old IE chokes
 
 /*
 every button that is not first in a button group should scootch over one pixel and cover the
-previous button's border...
+Précédent button's border...
 */
 
 .fc .fc-button-group > * { /* extra precedence b/c buttons have margin set to zero */

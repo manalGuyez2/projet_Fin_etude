@@ -101,8 +101,8 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 							'' : ' disabled');
 						break;
 
-					case 'previous':
-						btnDisplay = lang.sPrevious;
+					case 'Précédent':
+						btnDisplay = lang.sPrécédent;
 						btnClass = button + (page > 0 ?
 							'' : ' disabled');
 						break;

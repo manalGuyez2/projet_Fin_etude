@@ -184,7 +184,7 @@ Set the aspect ratio of the crop box. By default, the crop box is free ratio.
 - Type: `Object`
 - Default: `null`
 
-The previous cropped data if you had stored, will be passed to `setData` method automatically.
+The Précédent cropped data if you had stored, will be passed to `setData` method automatically.
 
 
 ### preview

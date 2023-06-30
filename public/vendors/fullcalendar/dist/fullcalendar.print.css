@@ -153,7 +153,7 @@ tbody,
 	content: "...";
 }
 
-/* for events that are continuations from previous days, give the top border back */
+/* for events that are continuations from Précédent days, give the top border back */
 .fc-time-grid .fc-event.fc-not-start {
 	border-top-width: 1px !important;
 }
@@ -165,7 +165,7 @@ tbody,
 
 /* time */
 
-/* undo a previous declaration and let the time text span to a second line */
+/* undo a Précédent declaration and let the time text span to a second line */
 .fc-time-grid .fc-event .fc-time {
 	white-space: normal !important;
 }

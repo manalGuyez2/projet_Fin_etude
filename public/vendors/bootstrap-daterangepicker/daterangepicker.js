@@ -503,7 +503,7 @@
             if (this.maxSpan && this.startDate.clone().add(this.maxSpan).isBefore(this.endDate))
                 this.endDate = this.startDate.clone().add(this.maxSpan);
 
-            this.previousRightTime = this.endDate.clone();
+            this.PrécédentRightTime = this.endDate.clone();
 
             this.container.find('.drp-selected').html(this.startDate.format(this.locale.format) + this.locale.separator + this.endDate.format(this.locale.format));
 
@@ -1094,7 +1094,7 @@
 
             this.oldStartDate = this.startDate.clone();
             this.oldEndDate = this.endDate.clone();
-            this.previousRightTime = this.endDate.clone();
+            this.PrécédentRightTime = this.endDate.clone();
 
             this.updateView();
             this.container.show();

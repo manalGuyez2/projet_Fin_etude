@@ -1783,7 +1783,7 @@ Date.CultureStrings.lang = "hi-IN";
 	};
 
 	/** 
-	 * Moves the date to the previous instance of a date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
+	 * Moves the date to the Précédent instance of a date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
 	 * Example
 	<pre><code>
 	Date.today().last().friday();
@@ -1795,26 +1795,26 @@ Date.CultureStrings.lang = "hi-IN";
 	 *  
 	 * @return {Date}    date
 	 */
-	$P.last = $P.prev = $P.previous = function () {
+	$P.last = $P.prev = $P.Précédent = function () {
 		this._move = true;
 		this._orient = -1;
 		return this;
 	};
 
 	/** 
-	 * Creates a new Date (Date.today()) and moves the date to the previous instance of the date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
+	 * Creates a new Date (Date.today()) and moves the date to the Précédent instance of the date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
 	 * Example
 	<pre><code>
 	Date.last().friday();
 	Date.last().fri();
-	Date.previous().march();
+	Date.Précédent().march();
 	Date.prev().mar();
 	Date.last().week();
 	</code></pre>
 	 *  
 	 * @return {Date}    date
 	 */
-	$D.last = $D.prev = $D.previous = function () {
+	$D.last = $D.prev = $D.Précédent = function () {
 		return $D.today().last();
 	};
 
@@ -3786,7 +3786,7 @@ Date.CultureStrings.lang = "hi-IN";
 	// Returns the date of the next thursday.
 	var d1 = Date.parse("Next thursday");
 
-	// Returns the date of the most previous monday.
+	// Returns the date of the most Précédent monday.
 	var d1 = Date.parse("last monday");
 
 	// Returns today's day + one year.
@@ -4144,7 +4144,7 @@ Date.CultureStrings.lang = "hi-IN";
 	 * %g		like %G, but without the century											"08"
 	 * %G		The 4-digit year corresponding to the ISO week number (see %V).				"2008"
 	 *		This has the same format and value as %Y, except that if the ISO week number
-	 *		belongs to the previous or next year, that year is used instead.
+	 *		belongs to the Précédent or next year, that year is used instead.
 	 * %h		same as %b																	"Jan" through "Dec"
 	 * %H		hour as a decimal number using a 24-hour clock.								"00" to "23"
 	 * %I		hour as a decimal number using a 12-hour clock.								"01" to "12"
@@ -4193,7 +4193,7 @@ Date.CultureStrings.lang = "hi-IN";
 	 * t		Number of days in the given month											"28" through "31"
 	 * L		Whether it's a leap year													"1" if it is a leap year, "0" otherwise
 	 * o		ISO-8601 year number. This has the same value as Y, except that if the		"2008"
-	 *		ISO week number (W) belongs to the previous or next year, that year
+	 *		ISO week number (W) belongs to the Précédent or next year, that year
 	 *		is used instead.
 	 * Y		A full numeric representation of a year, 4 digits							"2008"
 	 * y		A two digit representation of a year										"08"

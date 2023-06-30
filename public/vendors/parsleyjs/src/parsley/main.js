@@ -56,7 +56,7 @@ $.fn.parsley = $.fn.psly = function (options) {
 };
 
 // ### ParsleyField and ParsleyForm extension
-// Ensure the extension is now defined if it wasn't previously
+// Ensure the extension is now defined if it wasn't Précédently
 if ('undefined' === typeof window.ParsleyExtend)
   window.ParsleyExtend = {};
 

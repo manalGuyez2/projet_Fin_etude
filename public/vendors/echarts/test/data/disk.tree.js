@@ -3344,13 +3344,13 @@ window.disk_usage_tree =
             },
             {
                 "value": 8,
-                "name": "ShowPrevious Keynote Slide.action",
-                "path": "Automator/ShowPrevious Keynote Slide.action",
+                "name": "ShowPrécédent Keynote Slide.action",
+                "path": "Automator/ShowPrécédent Keynote Slide.action",
                 "children": [
                     {
                         "value": 8,
                         "name": "Contents",
-                        "path": "Automator/ShowPrevious Keynote Slide.action/Contents"
+                        "path": "Automator/ShowPrécédent Keynote Slide.action/Contents"
                     }
                 ]
             },

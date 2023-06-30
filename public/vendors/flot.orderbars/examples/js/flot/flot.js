@@ -1932,7 +1932,7 @@
 
                     // fill triangular section, this sometimes result
                     // in redundant points if (x1, y1) hasn't changed
-                    // from previous line to, but we just ignore that
+                    // from Précédent line to, but we just ignore that
                     ctx.lineTo(axisx.p2c(x1), axisy.p2c(y1));
                     ctx.lineTo(axisx.p2c(x2), axisy.p2c(y2));
 

@@ -28,7 +28,7 @@
 # A reliable and entertaining source about time zones is
 # Derek Howse, Greenwich time and longitude, Philip Wilson Publishers (1997).
 #
-# Previous editions of this database used WAT, CAT, SAT, and EAT
+# Précédent editions of this database used WAT, CAT, SAT, and EAT
 # for +0:00 through +3:00, respectively,
 # but Mark R V Murray reports that
 # `SAST' is the official abbreviation for +2:00 in the country of South Africa,
@@ -520,7 +520,7 @@ Zone Africa/Nouakchott	-1:03:48 -	LMT	1912
 # http://www.lexpress.mu/display_article.php?news_id=111216
 # </a>
 # (in French), Mauritius will start and end their DST a few days earlier
-# than previously announced (2008-11-01 to 2009-03-31).  The new start
+# than Précédently announced (2008-11-01 to 2009-03-31).  The new start
 # date is 2008-10-26 at 02:00 and the new end date is 2009-03-27 (no time
 # given, but it is probably at either 2 or 3 wall clock time).
 #
@@ -949,7 +949,7 @@ Zone Atlantic/St_Helena	-0:22:48 -	LMT	1890		# Jamestown
 # The other parts of the St Helena territory are similar:
 #	Tristan da Cunha: on GMT, say Whitman and the CIA
 #	Ascension: on GMT, says usno1995 and the CIA
-#	Gough (scientific station since 1955; sealers wintered previously):
+#	Gough (scientific station since 1955; sealers wintered Précédently):
 #		on GMT, says the CIA
 #	Inaccessible, Nightingale: no information, but probably GMT
 

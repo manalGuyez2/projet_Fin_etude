@@ -344,7 +344,7 @@ define(function(require) {
                 }
             })
             : setElementHoverStl(el, hoverStyle);
-        // Remove previous bound handlers
+        // Remove Précédent bound handlers
         el.on('mouseover', onElementMouseOver)
           .on('mouseout', onElementMouseOut);
 

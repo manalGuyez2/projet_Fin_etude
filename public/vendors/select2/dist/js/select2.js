@@ -1091,7 +1091,7 @@ S2.define('select2/results',[
       }
     });
 
-    container.on('results:previous', function () {
+    container.on('results:Précédent', function () {
       var $highlighted = self.getHighlightedResults();
 
       var $options = self.$results.find('[aria-selected]');
@@ -1903,11 +1903,11 @@ S2.define('select2/selection/search',[
       var key = evt.which;
 
       if (key === KEYS.BACKSPACE && self.$search.val() === '') {
-        var $previousChoice = self.$searchContainer
+        var $PrécédentChoice = self.$searchContainer
           .prev('.select2-selection__choice');
 
-        if ($previousChoice.length > 0) {
-          var item = $previousChoice.data('data');
+        if ($PrécédentChoice.length > 0) {
+          var item = $PrécédentChoice.data('data');
 
           self.searchRemoveChoice(item);
 
@@ -5362,7 +5362,7 @@ S2.define('select2/core',[
 
           evt.preventDefault();
         } else if (key === KEYS.UP) {
-          self.trigger('results:previous', {});
+          self.trigger('results:Précédent', {});
 
           evt.preventDefault();
         } else if (key === KEYS.DOWN) {

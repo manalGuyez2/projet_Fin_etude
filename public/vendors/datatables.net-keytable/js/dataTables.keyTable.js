@@ -524,7 +524,7 @@ $.extend( KeyTable.prototype, {
 				}
 				break;
 
-			case 33: // page up (previous page)
+			case 33: // page up (Précédent page)
 			case 34: // page down (next page)
 				e.preventDefault();
 				var index = dt.cells( {page: 'current'} ).nodes().indexOf( cell.node() );
@@ -538,7 +538,7 @@ $.extend( KeyTable.prototype, {
 							nodes[ nodes.length-1 ]
 						) );
 					} )
-					.page( e.keyCode === 33 ? 'previous' : 'next' )
+					.page( e.keyCode === 33 ? 'Précédent' : 'next' )
 					.draw( false );
 				break;
 

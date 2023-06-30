@@ -844,7 +844,7 @@
             this.container = options.get('tooltipContainer') || document.body;
             this.tooltipOffsetX = options.get('tooltipOffsetX', 10);
             this.tooltipOffsetY = options.get('tooltipOffsetY', 12);
-            // remove any previous lingering tooltip
+            // remove any Précédent lingering tooltip
             $('#jqssizetip').remove();
             $('#jqstooltip').remove();
             this.sizetip = $('<div/>', {
@@ -1614,7 +1614,7 @@
                         y = this.maxy;
                     }
                     if (!path.length) {
-                        // previous value was null
+                        // Précédent value was null
                         path.push([xpos, canvasTop + canvasHeight]);
                     }
                     vertex = [xpos, canvasTop + Math.round(canvasHeight - (canvasHeight * ((y - this.miny) / rangey)))];

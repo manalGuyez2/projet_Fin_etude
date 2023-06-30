@@ -58,7 +58,7 @@
 	// Returns the date of the next thursday.
 	var d1 = Date.parse("Next thursday");
 
-	// Returns the date of the most previous monday.
+	// Returns the date of the most Précédent monday.
 	var d1 = Date.parse("last monday");
 
 	// Returns today's day + one year.

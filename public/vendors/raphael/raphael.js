@@ -2071,8 +2071,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            path = ["C"][concat](a2c[apply](0, [d.x, d.y][concat](path.slice(1))));
 	                            break;
 	                        case "S":
-	                            if (pcom == "C" || pcom == "S") { // In "S" case we have to take into account, if the previous command is C/S.
-	                                nx = d.x * 2 - d.bx;          // And reflect the previous
+	                            if (pcom == "C" || pcom == "S") { // In "S" case we have to take into account, if the Précédent command is C/S.
+	                                nx = d.x * 2 - d.bx;          // And reflect the Précédent
 	                                ny = d.y * 2 - d.by;          // command's control point relative to the current point.
 	                            }
 	                            else {                            // or some else or nothing
@@ -2082,7 +2082,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            path = ["C", nx, ny][concat](path.slice(1));
 	                            break;
 	                        case "T":
-	                            if (pcom == "Q" || pcom == "T") { // In "T" case we have to take into account, if the previous command is Q/T.
+	                            if (pcom == "Q" || pcom == "T") { // In "T" case we have to take into account, if the Précédent command is Q/T.
 	                                d.qx = d.x * 2 - d.qx;        // And make a reflection similar
 	                                d.qy = d.y * 2 - d.qy;        // to case "S".
 	                            }
@@ -2138,16 +2138,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	                pcoms1 = [], // path commands of original path p
 	                pcoms2 = [], // path commands of original path p2
 	                pfirst = "", // temporary holder for original path command
-	                pcom = ""; // holder for previous path command of original path
+	                pcom = ""; // holder for Précédent path command of original path
 	            for (var i = 0, ii = mmax(p.length, p2 && p2.length || 0); i < ii; i++) {
 	                p[i] && (pfirst = p[i][0]); // save current path command
 
 	                if (pfirst != "C") // C is not saved yet, because it may be result of conversion
 	                {
 	                    pcoms1[i] = pfirst; // Save current path command
-	                    i && ( pcom = pcoms1[i-1]); // Get previous path command pcom
+	                    i && ( pcom = pcoms1[i-1]); // Get Précédent path command pcom
 	                }
-	                p[i] = processPath(p[i], attrs, pcom); // Previous path command is inputted to processPath
+	                p[i] = processPath(p[i], attrs, pcom); // Précédent path command is inputted to processPath
 
 	                if (pcoms1[i] != "A" && pfirst == "C") pcoms1[i] = "C"; // A is the only command
 	                // which may produce multiple C:s
@@ -6580,7 +6580,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Element.prev
 	         [ property (object) ]
 	         **
-	         * Reference to the previous element in the hierarchy.
+	         * Reference to the Précédent element in the hierarchy.
 	        \*/
 	        this.prev = svg.top;
 	        svg.top && (svg.top.next = this);
@@ -6714,7 +6714,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Each letter is a command. There are four commands: `t` is for translate, `r` is for rotate, `s` is for
 	     * scale and `m` is for matrix.
 	     *
-	     * There are also alternative “absolute” translation, rotation and scale: `T`, `R` and `S`. They will not take previous transformation into account. For example, `...T100,0` will always move element 100 px horisontally, while `...t100,0` could move it vertically if there is `r90` before. Just compare results of `r90t100,0` and `r90T100,0`.
+	     * There are also alternative “absolute” translation, rotation and scale: `T`, `R` and `S`. They will not take Précédent transformation into account. For example, `...T100,0` will always move element 100 px horisontally, while `...t100,0` could move it vertically if there is `r90` before. Just compare results of `r90t100,0` and `r90T100,0`.
 	     *
 	     * So, the example line above could be read like “translate by 100, 100; rotate 30° around 100, 100; scale twice around 100, 100;
 	     * rotate 45° around centre; scale 1.5 times relative to centre”. As you can see rotate and scale commands have origin

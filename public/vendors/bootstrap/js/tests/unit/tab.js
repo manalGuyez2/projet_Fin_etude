@@ -312,7 +312,7 @@ $(function () {
     assert.strictEqual($tabs.find('a:not(.active)').attr('aria-selected'), 'false', 'after second show event, hidden tab has aria-selected = false')
   })
 
-  QUnit.test('selected tab should deactivate previous selected tab', function (assert) {
+  QUnit.test('selected tab should deactivate Précédent selected tab', function (assert) {
     assert.expect(2)
     var tabsHTML = '<ul class="nav nav-tabs">' +
         '<li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">Home</a></li>' +
@@ -325,7 +325,7 @@ $(function () {
     assert.ok($tabs.find('li:last-child a').hasClass('active'))
   })
 
-  QUnit.test('selected tab should deactivate previous selected link in dropdown', function (assert) {
+  QUnit.test('selected tab should deactivate Précédent selected link in dropdown', function (assert) {
     assert.expect(3)
     var tabsHTML = '<ul class="nav nav-tabs">' +
         '<li class="nav-item"><a class="nav-link" href="#home" data-toggle="tab">Home</a></li>' +

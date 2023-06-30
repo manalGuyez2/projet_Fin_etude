@@ -3855,7 +3855,7 @@
       } else {
         // Set triggered link as active
         $link.addClass(ClassName$8.ACTIVE); // Set triggered links parents as active
-        // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+        // With both <ul> and <nav> markup a parent is the Précédent sibling of any nav ancestor
 
         $link.parents(Selector$8.NAV_LIST_GROUP).prev(Selector$8.NAV_LINKS + ", " + Selector$8.LIST_ITEMS).addClass(ClassName$8.ACTIVE); // Handle special case when .nav-link is inside .nav-item
 
@@ -4003,25 +4003,25 @@
       }
 
       var target;
-      var previous;
+      var Précédent;
       var listElement = $(this._element).closest(Selector$9.NAV_LIST_GROUP)[0];
       var selector = Util.getSelectorFromElement(this._element);
 
       if (listElement) {
         var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector$9.ACTIVE_UL : Selector$9.ACTIVE;
-        previous = $.makeArray($(listElement).find(itemSelector));
-        previous = previous[previous.length - 1];
+        Précédent = $.makeArray($(listElement).find(itemSelector));
+        Précédent = Précédent[Précédent.length - 1];
       }
 
       var hideEvent = $.Event(Event$9.HIDE, {
         relatedTarget: this._element
       });
       var showEvent = $.Event(Event$9.SHOW, {
-        relatedTarget: previous
+        relatedTarget: Précédent
       });
 
-      if (previous) {
-        $(previous).trigger(hideEvent);
+      if (Précédent) {
+        $(Précédent).trigger(hideEvent);
       }
 
       $(this._element).trigger(showEvent);
@@ -4041,9 +4041,9 @@
           relatedTarget: _this._element
         });
         var shownEvent = $.Event(Event$9.SHOWN, {
-          relatedTarget: previous
+          relatedTarget: Précédent
         });
-        $(previous).trigger(hiddenEvent);
+        $(Précédent).trigger(hiddenEvent);
         $(_this._element).trigger(shownEvent);
       };
 

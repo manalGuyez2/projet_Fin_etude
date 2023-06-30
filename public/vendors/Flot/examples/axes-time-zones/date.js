@@ -310,11 +310,11 @@
       this.setFromTimeProxy(dt.getTime() + this.getTimezoneOffset() * 60000, this.timezone);
     },
     setTimezone: function (tz) {
-      var previousOffset = this.getTimezoneInfo().tzOffset;
+      var PrécédentOffset = this.getTimezoneInfo().tzOffset;
       this.timezone = tz;
       this._useCache = false;
       // Set UTC minutes offsets by the delta of the two timezones
-      this.setUTCMinutes(this.getUTCMinutes() - this.getTimezoneInfo().tzOffset + previousOffset);
+      this.setUTCMinutes(this.getUTCMinutes() - this.getTimezoneInfo().tzOffset + PrécédentOffset);
     },
     removeTimezone: function () {
       this.timezone = null;
@@ -554,7 +554,7 @@
       //
       //Step 3:  Check requested date to see if a rule has yet taken effect this year.  If not,
       //
-      //Step 4:  Get the rules for the previous year.  If there isn't an applicable rule for last year, then
+      //Step 4:  Get the rules for the Précédent year.  If there isn't an applicable rule for last year, then
       // there probably is no current time offset since they seem to explicitly turn off the offset
       // when someone stops observing DST.
       //
@@ -613,7 +613,7 @@
         }
 
 
-        //If previous rule is given, correct for the fact that the starting time of the current
+        //If Précédent rule is given, correct for the fact that the starting time of the current
         // rule may be specified in local time.
         if (prevRule) {
           effectiveDate = convertDateToUTC(effectiveDate, hms[4], prevRule);
@@ -687,14 +687,14 @@
       }
       var pinpoint = applicableRules.indexOf(date);
       if (pinpoint > 1 && compareDates(date, applicableRules[pinpoint-1], applicableRules[pinpoint-2][1]) < 0) {
-        //The previous rule does not really apply, take the one before that.
+        //The Précédent rule does not really apply, take the one before that.
         return applicableRules[pinpoint - 2][1];
       } else if (pinpoint > 0 && pinpoint < applicableRules.length - 1 && compareDates(date, applicableRules[pinpoint+1], applicableRules[pinpoint-1][1]) > 0) {
 
         //The next rule does already apply, take that one.
         return applicableRules[pinpoint + 1][1];
       } else if (pinpoint === 0) {
-        //No applicable rule found in this and in previous year.
+        //No applicable rule found in this and in Précédent year.
         return null;
       }
       return applicableRules[pinpoint - 1][1];

@@ -60,7 +60,7 @@
 	};
 
 	/** 
-	 * Moves the date to the previous instance of a date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
+	 * Moves the date to the Précédent instance of a date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
 	 * Example
 	<pre><code>
 	Date.today().last().friday();
@@ -72,26 +72,26 @@
 	 *  
 	 * @return {Date}    date
 	 */
-	$P.last = $P.prev = $P.previous = function () {
+	$P.last = $P.prev = $P.Précédent = function () {
 		this._move = true;
 		this._orient = -1;
 		return this;
 	};
 
 	/** 
-	 * Creates a new Date (Date.today()) and moves the date to the previous instance of the date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
+	 * Creates a new Date (Date.today()) and moves the date to the Précédent instance of the date as specified by the subsequent date element function (eg. .day(), .month()), month name function (eg. .january(), .jan()) or day name function (eg. .friday(), fri()).
 	 * Example
 	<pre><code>
 	Date.last().friday();
 	Date.last().fri();
-	Date.previous().march();
+	Date.Précédent().march();
 	Date.prev().mar();
 	Date.last().week();
 	</code></pre>
 	 *  
 	 * @return {Date}    date
 	 */
-	$D.last = $D.prev = $D.previous = function () {
+	$D.last = $D.prev = $D.Précédent = function () {
 		return $D.today().last();
 	};
 

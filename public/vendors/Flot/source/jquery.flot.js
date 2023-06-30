@@ -936,7 +936,7 @@ Licensed under the MIT license.
 
         function setupCanvases() {
             // Make sure the placeholder is clear of everything except canvases
-            // from a previous plot in this container that we'll try to re-use.
+            // from a Précédent plot in this container that we'll try to re-use.
 
             placeholder.css("padding", 0) // padding messes up the positioning
                 .children().filter(function() {
@@ -2247,8 +2247,8 @@ Licensed under the MIT license.
                         return ((x11 <= x21 && x21 <= x12) || (x21 <= x11 && x11 <= x22)) &&
                                ((y11 <= y21 && y21 <= y12) || (y21 <= y11 && y11 <= y22));
                     },
-                    overlapsOtherLabels = function(newLabelBox, previousLabelBoxes) {
-                        return previousLabelBoxes.some(function(labelBox) {
+                    overlapsOtherLabels = function(newLabelBox, PrécédentLabelBoxes) {
+                        return PrécédentLabelBoxes.some(function(labelBox) {
                             return overlapping(
                                 newLabelBox.x, newLabelBox.y, newLabelBox.x + newLabelBox.width, newLabelBox.y + newLabelBox.height,
                                 labelBox.x, labelBox.y, labelBox.x + labelBox.width, labelBox.y + labelBox.height);

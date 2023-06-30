@@ -238,7 +238,7 @@ var requirejs, require, define;
                     ary.splice(i, 1);
                     i -= 1;
                 } else if (part === '..') {
-                    // If at the start, or previous value is still ..,
+                    // If at the start, or Précédent value is still ..,
                     // keep them so that when converted to a path it may
                     // still work when converted to a path, even though
                     // as an ID it is less than ideal. In larger point
@@ -774,9 +774,9 @@ var requirejs, require, define;
                 this.ignore = options.ignore;
 
                 //Could have option to init this module in enabled mode,
-                //or could have been previously marked as enabled. However,
+                //or could have been Précédently marked as enabled. However,
                 //the dependencies are not known until init is called. So
-                //if enabled previously, now trigger dependencies as enabled.
+                //if enabled Précédently, now trigger dependencies as enabled.
                 if (options.enabled || this.enabled) {
                     //Enable this module and dependencies.
                     //Will call this.check()

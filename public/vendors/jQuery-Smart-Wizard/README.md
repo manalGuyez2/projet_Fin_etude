@@ -31,10 +31,10 @@ $('#wizard').smartWizard({
     contentCache:true, // cache step contents, if false content is fetched always from ajax url
     cycleSteps: false, // cycle step navigation
     enableFinishButton: false, // makes finish button enabled always
-	hideButtonsOnDisabled: false, // when the previous/next/finish buttons are disabled, hide them instead
+	hideButtonsOnDisabled: false, // when the Précédent/next/finish buttons are disabled, hide them instead
     errorSteps:[],    // array of step numbers to highlighting as error steps
     labelNext:'Next', // label for Next button
-    labelPrevious:'Previous', // label for Previous button
+    labelPrécédent:'Précédent', // label for Précédent button
     labelFinish:'Finish',  // label for Finish button        
     noForwardJumping:false,
   // Events
@@ -391,10 +391,10 @@ example:
         <td>Next</td>
     </tr>
     <tr>
-        <td><strong>labelPrevious</strong></td>
-        <td>Label for Previous button</td>
+        <td><strong>labelPrécédent</strong></td>
+        <td>Label for Précédent button</td>
         <td>String</td>
-        <td>Previous</td>
+        <td>Précédent</td>
     </tr>
     <tr>
         <td><strong>labelFinish</strong></td>
@@ -518,7 +518,7 @@ Here are the available methods:
     <tr>
         <td><strong>goBackward</strong></td>
         <td>None</td>
-        <td>Load the previous step.</td>
+        <td>Load the Précédent step.</td>
     </tr>
     <tr>
         <td><strong>goToStep</strong></td>

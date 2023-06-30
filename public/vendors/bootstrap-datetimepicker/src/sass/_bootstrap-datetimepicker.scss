@@ -214,7 +214,7 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
 
             &.prev::after {
                 @extend .sr-only;
-                content: "Previous Month";
+                content: "Précédent Month";
             }
 
             &.next::after {
