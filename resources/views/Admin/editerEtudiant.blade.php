@@ -63,7 +63,7 @@
                </div>
                <div class="md-3">
                 <label class="form-lebel">Mot passe<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="text" class="form-control" name="password" placeholder="Entrer le mot passe" value="{{$data->password}}">
+                <input type="text" class="form-control" name="password" placeholder="Entrer le mot passe" >
                 @error('password')
                     <div class="alert alert-danger" role="alert" >
                         <strong>{{'Mot passe obligatoire'}}</strong>

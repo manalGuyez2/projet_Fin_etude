@@ -104,10 +104,13 @@ Route::post('forgot-password',[ForgotPasswordController::class,'submitForgotPass
 Route::get('reset-password/{token}',[ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password',[ForgotPasswordController::class,'submitResetPasswordForm'])->name('reset.password.post');
 
-/////////change password////////
-Route::get('/changePassword',[StudentController::class,'showChangePasswordForm']);
-//Route::post('/changePassword',[StudentController::class,'changePassword'])->name('changePassword');
-Route::post('/change-password', [ForgotPasswordController::class, 'updatePassword'])->name('update-password');
+/////////change password Student////////
+Route::get('/changePassword',[StudentController::class,'showChangePasswordForm'])->middleware('isLoggedIn');
+Route::post('/change-password', [StudentController::class, 'updatePassword'])->name('update-password')->middleware('isLoggedIn');
+
+/////////change password Prof////////
+Route::get('/changePassword-prof',[ProfController::class,'showChangePasswordFormProf'])->middleware('profIsLoggedIn');
+Route::post('/change-password-prof', [ProfController::class, 'updatePasswordProf'])->name('update-password-prof')->middleware('profIsLoggedIn');
 
 
 
@@ -168,10 +171,26 @@ Route::post('savecours', [CoursController::class, 'savecours']);
 
 Route::get('ajouterCours', [CoursController::class, 'ajouterCours']);
 Route::get('editerCours/{id}', [CoursController::class, 'modCours'])->name('editerCours');
-Route::post('update-cours/{id}', [CoursController::class, 'enrgCours']);
+//Route::post('update-cours/{id}', [CoursController::class, 'enrgCours']);
 //Route::get('deletePof/{id}', [CoursController::class, 'suppCours']);
 Route::post('deleteCours', [CoursController::class, 'suppCours']);
+//////////////////
+Route::post('save-cours', [Courscontroller::class, 'savecours']);
+Route::get('courslist', [Courscontroller::class, 'index']);
 
+Route::get('/courslist', function () {
+    return view('/test');
+});
+
+Route::post('enrgCours', [CoursController::class, 'enrgCou']);
+Route::post('deleteCours', [CoursController::class, 'suppcour']);
+Route::get('/download/{courpdf}', [CoursController::class, 'download']);
+Route::get('/downloadTd/{tdpdf}', [TdController::class, 'downloadTd']);
+Route::get('/downloadExam/{exampdf}', [ExamController::class, 'downloadExam']);
+Route::get('/view/{id}', [CoursController::class, 'view']);
+Route::get('/viewTd/{id}', [TdController::class, 'viewTd']);
+Route::get('/viewExam/{id}', [ExamController::class, 'viewExam']);
+/***testcours**** */
 /*
 Route::get('test',  [CoursController::class, 'index']);
  
@@ -194,6 +213,8 @@ Route::get('editerTd/{id}', [TdController::class, 'modTd'])->name('editerTd');
 Route::post('update-Td/{id}', [TdController::class, 'enrgTd']);
 //Route::get('deletePof/{id}', [TdController::class, 'suppTd']);
 Route::post('deleteTd', [TdController::class, 'suppTd']);
+Route::get('edit-td/{id}', [tdController::class, 'edit']);
+Route::put('update-td/{id}', [tdController::class, 'update']);
 
 /*-------------------Exam------------------*/
 Route::post('saveExam', [ExamController::class, 'saveExam']);
@@ -202,4 +223,24 @@ Route::get('editerExam/{id}', [ExamController::class, 'modExam'])->name('editerE
 Route::post('update-Exam/{id}', [ExamController::class, 'enrgExam']);
 //Route::get('deletePof/{id}', [ExamController::class, 'suppExam']);
 Route::post('deleteExam', [ExamController::class, 'suppExam']);
+Route::get('edit-exam/{id}', [ExamController::class, 'edit']);
+Route::put('update-exam/{id}', [ExamController::class, 'update']);
+//------------------------------
+/*Route::post('/store', [CoursController::class, 'store'])->name('store');
+Route::get('/fetchall', [CoursController::class, 'fetchAll'])->name('fetchAll');
+Route::delete('/delete', [CoursController::class, 'delete'])->name('delete');
+Route::get('/edit', [CoursController::class, 'edit'])->name('edit');
+Route::post('/update', [CoursController::class, 'update'])->name('update');*/
+
+
+///////---------------Cours---------
+Route::get('students', [CoursController::class, 'index']);
+Route::get('add-student', [CoursController::class, 'create']);
+Route::post('add-student', [CoursController::class, 'store']);
+Route::get('edit-cours/{id}', [CoursController::class, 'edit']);
+Route::put('update-cours/{id}', [CoursController::class, 'update']);
+Route::delete('delete-student/{id}', [CoursController::class, 'destroy']);
+
+
+
 

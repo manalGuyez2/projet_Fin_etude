@@ -173,42 +173,33 @@ class StudentController extends Controller
         return redirect('/');
     } 
 
-   
-/*------------------change Pass------------------*/
-public function showChangePasswordForm(){
-    return view('auth.changepassword');
-}
 
-public function changePassword(Request $request){
-   
-    # Validation
-    $request->validate([
-       
-        'old_password' => 'required',
-        'new_password' => 'required',
-        'new-password-confirm' => 'required|same:new_password',
-    ]);
-
-   
-    #Match The Old Password
-   $passHashed = Hash::make(Session::get('[password]'));
-    if(Hash::check($request->old_password , $passHashed)){
-        $etud=Session::get('[id]');
-        $etud->password = bcrypt($request->new_password);
-       $etud->save();
-
-        return redirect()->back()->with("status", "Password changed successfully!");
-    }
-
-     else{  
-    #Update the new Password
-   
-    return back()->with("error", "Old Password Doesn't match!");
-}
-}
                 
        
+             /*----------------change password-------------*/
+    public function showChangePasswordForm(){
+        return view('auth.changepassword');
+    }
 
+    public function updatePassword(Request $request){
+       
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+         #Match The Old Password
+        if(!Hash::check($request->old_password, Session::get('password'))){
+    return back()->with("error", "Mot de passw actuel ne correspond pas!");
+        }
+
+
+     #Update the new Password
+     Student::whereId(Session::get('id'))->update(['password' => Hash::make($request->new_password)]);
+
+       return back()->with("status", "Le mot de passe a été changé avec succès!");
+}
     
    
 }

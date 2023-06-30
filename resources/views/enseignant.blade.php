@@ -100,7 +100,14 @@ class="active"
             <span class="text-danger">@error('password') {{"Mot passe est obligatoire!!!"}} @enderror</span>
           </div>
 
+          <!-- Simple link -->
           <div class="d-flex justify-content-between align-items-center">
+            <div class="form-check mb-0">
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <label class="form-check-label" for="form2Example3">
+                Mémoriser mon compte
+              </label>
+            </div>
             <a href="{{route('forgot.password.get')}}" class="text-body">Mot de passe oublié?</a>
            </div>
            

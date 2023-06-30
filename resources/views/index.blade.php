@@ -58,6 +58,7 @@
                     <h2 class="section-title-underline mb-5">
                         <span>Présentation</span>
                     </h2>
+                    
                      <p>Le département d'informatique est l'un des départements géré par La Faculté des Sciences de l'Université Abdelmalek Essaadi sous la direction d'un doyen, et par un chef de département, assisté par d'autres responsables chacun d'eux avec ses propres fonctions par rapport à son service.</p>
                 </div>
             </div>

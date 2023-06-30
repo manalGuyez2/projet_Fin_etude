@@ -41,7 +41,7 @@
             <h2 class="">
               <span>Liste de cours</span>
           </h2>
-                  <a  class="btn btn-success" style="float:right"><i class="fa fa-plus"data-toggle="modal" data-target="#ajoutcours"></i></a>
+                  <a  class="btn btn-success text-light" style="float:right"><i class="fa fa-plus"data-toggle="modal" data-target="#ajoutcours"></i></a>
                 
                </div>
         
@@ -62,9 +62,8 @@
             <thead>
             
                       <tr>
-                          <td>NOM</td>
-                          <td>PDF de cours</td>
-                          <td>date</td>
+                          <td>Nom</td>
+                          <td>cours</td>
                           <td>date</td>
                           <td></td>
         
@@ -80,11 +79,11 @@
                           
                           <td>{{$cours->nomCours}}</td>
                           
-                          <td><a {{$cours->courpdf}} download></a></td>
-                          <td>{{$cours->IdModel}}</td>
+                          <td><a {{$cours->courpdf}} ></a></td>
+                         
                           <td>{{$cours->updated_at}}</td>
                           <td>
-                            <button >editer</button>|<button type="button" class="btn btn-danger deleteCoursBtn " value="{{ $cours->id }}" data-toggle="modal" data-target="#deleteCoursModal">Supprimer</button></td>
+                            <button class="btn btn-primary">Editer</button><button type="button" class="btn btn-danger deleteCoursBtn " value="{{ $cours->id }}" data-toggle="modal" data-target="#deleteCoursModal">Supprimer</button></td>
                             {{--<a href="{{ url('deleteEtudiant/'.$stu->id)}}"  class="btn btn-danger deleteUser">Supprimer</a>--}}</td>
                           
                       </tr>

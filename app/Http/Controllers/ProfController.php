@@ -132,7 +132,9 @@ class ProfController extends Controller
             $request->session()->put('prof', $profData->id);
             Session::put('nom', $profData->nom);
             Session::put('email', $profData->email);
+            Session::put('password', $profData->password);
             Session::put('nameModule', $profData->nameModule);
+            Session::put('id', $profData->id);
             return redirect('DashboardProf');
         }else{
             return back()->with('fail','le mot de passe ne correspond pas.');
@@ -166,13 +168,44 @@ class ProfController extends Controller
         {
             $request->session()->forget('nom');
             $request->session()->forget('email');
+            $request->session()->forget('password');
             $request->session()->forget('nameModule');
+            $request->session()->forget('id');
             Session::pull('prof');
             return redirect('/');
         }
         else
         return redirect('/index');
     } 
+
+
+
+         /*----------------change password-------------*/
+         public function showChangePasswordFormProf(){
+            return view('auth.changepasswordProf');
+        }
+    
+        public function updatePasswordProf(Request $request){
+           
+            # Validation
+            $request->validate([
+                'old_password' => 'required',
+                'new_password' => 'required|confirmed',
+            ]);
+    
+             #Match The Old Password
+            if(!Hash::check($request->old_password, Session::get('password'))){
+        return back()->with("error", "Mot de passw actuel ne correspond pas!");
+            }
+    
+    
+         #Update the new Password
+         Prof::whereId(Session::get('id'))->update([
+        'password' => Hash::make($request->new_password)
+        ]);
+    
+           return back()->with("status", "Le mot de passe a été changé avec succès!");
+    }
    
 }
 

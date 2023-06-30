@@ -17,7 +17,7 @@ class AuthCheckProf
     public function handle(Request $request, Closure $next): Response
     {
         if(!Session::has('prof')){
-            return redirect('enseignant')->with('fail', 'u have to login first');
+            return redirect('enseignant')->with('fail', "Vous devez d'abord  connecter");
         }
         return $next($request);
     }

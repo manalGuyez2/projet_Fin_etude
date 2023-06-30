@@ -17,7 +17,7 @@ class AdminCheckLogin
     public function handle(Request $request, Closure $next): Response
     {
         if(!Session::has('adminLoginId')){
-            return redirect('loginAdmin')->with('fail', 'u have to login first');
+            return redirect('loginAdmin')->with('fail', "Vous devez d'abord  connecter");
         }
         return $next($request);
     }

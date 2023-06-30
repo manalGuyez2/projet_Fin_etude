@@ -1,3 +1,4 @@
+@php( $modules = \App\Models\Module::all() ) 
 @extends('Admin.layoutAdmin')
 @section('layoutADMIN')
 
@@ -53,37 +54,38 @@
                     </div>
                 @enderror
                </div>
+
+               <div class="md-3">
+                <label class="form-lebel" for="nameModule" >choisir module nom:<strong style="color:red; font-size:190%; ">*</strong> </label>
+ 
+                 <select id="nameModule" class="form-control" value="{{old('nameModule')}}"  name="nameModule">
+                    @foreach ($modules as $module)
+                        
+                   
+                 <option value="{{$module->name}}">{{$module->name}}</option>
+                
+                 @endforeach
+                 
+                   </select>
+                   
+                 </div>
+            <div class="md-3">
+                <label class="form-lebel" for="etat" >choisir statut:<strong style="color:red; font-size:190%; ">*</strong> </label>
+ 
+                 <select id="etat" class="form-control" value="{{$dataPrf->etat}}"  name="etat">
+                 <option value="actif">actif</option>
+                 <option value="passif">passif</option>
+                 
+                 
+                   </select>
+                   
+                 </div>
+
                
-               <div class="md-3">
-                <label class="form-lebel">Module 1 <strong style="color:red; font-size:190%; ">*</strong> </label>
-                <input type="text" class="form-control" name="module1" placeholder="Entrer Module 1 " value="{{$dataPrf->module1}}">
-                @error('module1')
-                    <div class="alert alert-danger" role="alert" >
-                        {{'module1 obligatoire'}}
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="form-lebel">Module 2 <strong style="color:red; font-size:190%; ">*</strong> </label>
-                <input type="text" class="form-control" name="module2" placeholder="Entrer Module 2 " value="{{$dataPrf->module2}}">
-                @error('module2')
-                    <div class="alert alert-danger" role="alert" >
-                        {{'module2 obligatoire'}}
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="form-lebel">Module 3<strong style="color:red; font-size:190%; ">*</strong> </label>
-                <input type="text" class="form-control" name="module3" placeholder="Entrer Module e " value="{{$dataPrf->module3}}">
-                @error('module3')
-                    <div class="alert alert-danger" role="alert" >
-                        {{'module3 obligatoire'}}
-                    </div>
-                @enderror
-               </div>
+
                <div class="md-3">
                 <label class="form-lebel">Mot passe<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="text" class="form-control" name="password" placeholder="Entrer le mot passe" value="{{$dataPrf->password}}">
+                <input type="text" class="form-control" name="password" placeholder="Entrer le mot passe" >
                 @error('password')
                     <div class="alert alert-danger" role="alert" >
                         <strong>{{'Mot passe obligatoire'}}</strong>

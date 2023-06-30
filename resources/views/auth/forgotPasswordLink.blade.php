@@ -80,7 +80,7 @@
 
                             <form action="{{ route('reset.password.post') }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="token" value="{{ $token }}">
+                                <input  name="token" value="{{ $token }}">
 
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Adresse e-mail</label>

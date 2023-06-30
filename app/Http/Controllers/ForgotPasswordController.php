@@ -27,13 +27,13 @@ class ForgotPasswordController extends Controller
 
 
         DB::table('password_resets')->insert([
-            'email'=>$request->input('email'),
+            'email'=>$request->email,
             'token'=>$token,
             'created_at'=>Carbon::now()
         ]);
 
         Mail::send('email.forgotPassword',['token'=>$token],function($message) use($request){
-            $message->to($request->input('email'));
+            $message->to($request->email);
             $message->subject('Reset Password');
         });
 
@@ -41,7 +41,7 @@ class ForgotPasswordController extends Controller
     }
 
     public function showResetPasswordForm($token){
-        return view('auth.forgotPasswordLink',['token'=>$token]);
+        return view('auth.forgotPasswordLink',compact('token'));
     }
 
     public function submitResetPasswordForm(Request $request){
@@ -52,20 +52,19 @@ class ForgotPasswordController extends Controller
         ]);
 
         $password_reset_request = DB::table('password_resets')
-        ->where('email',$request->input('email'))
-        ->where('token',$request->token)
-        ->first();
+        ->where([
+        "email" => $request->email,
+        "token" =>$request->token])->first();
 
         if(!$password_reset_request){
             return back()->with('error','Invalid Token!');
         }
 
-        Student::where('email',$request->input('email'))
-        ->update(['password'=>Hash::make($request->input('password'))]);
+        Student::where('email',$request->email)
+        ->update(['password'=>Hash::make($request->password)]);
 
         DB::table('password_resets')
-        ->where('email',$request->input('email'))
-        ->delete();
+        ->where('email',$request->email)->delete();
 
         return redirect('/etud')->with('message','Votre mot de passe a été changé!');
 

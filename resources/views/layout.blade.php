@@ -72,7 +72,7 @@
   </head>
   
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-    
+    @yield('script')
   
     <div class="site-wrap">
   
@@ -129,16 +129,17 @@
                   </a>
                   <ul class="dropdown">
                    
-                    <li><a  class="dropdown-item">{{Session::get('nom')}}</a></li>
+                    <li><a class="dropdown-item"><i class="fas fa-user-alt pe-2"></i>{{Session::get('nom')}}</a></li>
                    
                     <li>
-                      <a class="dropdown-item" href="/changePassword">
-                         Change Password
+                      <a class="dropdown-item" href="/changePassword"><i class="fas fa-cog pe-2"></i>
+                        paramètre
                       </a>
                   </li>
-                    <li><a class="dropdown-item">parametres</a></li>
+                    
                     <div class="dropdown-divider"></div>
-                    <li><a class="text-danger dropdown-item " href="{{ url('/logout')}}">se deconnecter</a></li>
+                    
+                    <li ><a class="text-danger dropdown-item " href="{{ url('/logout')}}"><i class="fas fa-door-open pe-2"></i>se deconnecter</a></li>
             
                   </ul>
                      
@@ -156,7 +157,7 @@
                   </li>-->
                 @elseif (Session::has('prof'))
                   
-                <li>
+                <li >
                   <a class="nav-link text-left text-success">Espace Enseignant</button></a>
                   
                 </li>
@@ -171,9 +172,10 @@
                   </a>
                   <ul class="dropdown">
 
-                    <li><a class="dropdown-item">{{Session::get('nom')}}</a></li>
-                    <li><a class="dropdown-item">parametres</a></li>
-                    <li><a class="text-danger dropdown-item" href="{{ url('/logoutProf')}}">se deconnecter</a></li>
+                    <li><a class="dropdown-item"><i class="fas fa-user-alt pe-2"></i>{{Session::get('nom')}}</a></li>
+                    <li @yield('activePrmt')><a class="dropdown-item" href="/changePassword-prof"><i class="fas fa-cog pe-2"></i>paramètre</a></li>
+                      <div class="dropdown-divider"></div>
+                    <li><a class="text-danger dropdown-item" href="{{ url('/logoutProf')}}"><i class="fas fa-door-open pe-2"></i>se deconnecter</a></li>
             
                   </ul>
                      

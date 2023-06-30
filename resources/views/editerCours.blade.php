@@ -1,122 +1,90 @@
-@extends('test')
-@section('coursShow')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script  src=//code.jquery.com/jquery-3.5.1.slim.min.js integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin=anonymous></script>
 
-<div class="container" >
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Modifier un enseignants</h2>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
+<style>
+     body#editerForm{ background-image:url("images/FSaccueil.png"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+
+    </style>
+    <title>Document</title>
+</head>
+<body style="background-color: black">
+    
+    <main class="editerForm">
+    <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
+        <div class="container">
+          <div class="row align-items-end justify-content-center text-center">
+            <div class="col-lg-7">
+              
             
-            
-            @if(Session::has('success'))
-            <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
-             @endif
-            <form method="post" action="{{url('enrgProf/'.$dataPrf->id)}}">
-
-               @csrf
-             <input type="hidden" name="id" value="{{$dataPrf->id}}">
-               
-               <div class="md-3">
-                <label class="form-lebel">CNE<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="text" class="form-control" name="cne" placeholder="Entrer Cne " value="{{$dataPrf->cne}}">
-                @error('cne')
-                    <div class="alert alert-danger" role="alert" >
-                        <strong>{{'CNE obligatoire'}}</strong>
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="form-lebel">Nom<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="text" class="form-control" name="nom" placeholder="Entrer Nom " value="{{$dataPrf->nom}}">
-                @error('nom')
-                    <div class="alert alert-danger" role="alert" >
-                        <strong>{{'Nom obligatoire'}}</strong>
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="required">E-mail<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="email" class="form-control" name="email" placeholder="Entrer l'e-mail "  value="{{$dataPrf->email}}">
-                @error('email')
-                    <div class="alert alert-danger" role="alert">
-                        <strong>{{'E-mail obligatoire'}}</strong>
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-
-                <label class="form-lebel">Date Naissance<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="date" class="form-control" name="naissance" id="txtDate" placeholder="Entrer La date de naissance " value="{{$dataPrf->naissance}}">
-
-                @error('naissance')
-                    <div class="alert alert-danger" role="alert" >
-                        <strong>{{'Date Naissance obligatoire'}}</strong>
-                    </div>
-                @enderror
-               </div>
-               
-               <div class="md-3">
-                <label class="form-lebel">Module 1 <strong style="color:red; font-size:190%; ">*</strong> </label>
-                <input type="text" class="form-control" name="module1" placeholder="Entrer Module 1 " value="{{$dataPrf->module1}}">
-                @error('module1')
-                    <div class="alert alert-danger" role="alert" >
-                        {{'module1 obligatoire'}}
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="form-lebel">Module 2 <strong style="color:red; font-size:190%; ">*</strong> </label>
-                <input type="text" class="form-control" name="module2" placeholder="Entrer Module 2 " value="{{$dataPrf->module2}}">
-                @error('module2')
-                    <div class="alert alert-danger" role="alert" >
-                        {{'module2 obligatoire'}}
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="form-lebel">Module 3<strong style="color:red; font-size:190%; ">*</strong> </label>
-                <input type="text" class="form-control" name="module3" placeholder="Entrer Module e " value="{{$dataPrf->module3}}">
-                @error('module3')
-                    <div class="alert alert-danger" role="alert" >
-                        {{'module3 obligatoire'}}
-                    </div>
-                @enderror
-               </div>
-               <div class="md-3">
-                <label class="form-lebel">Mot passe<strong style="color:red; font-size:190%; ">*</strong></label>
-                <input type="text" class="form-control" name="password" placeholder="Entrer le mot passe" value="{{$dataPrf->password}}">
-                @error('password')
-                    <div class="alert alert-danger" role="alert" >
-                        <strong>{{'Mot passe obligatoire'}}</strong>
-                    </div>
-                @enderror
-               </div>
-                  <br/>
-               <button type="submit" class="btn btn-primary">Modifier</button>
-               <a href="{{url('ListProf')}}" class="btn btn-danger">Annuler</a>
+    <div class="custom-breadcrumns border-bottom">
+      <div class="container">
+  
         
-
-            </form>
-
+       
+  
+        <h2 class="mb-0">Modifier Cours</h2>
+      </div>
+    </div>
+            </div>
+          </div>
         </div>
+        
+    </div>
+    <div class="site-section">
+<div class="container">
+    <div class="row">
+        <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+            @endif
+                    <div class="card" >
+                        <div class="card-header">{{ __('Modifier Cours') }}</div>
+    
+                        <form action="{{ url('update-cours/'.$cours->id) }}" method="POST"  enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            
+                            <div class="modal-body p-4 bg-light">
+                              <div class="row">
+                                <div class="col-lg">
+                                  <label for="nomCours">Nom Cours</label>
+                                  <input type="text" name="nomCours" id="nomCours" value="{{$cours->nomCours}}" class="form-control"  required>
+                                </div>
+                               
+                              </div>
+                              
+                              
+                              <div class="mt-2" id="courpdf">
+                                <label for="">fichier Cours</label>
+                                <input type="file" name="courpdf" class="form-control">
+                                <a href="{{ url('uploads/cours/'.$cours->courpdf) }}" ></a>
+                           
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <a  href="{{ url('test') }}" class="btn btn-secondary" >Annuler</a>
+                              <button type="submit"  class="btn btn-success">Modifier</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
-
-<script>
-$(function(){
-    var dtToday = new Date();
-
-    var month = 12;
-    var day = 30;
-    var year = dtToday.getFullYear() - 28;
-    if(month < 10)
-        month = '0' + month.toString();
-    if(day < 10)
-        day = '0' + day.toString();
-
-    var maxDate= year + '-' + month + '-' + day;
-
-    $('#txtDate').attr('max', maxDate);
-});
-</script>
-
-@endsection
+</div>
+    </main>
+</body>
+</html>

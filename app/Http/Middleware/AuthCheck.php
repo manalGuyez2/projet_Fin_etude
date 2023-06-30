@@ -18,7 +18,7 @@ class AuthCheck
     public function handle(Request $request, Closure $next): Response
     {
         if(!Session::has('LoginId')){
-            return redirect('etud')->with('fail', 'u have to login first');
+            return redirect('etud')->with('fail', "Vous devez d'abord  connecter");
         }
         return $next($request);
     }

@@ -65,7 +65,7 @@
                    
                  </div>
             <div class="md-3">
-                <label class="form-lebel" for="etat" >choisir etat:</label>
+                <label class="form-lebel" for="etat" >choisir statut:</label>
  
                  <select id="etat" class="form-control" value="{{old('etat')}}"  name="etat">
                  <option value="actif">actif</option>

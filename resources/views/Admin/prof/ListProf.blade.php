@@ -52,19 +52,7 @@
 
 <h1>__________________________________</h1>
 
-<div class="col-md-12 col-sm-12 ">
-  <div class="x_panel">
-    <div class="x_title">
-      <h2>Button Example <small>Users</small></h2>
-      <ul class="nav navbar-right panel_toolbox">
-        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-        </li>
-        
-        <li><a class="close-link"><i class="fa fa-close"></i></a>
-        </li>
-      </ul>
-      <div class="clearfix"></div>
-    </div>
+
     <div class="x_content">
         <div class="row">
             <div class="col-sm-12">
@@ -81,9 +69,9 @@
                   <td>Naissance</td>
                   <td>E-mail</td>
                   <td>Module </td>
-                  <td>etat</td>
-                  <td>Module 3</td>
-                  <td>Mot passe </td>
+                  
+                  
+                  
                   <td></td>
 
               </tr>
@@ -100,9 +88,9 @@
                   <td>{{$ensg->naissance}}</td>
                   <td>{{$ensg->email}}</td>
                   <td>{{$ensg->nameModule}}</td>
-                  <td>{{$ensg->etat}}</td>
                  
-                  <td>{{$ensg->password}}</td>
+                 
+                 
                   <td><a href="{{ url('editerProf/'.$ensg->id)}}" class="btn btn-primary">Editer</a>  <button type="button" class="btn btn-danger deleteEtudiantBtn " value="{{ $ensg->id }}" data-toggle="modal" data-target="#deleteModal">Supprimer</button>
                     {{--<a href="{{ url('deleteEtudiant/'.$stu->id)}}"  class="btn btn-danger deleteUser">Supprimer</a>--}}</td>
 

@@ -5,143 +5,128 @@ use App\models\Cours;
 use App\models\Module;
 use App\models\Prof;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class CoursController extends Controller
-{  public $nomCours , $courpdf ,$IdModel,$coursid;
-   
-  
-    public function indexCours(){
+{ public $nomCours , $courpdf ,$IdModel,$coursid;
+    public function index(){
         
-        $dataCours = Cours::get();
-        return view('coursShow', compact('dataCours'));
+        $data = Cours::get();
+        return view('test', compact('data'));
 
     }
     
+
     public function savecours(Request $request){
-    //$data = Student::get();
-    //return view('Admin.ajouterEtudiant');
-    //dd($request->all());
-    $request->validate([
-        'nomCours'=>'required',
-        'courpdf'=>'required',
-      
-        'IdModel'=>'required'
+        //$data = Student::get();
+        //return view('Admin.ajouterEtudiant');
+        //dd($request->all());
+        $request->validate([
+            'nomCours'=>'required',
+            'courpdf'=>'required|file',
+          
+            'IdModel'=>'required',
 
-    ]);
-    $nomCours = $request->nomCours;
-   
-    $IdModel = $request->IdModel;
-    $cou = new Cours();
-    $cou->nomCours = $nomCours;
-    if($request->hasfile('courpdf'))
-    {
-        $file = $request->file('courpdf');
-        $extenstion = $file->getClientOriginalExtension();
-        $filename = time().'.'.$extenstion;
-        $file->move('uploads/cours/', $filename);
-        $cou->courpdf= $filename;
+        ]);
+        $nomCours = $request->nomCours;
+       
+       
+        $IdModel = $request->IdModel;
+        $cou = new Cours();
+        $cou->nomCours = $nomCours;
+        if($request->hasfile('courpdf'))
+        {
+            $file = $request->file('courpdf');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/cours/', $filename);
+            $cou->courpdf= $filename;
+        }
+    
+        $cou->IdModel = $IdModel;
+       $cou->save();
+        
+        return redirect()->back()->with('success'," cours est ajouté avec succès");
+       
     }
 
-    $cou->IdModel = $IdModel;
-    $cou->save();
-    
-    return redirect()->back()->with('success'," cours est ajouté avec succès");
-   
-}
-
-
-public function modCours($id){
-   
-    $cours = Cours::findOrFail($id);
-    
-
-    // Return the data as a JSON response
-    return response()->json($cours);
-
-   
-}
-
-public function enrgCours(Request $request){
-     $request->validate([
-        'cne'=>'required',
-        'nom'=>'required',
-        'email'=>'required',
-        'naissance'=>'required',
-        'nameModule'=>'required',
-        'etat'=>'required',
-        
-        'password'=>'required',
-     ]);
-     $id=$request->id;
-     $cne = $request->cne;
-     $nom = $request->nom;
-     $email = $request->email;
-     $naissance = $request->naissance;
-     $nameModule = $request->nameModule;
-    
-     $etat = $request->etat;
-     
-     $password = $request->password;
-     
-     Cours::where('id','=',$id)->update([
+    public function enrgCou(Request $request){
+        $request->validate([
+            'nomCours'=>'required',
+            'courpdf'=>'required|file',
+          
+            'IdModel'=>'required',
+        ]);
+        $nomCours = $request->nomCours;
+        if($request->hasfile('courpdf'))
+        {
+            $file = $request->file('courpdf');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/cours/', $filename);
+            
+        }
        
-       'cne'=>$cne, 
-       'nom'=>$nom, 
-       'email'=>$email,
-       'naissance'=>$naissance,
-       'nameModule'=>$nameModule,
-       'etat'=>$etat,
-      
-       'password'=>$password 
-     ]); 
-     return redirect()->back()->with('success'," L'enseignant est modifier avec succès"); 
-}
-
-
-
-  
-public function suppCours(Request $request){
+        $IdModel = $request->IdModel;
+        
+        Cours::where('id','=',$request->cours_edit_id)->update([
+            'nomCours'=>$nomCours, 
+            'courpdf'=>$filename, 
+            'IdModel'=>$IdModel, 
+          
+        ]); 
+        return redirect()->back()->with('success',"le est modifier avec succès"); 
+  }
+  public function suppcour(Request $request){
 
     Cours::where('id','=',$request->cours_delete_id)->delete();
-    return redirect()->back()->with('success'," L'enseignants est supprimer avec succès");
+    return redirect()->back()->with('success'," le cours est supprimer avec succès");
 }
-/*
 
-public function index(){
-     return view('test');
-    }
+public function download($file){
+        
+ return response()->download(public_path('uploads/cours/'.$file));
+
+}
+public function view($id){
+        
+  $data=Cours::find($id);
+  return view('viewcours',compact('data'));
  
-    public function getCours(){
-        $Cours = Cours::all();
+ }
+
+ public function edit($id)
+ {
+     $cours = Cours::find($id);
+     return view('editerCours', compact('cours'));
+ }
+
+ public function update(Request $request, $id)
+ {
+     $cours = Cours::find($id);
+     $cours->nomCours = $request->input('nomCours');
+     
+     
+
+     if($request->hasfile('courpdf'))
+     {
+         $destination = 'uploads/cours/'.$cours->courpdf;
+         if(File::exists($destination))
+         {
+             File::delete($destination);
+         }
+         $file = $request->file('courpdf');
+         $extention = $file->getClientOriginalExtension();
+         $filename = time().'.'.$extention;
+         $file->move('uploads/cours/', $filename);
+         $cours->courpdf = $filename;
+     }
+
+     $cours->update();
+     return redirect()->back()->with('status','Cours est modifier avec succès');
+ }
  
-        return view('test')->with('Cours', $Cours);
-    }
- 
-    public function save(Request $request){
-        $Cours = new Cours;
-        $Cours->nomCours = $request->input('nomCours');
-        $Cours->courpdf = $request->input('courpdf');
-        $Cours->IdModel = $request->input('IdModel');
-        $Cours->save();
- 
-        return redirect('test');
-    }
- 
-    public function update(Request $request, $id){
-        $Cours = Cours::find($id);
-        $input = $request->all();
-        $Cours->fill($input)->save();
- 
-        return redirect('test');
-    }
- 
-    public function delete($id)
-    {
-        $Cours = Cours::find($id);
-        $Cours->delete();
-  
-        return redirect('test');
-    }
-  
-*/
+
+    
 }
