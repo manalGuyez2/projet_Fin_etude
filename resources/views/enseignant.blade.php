@@ -62,14 +62,15 @@ class="active"
         <div class="container">
 
 
-        <section class="vh-100">
+        
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="images/prof.gif" alt="Image" class="img-fluid">
+        <img src="images/teacher.jpg" alt="Image" class="img-fluid">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="{{route('getLoginProf')}}" method="post">
+        
+        <form action="{{route('getLoginProf')}}" method="post" class="mt-3">
           @if(Session::has('success'))
           <div class="alert alert-success">{{Session::get('success')}}</div>
           @endif
@@ -78,28 +79,34 @@ class="active"
           @endif
            @csrf 
 
-          <div class="divider d-flex align-items-center my-4">
+           <div class="divider d-flex align-items-start my-4 text-uppercase">
             <p class="text-center fw-bold mx-3 mb-0">connexion</p>
           </div>
 
           <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter votre adresse e-mail.." name="email" value="{{old('email')}}"/>
+          <div class="form-group">
+            <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="email"  class="form-control" 
+              placeholder="Entrer votre adresse e-mail.." name="email" value="{{old('email')}}"/>
             
           
-            <span class="text-danger">@error('email') {{"email est obligatoire!!!"}} @enderror</span>
           </div>
+          <span class="text-danger">@error('email') {{"email est obligatoire!!!"}} @enderror</span>
 
+          </div>
           <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter votre mot passe" name="password" value="{{old('password')}}" />
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <input type="password" class="form-control"
+              placeholder="Entrer votre mot passe.." name="password" value="{{old('password')}}" />
            
             
-            <span class="text-danger">@error('password') {{"Mot passe est obligatoire!!!"}} @enderror</span>
           </div>
+          <span class="text-danger">@error('password') {{"Mot passe est obligatoire!!!"}} @enderror</span>
 
+          </div>
           <!-- Simple link -->
           <div class="d-flex justify-content-between align-items-center">
             <div class="form-check mb-0">
@@ -108,14 +115,11 @@ class="active"
                 Mémoriser mon compte
               </label>
             </div>
-            <a href="{{route('forgot.password.get')}}" class="text-body">Mot de passe oublié?</a>
            </div>
-           
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Suivant</button>
-            
+           <div class="text-center  mt-4 pt-2">
+            <button type="submit" class="btn btn-primary  form-control"
+              style=" border-radius: 10px;">SE CONNECTER</button>
+              <a href="{{route('forgot.password.get')}}" class="text-body">Mot de passe oublié?</a>
           </div>
 
         </form>
@@ -123,7 +127,7 @@ class="active"
     </div>
   </div>
   
-</section>
+
 </div>
     </div>
 

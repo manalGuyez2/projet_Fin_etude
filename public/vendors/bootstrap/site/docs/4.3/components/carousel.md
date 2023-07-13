@@ -68,7 +68,7 @@ Adding in the Précédent and next controls:
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">Suivant</span>
   </a>
 </div>
 {% endcapture %}

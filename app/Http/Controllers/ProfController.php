@@ -31,7 +31,7 @@ class ProfController extends Controller
             'email'=>'required',
             'naissance'=>'required',
             'nameModule'=>'required',
-            'etat'=>'required',
+            'semestre'=>'required',
            
             'password'=>'required',
 
@@ -42,7 +42,7 @@ class ProfController extends Controller
         $email = $request->email;
         $naissance = $request->naissance;
         $nameModule = $request->nameModule;
-        $etat = $request->etat;
+        $semestre = $request->semestre;
       
         $password = $password = Hash::make($request->password);
 
@@ -53,7 +53,7 @@ class ProfController extends Controller
         $prf->email = $email;
         $prf->naissance = $naissance;
         $prf->nameModule = $nameModule;
-        $prf->etat = $etat;
+        $prf->semestre = $semestre;
        
         $prf->password = $password;
         $prf->save();
@@ -74,7 +74,7 @@ class ProfController extends Controller
             'email'=>'required',
             'naissance'=>'required',
             'nameModule'=>'required',
-            'etat'=>'required',
+            'semestre'=>'required',
             
             'password'=>'required',
          ]);
@@ -85,7 +85,7 @@ class ProfController extends Controller
          $naissance = $request->naissance;
          $nameModule = $request->nameModule;
         
-         $etat = $request->etat;
+         $semestre = $request->semestre;
          
          $password = Hash::make($request->password);
          
@@ -96,7 +96,7 @@ class ProfController extends Controller
            'email'=>$email,
            'naissance'=>$naissance,
            'nameModule'=>$nameModule,
-           'etat'=>$etat,
+           'semestre'=>$semestre,
           
            'password'=>$password 
          ]); 

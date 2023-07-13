@@ -1,9 +1,12 @@
 @extends('layout')
+@section('activePrmtEtud')
+class="active"
+@endsection
 @section('navBar')
 <div class="mr-auto">
     <nav class="site-navigation position-relative text-right" role="navigation">
       <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-        <li class="active" >
+        <li >
           <a href="{{ url('/')}}" class="nav-link text-left">Accueil</a>
         </li>
         
@@ -35,7 +38,7 @@
   </div>
 @endsection
 @section('content')
-
+<div class="site-wrap">
     <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
         <div class="container">
           <div class="row align-items-end justify-content-center text-center">
@@ -110,6 +113,7 @@
                 </div>
             </div>
     </div>
+</div>
 </div>
 </div>
 @endsection

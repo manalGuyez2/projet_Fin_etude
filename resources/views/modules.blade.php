@@ -77,7 +77,7 @@
             <form  method="POST">
                 @csrf
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(233, 67, 61)">Vous devez d'abord connecter.....</h5>
+                  <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(233, 67, 61)"style="color: rgb(233, 67, 61)">Vous devez d'abord connecter.....</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     
                   </button>
@@ -101,6 +101,41 @@
                 </div>
                 
             </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title" style="color: rgb(251, 81, 75)">Vous devez d'abord vous connecter...</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body container">
+                  <h2 style="color: rgb(0, 0, 0)">Etes-vous .. </h2>
+                  <br>
+                  <a href="{{  route('getLogin') }}"  style="background-color: rgb(54, 37, 239);border-radius: 10px;padding: 10px 20px;
+                  font-size: 17px; color:aliceblue;"><i class="fa fa-user"> Etudiants</i></a>
+                   
+                    <a href="{{ url('/enseignant') }}" style="background-color: rgb(54, 37, 239);border-radius: 10px;padding: 10px 20px;
+                    font-size: 17px;color:aliceblue;"><i class="fa fa-edit"> Enseignants</i></a>
+
+                  <a href="{{  route('getLogin') }}"  style="background-color: rgb(54, 37, 239);border-radius: 10px;padding: 10px 20px;
+                        font-size: 17px;color:aliceblue;"><i class="fa fa-user-secret"> Admin</i></a>
+
+                        <br>
+                        <br>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                </div>
+          
               </div>
             </div>
           </div>
@@ -151,7 +186,7 @@
                      
 
                           @else 
-                                      <a ><img data-toggle="modal" data-target="#deleteModal" src="images/uml1.png" alt="Image" class="img-fluid">
+                                      <a ><img data-bs-toggle="modal" data-bs-target="#myModal" src="images/uml1.png" alt="Image" class="img-fluid">
                                       </a>
                         
                            
@@ -174,7 +209,33 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="image view view-first">
                         <figure class="course-1-item">
-                                <a href="{{ url('/courEnsg')}}"><img src="images/course_2.jpeg" alt="Image" class="img-fluid"></a>
+                          @if (Session::has('prof'))
+                          @if (Session::get('nameModule')=='BASES DE DONNEES')
+                            
+                          
+                          <a href="#"><img src="images/course_2.jpeg" alt="Image" class="img-fluid" ></a>
+
+                       
+                    @else
+                              
+                          <a ><img data-toggle="modal" data-target="#accessModal" src="images/course_2.jpeg" alt="Image" class="img-fluid">
+                          </a>
+                          @endif
+                        @elseif (Session::has('LoginId'))
+                            
+                                  <a href="#"><img src="images/course_2.jpeg" alt="Image" class="img-fluid"></a>
+                     
+
+                          @else 
+                                      <a ><img data-bs-toggle="modal" data-bs-target="#myModal" src="images/course_2.jpeg" alt="Image" class="img-fluid">
+                                      </a>
+                        
+                           
+                       
+                      @endif
+
+                        
+                               
                         <div class="category"><h3>Bases De Données</h3></div>  
                         </figure>
                         <div class="mask">

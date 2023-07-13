@@ -38,7 +38,7 @@ class="active"
   </div>
 @endsection
 @section('content')
-
+<div class="site-wrap"> 
     <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('images/bg_1.jpg')">
         <div class="container">
           <div class="row align-items-end justify-content-center text-center">
@@ -61,7 +61,7 @@ class="active"
     </div>
     <div class="site-section">
 <div class="container">
-    <div class="row">
+   
         <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
@@ -112,7 +112,8 @@ class="active"
                     </div>
                 </div>
             </div>
-    </div>
+   
+</div>
 </div>
 </div>
 @endsection

@@ -1,12 +1,17 @@
 @php( $modules = \App\Models\Module::all() ) 
+@php( $semestres = \App\Models\Semester::all() )
 @extends('Admin.layoutAdmin')
+@section('ensgActive')
+class="active"
+@endsection
 @section('layoutADMIN')
 
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <h2>Modifier un enseignants</h2>
-            
+           
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded" >
+                <div class="card-header"> <h2>Modifier un enseignants</h2></div>
             
             @if(Session::has('success'))
             <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
@@ -54,7 +59,20 @@
                     </div>
                 @enderror
                </div>
-
+               <div class="md-3">
+                <label class="form-lebel" for="semestre" >choisir semestre:<strong style="color:red; font-size:190%; ">*</strong> </label>
+ 
+                 <select id="semestre" class="form-control" value="data-*"  name="semestre">
+                    @foreach ($semestres as $semestre)
+                        
+                   
+                 <option  value="{{$semestre->name}}">{{$semestre->name}}</option>
+                
+                 @endforeach
+                 
+                   </select>
+                   
+                 </div>
                <div class="md-3">
                 <label class="form-lebel" for="nameModule" >choisir module nom:<strong style="color:red; font-size:190%; ">*</strong> </label>
  
@@ -69,17 +87,7 @@
                    </select>
                    
                  </div>
-            <div class="md-3">
-                <label class="form-lebel" for="etat" >choisir statut:<strong style="color:red; font-size:190%; ">*</strong> </label>
- 
-                 <select id="etat" class="form-control" value="{{$dataPrf->etat}}"  name="etat">
-                 <option value="actif">actif</option>
-                 <option value="passif">passif</option>
-                 
-                 
-                   </select>
-                   
-                 </div>
+           
 
                
 

@@ -24,12 +24,11 @@ class ExamController extends Controller
         'nomExam'=>'required',
         'exampdf'=>'required',
       
-        'IdModul'=>'required'
 
     ]);
     $nomExam = $request->nomExam;
   
-    $IdModul = $request->IdModul;
+    $IdModul = 1;
     $Exam = new Exam();
     $Exam->nomExam = $nomExam;
     if($request->hasfile('exampdf'))
@@ -58,42 +57,6 @@ public function modExam($id){
     return response()->json($Exam);
 
    
-}
-
-public function enrgExam(Request $request){
-     $request->validate([
-        'cne'=>'required',
-        'nom'=>'required',
-        'email'=>'required',
-        'naissance'=>'required',
-        'nameModule'=>'required',
-        'etat'=>'required',
-        
-        'password'=>'required',
-     ]);
-     $id=$request->id;
-     $cne = $request->cne;
-     $nom = $request->nom;
-     $email = $request->email;
-     $naissance = $request->naissance;
-     $nameModule = $request->nameModule;
-    
-     $etat = $request->etat;
-     
-     $password = $request->password;
-     
-      Exam::where('id','=',$id)->update([
-       
-       'cne'=>$cne, 
-       'nom'=>$nom, 
-       'email'=>$email,
-       'naissance'=>$naissance,
-       'nameModule'=>$nameModule,
-       'etat'=>$etat,
-      
-       'password'=>$password 
-     ]); 
-     return redirect()->back()->with('success'," L'enseignant est modifier avec succès");
 }
 
 

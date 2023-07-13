@@ -69,7 +69,7 @@
                               
                               <div class="mt-2" id="courpdf">
                                 <label for="">fichier Cours</label>
-                                <input type="file" name="courpdf" class="form-control">
+                                <input type="file" name="courpdf" class="form-control" multiple enctype="multipart/form-data">
                                 <a href="{{ url('uploads/cours/'.$cours->courpdf) }}" ></a>
                            
                               </div>

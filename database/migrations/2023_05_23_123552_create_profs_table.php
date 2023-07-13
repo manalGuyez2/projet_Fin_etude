@@ -20,7 +20,7 @@ return new class extends Migration
                 $table->string('email')->unique();
                 $table->date('naissance');
                 $table->String('nameModule')->nullable();
-                $table->string('etat');
+                $table->string('semestre');
                 $table->string('password');
                 $table->timestamps();
         });

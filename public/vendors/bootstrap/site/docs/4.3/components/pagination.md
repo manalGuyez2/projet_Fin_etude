@@ -19,7 +19,7 @@ In addition, as pages likely have more than one such navigation section, it's ad
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item"><a class="page-link" href="#">SuivantS</a></li>
   </ul>
 </nav>
 {% endcapture %}
@@ -68,7 +68,7 @@ While the `.disabled` class uses `pointer-events: none` to _try_ to disable the 
     </li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#">Suivant</a>
     </li>
   </ul>
 </nav>
@@ -92,7 +92,7 @@ You can optionally swap out active or disabled anchors for `<span>`, or omit the
     </li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#">Suivant</a>
     </li>
   </ul>
 </nav>
@@ -149,7 +149,7 @@ Change the alignment of pagination components with [flexbox utilities]({{ site.b
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#">Suivant</a>
     </li>
   </ul>
 </nav>
@@ -166,7 +166,7 @@ Change the alignment of pagination components with [flexbox utilities]({{ site.b
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#">Suivant</a>
     </li>
   </ul>
 </nav>

@@ -124,7 +124,7 @@
                   <li><a href="{{ url('admin')}}"><i class="fa fa-home"></i> Accueil </a>
                     
                   </li>
-                  <li><a href="{{ url('etudiantList')}}"><i class="fa fa-user"></i> Etudiants <!--<span class="fa fa-chevron-down"></span>--></a>
+                  <li @yield('etuudActive')><a href="{{ url('etudiantList')}}"><i class="fa fa-user"></i> Etudiants <!--<span class="fa fa-chevron-down"></span>--></a>
                   <!--  <ul class="nav child_menu">
                       <li><a href="form.html">General Form</a></li>
                       <li><a href="form_advanced.html">Advanced Components</a></li>
@@ -134,13 +134,13 @@
                       <li><a href="form_buttons.html">Form Buttons</a></li>
                     </ul>-->
                   </li>
-                  <li><a href="{{ url('ListProf')}}"><i   class="fa fa-edit"></i> Enseignants </a>  </li>
+                  <li @yield('ensgActive')><a href="{{ url('ListProf')}}"><i   class="fa fa-edit"></i> Enseignants </a>  </li>
                 <!--  <li><a href="{{ url('listeModule')}}"><i   class="fa fa-file"></i> Modules </a>  </li>
 
 
                 <li><a><i class="fa fa-envelope-o"></i> Messages </a> </li>--->
 
-                  <li><a href="{{ url('logoutAdmin')}}"><i class="glyphicon glyphicon-off"></i> Se déconnecter </a> </li>
+                  <li><a href="{{ url('logoutAdmin')}}"><i    class="glyphicon glyphicon-off"></i>  Déconnexion </a> </li>
 
                   
 
@@ -170,12 +170,12 @@
              
               <nav class="nav navbar-nav">
               <ul class=" navbar-right">
-                <li  style="padding-left: 15px;">
+                <!--<li  style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
 
                     <img src="{{asset("images/admin.png")}}"  alt="">Admin</a>
 
-              <!--  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
                       <a class="dropdown-item"  href="javascript:;">
                        

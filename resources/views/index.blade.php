@@ -86,10 +86,10 @@
        
 
  
-    
-    <div class="site-section ftco-subscribe-1" style="background-image: url('images/bg_1.jpg')">
+    <div class="site-section ftco-subscribe-1" style="background-image: url('images/bg_1.jpg')" style="width: auto;  ">
       
-    </div> 
+    </div>
+   
 
 
 

@@ -12,6 +12,11 @@
     <script  src=//code.jquery.com/jquery-3.5.1.slim.min.js integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin=anonymous></script>
 
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+
     <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
@@ -86,17 +91,7 @@
       </div>
   
   
-      <div class="py-2 bg-light ">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-9 d-none d-lg-block">
-              <a href="{{ url('/contact')}}" class="small mr-3 text-"><span class="icon-question-circle-o mr-2 "></span> Vous avez des questions?</a> 
-              <a class="small mr-3" href="tel:(+212) 5 39 99 64 32"><span class="icon-phone2 mr-2"></span>  (+212) 5 39 99 64 32</a> 
-              <a href="{{ url('/contact')}}" class="small mr-3"><span class="icon-envelope-o mr-2"></span> admin@uae.ac.ma</a> 
-            </div>
-           
-          </div>
-        </div>
+      
       </div>
       <header class="site-navbar py-2 js-sticky-header site-navbar-target header__shadow" role="banner">
   
@@ -115,7 +110,7 @@
                  
                 
                 <li>
-                  <a class="nav-link text-left text-success">Espace Etudiant</button></a>
+                  <a class="nav-link text-left text-success">Espace Étudiant</button></a>
                   
                 </li>
                 
@@ -131,15 +126,15 @@
                    
                     <li><a class="dropdown-item"><i class="fas fa-user-alt pe-2"></i>{{Session::get('nom')}}</a></li>
                    
-                    <li>
+                    <li @yield('activePrmtEtud')>
                       <a class="dropdown-item" href="/changePassword"><i class="fas fa-cog pe-2"></i>
-                        paramètre
+                        Paramètre
                       </a>
                   </li>
                     
                     <div class="dropdown-divider"></div>
                     
-                    <li ><a class="text-danger dropdown-item " href="{{ url('/logout')}}"><i class="fas fa-door-open pe-2"></i>se deconnecter</a></li>
+                    <li ><a class="text-danger dropdown-item " href="{{ url('/logout')}}"><i class="fas fa-door-open pe-2"></i> Déconnexion</a></li>
             
                   </ul>
                      
@@ -173,9 +168,9 @@
                   <ul class="dropdown">
 
                     <li><a class="dropdown-item"><i class="fas fa-user-alt pe-2"></i>{{Session::get('nom')}}</a></li>
-                    <li @yield('activePrmt')><a class="dropdown-item" href="/changePassword-prof"><i class="fas fa-cog pe-2"></i>paramètre</a></li>
+                    <li @yield('activePrmt')><a class="dropdown-item" href="/changePassword-prof"><i class="fas fa-cog pe-2"></i>Paramètre</a></li>
                       <div class="dropdown-divider"></div>
-                    <li><a class="text-danger dropdown-item" href="{{ url('/logoutProf')}}"><i class="fas fa-door-open pe-2"></i>se deconnecter</a></li>
+                    <li><a class="text-danger dropdown-item" href="{{ url('/logoutProf')}}"><i class="fas fa-door-open pe-2"></i> déconnexion</a></li>
             
                   </ul>
                      
@@ -225,47 +220,111 @@
 
 
     <div class="footer">
-    <!--  <div class="container"> -->
+  <div class="container"> 
+     <!-- <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="first">
+                        <h4>My Skills</h4>
+                        <p> Analytical Skills</p>
+                        <p> Problem-solving skills</p>
+                        <p> Critical-thinking skills</p>
+                        <p> Detail-oriented</p>
+                        <p> Multitasking</p>
+                        <p> Self-motivated</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <div class="second">
+                        <h4> Navigate</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-12">
+                    <div class="third">
+                        <h4> Contact</h4>
+                        <ul>
+                            <li>Andreea Mihaela Bunget </li>
+                            <li></li>
+
+
+                          <li><i class="far fa-envelope"></i> andreea@andreeabunget.co.uk</li>
+                            <li><i class="far fa-envelope"></i> email@yahoo.com</li>
+
+
+                          <li><i class="fas fa-map-marker-alt"></i> London, UK </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="line"></div>
+                    <div class="second2">
+                        <a href="https://codepen.io/AndreeaBunget" target="_blank"> <i class="fab fa-codepen fa-2x margin"></i></a>
+                        <a href="https://github.com/WebDeveloperCodeRep" target="_blank"> <i class="fab fa-github fa-2x margin"></i></a>
+                        <a href="https://www.linkedin.com/in/andreea-mihaela-bunget-a4248812b/" target="_blank"> <i class="fab fa-linkedin fa-2x margin"></i></a>
+                        <a href="https://www.youtube.com/channel/UCX674BUbomzBCakbb75lhfA?view_as=subscriber" target="_blank"><i class="fab fa-youtube fa-2x margin" ></i></a>
+
+                    </div>
+
+                </div>
+            </div>
+            </div>
+    </div>-->
+   
+
+
+
+
+
         <div class="row">
-          
-         <div class="col-lg-3"> 
+          <div class="col-md-4 col-xs-12">
+            <div class="first">
             
-            <p class="mb-4"><img src="images/logo.png" alt="Image" id="image1" class="rounded">
-             </p>
-            <p>Département D'Informatique</p>  
-            
-       
-      <!--  </div>  -->
+             
+                <h6>Département D'Informatique</h6>
+                <p class="mb-4"><img src="images/logo.png" alt="Image" id="image1" class="rounded">
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <div class="second">
+              <h6>À propos de nous</h6>
+            <p>  Un département d'informatique est une entité académique au sein du faculté des sciences de Tétouan qui se consacre à l'étude de l'informatique.</p>
           </div>
+      </div>
        
-        <div class="col-md-auto">
-            <h3 class="footer-heading"><span>Conatcez-Nous</span></h3>
+      <div class="col-md-4 col-xs-12">
+        <div class="third">
+            <h6>Conatcez-Nous</h6>
             <p>
-              <span class="adress"><i class="fa fa-home"></i> Avenue de Sebta, Mhannech II<br />93002 - T&eacute;touan - Maroc</span>
+              <span class="adress"><i class="fa fa-home"></i> Avenue de Sebta, Mhannech II<br />93002 - Tétouan - Maroc</span><br/>
               <i class="fa fa-phone"></i> <a class="text-light" href="tel:(+212) 5 39 99 64 32">(+212) 5 39 99 64 32</a><br />
               <i class="fa fa-fax"></i> <a class="text-light" href="tel:(+212) 5 39 99 45 00">(+212) 5 39 99 45 00</a><br />
               <i class="fa fa-envelope"></i> <a class="text-light" href="mailto:fs.tetouan.contact@gmail.com">fs.tetouan.contact@gmail.com</a>
             </p>
-            <div class="col-12">
-              <div class="copyright">
-                <p>
-                  Tous Droits R&eacute;serv&eacute;s FS Tetouan <a title="Axpil | Agence web Tanger" href="https://www.axpil.ma" class="text-light" target="_blank">Copyright  &copy; 2023</a>. Courriel: <a class="text-light" href="mailto:fs.tetouan.contact@gmail.com">fs.tetouan.contact@gmail.com</a><br />
-                  Facult&eacute; des Sciences, BP. 2121 M'Hannech II , 93030 T&eacute;touan Maroc
-                </p>
-              </div>
-            
-         
-             </div>
-         </div>
+        </div>
+    </div>
        
        
           
            
 
        
-      </div>
+      </div> 
     </div>
-    
+    </div>
 
   
   <!-- .site-wrap -->

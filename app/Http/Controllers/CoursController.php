@@ -26,13 +26,13 @@ class CoursController extends Controller
             'nomCours'=>'required',
             'courpdf'=>'required|file',
           
-            'IdModel'=>'required',
+           
 
         ]);
         $nomCours = $request->nomCours;
        
        
-        $IdModel = $request->IdModel;
+        $IdModel = 1;
         $cou = new Cours();
         $cou->nomCours = $nomCours;
         if($request->hasfile('courpdf'))
@@ -55,8 +55,8 @@ class CoursController extends Controller
         $request->validate([
             'nomCours'=>'required',
             'courpdf'=>'required|file',
-          
-            'IdModel'=>'required',
+            
+            'IdModel'=> 1,
         ]);
         $nomCours = $request->nomCours;
         if($request->hasfile('courpdf'))
@@ -68,7 +68,7 @@ class CoursController extends Controller
             
         }
        
-        $IdModel = $request->IdModel;
+        $IdModel = 1;
         
         Cours::where('id','=',$request->cours_edit_id)->update([
             'nomCours'=>$nomCours, 

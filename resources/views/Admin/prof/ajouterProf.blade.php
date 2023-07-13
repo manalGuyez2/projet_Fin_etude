@@ -1,11 +1,17 @@
 @php( $modules = \App\Models\Module::all() ) 
+@php( $semestres = \App\Models\Semester::all() ) 
 @extends('Admin.layoutAdmin')
+@section('ensgActive')
+class="active"
+@endsection
 @section('layoutADMIN')
 
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <h2>Ajouter un enseignant</h2>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded" >
+                <div class="card-header"><h2>Ajouter un enseignant</h2></div>
+            
             @if(Session::has('success'))
             <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
              @endif
@@ -49,6 +55,20 @@
                     </div>
                 @enderror
             </div>
+            <div class="md-3">
+                <label class="form-lebel" for="semestre" >choisir semestre:</label>
+ 
+                 <select id="semestre" class="form-control" value="{{old('semestre')}}"  name="semestre">
+                    @foreach ($semestres as $semestre)
+                        
+                   
+                 <option value="{{$semestre->name}}">{{$semestre->name}}</option>
+                
+                 @endforeach
+                 
+                   </select>
+                   
+                 </div>
             
             <div class="md-3">
                 <label class="form-lebel" for="nameModule" >choisir module nom:</label>
@@ -64,17 +84,7 @@
                    </select>
                    
                  </div>
-            <div class="md-3">
-                <label class="form-lebel" for="etat" >choisir statut:</label>
- 
-                 <select id="etat" class="form-control" value="{{old('etat')}}"  name="etat">
-                 <option value="actif">actif</option>
-                 <option value="passif">passif</option>
-                 
-                 
-                   </select>
-                   
-                 </div>
+           
 
                <div class="md-3">
                 <label class="form-lebel">Mot passe</label>
@@ -85,18 +95,20 @@
                     </div>
                 @enderror
                </div>
-            </div>
-    </div>
-                  <br/>
+            <br/>
                <button type="submit" class="btn btn-primary">Ajouter</button>
                <a href="{{url('ListProf')}}" class="btn btn-danger">Annuler</a>
+            </form>
+            </div>
+    </div>
+              
         
 
-            </form>
+            
 
         </div>
     </div>
-</div>
+
 
 
 

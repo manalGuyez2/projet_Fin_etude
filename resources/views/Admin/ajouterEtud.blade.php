@@ -1,10 +1,15 @@
 @extends('Admin.layoutAdmin')
+@section('etuudActive')
+class="active"
+@endsection
 @section('layoutADMIN')
 
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <h2>Ajouter un étudiant</h2>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded" >
+                <div class="card-header"><h2>Ajouter un étudiant</h2></div>
+            
             @if(Session::has('success'))
             <div class="alert alert-success" role="alert">{{Session::get('success')}}</div>
              @endif
@@ -75,7 +80,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 <script>
     $(function(){
